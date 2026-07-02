@@ -24,22 +24,67 @@
 	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 
 	<style>
-		/* 强制导航栏字体白色，去掉 Logo 背景框 */
-		.w3_navigation_pos h1 a { color: #ffffff !important; text-decoration: none; display: block; }
-		.w3_navigation_pos h1 { background: transparent !important; padding: 15px 0 0 0 !important; margin: 0; }
-		.cl-effect-5 ul li a span { color: #ffffff !important; }
-		.cl-effect-5 ul li a span::before { background: #ffffff !important; }
+		/* 1. 彻底去掉 Logo 外面的框，并设置鼠标悬停变橙色 */
+		.w3_navigation_pos, .w3_navigation_pos h1 { 
+			border: none !important; 
+			background: transparent !important; 
+			outline: none !important;
+		}
+		.w3_navigation_pos h1 { margin: 0; padding: 10px 0 0 0 !important; }
+		.w3_navigation_pos h1 a { 
+			color: #ffffff !important; 
+			text-decoration: none !important; 
+			border: none !important; 
+			background: transparent !important; 
+			display: inline-block; 
+			padding: 0 !important;
+			transition: color 0.3s ease !important;
+		}
+		.w3_navigation_pos h1 a:hover { color: #ff9800 !important; } /* Logo 悬停变橙色 */
+
+		/* 2. 重置导航栏菜单，修复间距、干掉粗白线、悬停变橙色 */
+		.custom-menu { 
+			margin-top: 15px !important; 
+			float: right; 
+			padding: 0; 
+			list-style: none; 
+		}
+		.custom-menu li { 
+			display: inline-block; 
+			margin-left: 35px !important; /* 统一控制间距，解决 Skills 跑偏的问题 */
+		}
+		.custom-menu li a {
+			color: #ffffff !important;
+			background: transparent !important;
+			border: none !important;
+			font-size: 15px;
+			font-weight: 600;
+			text-transform: uppercase;
+			text-decoration: none !important;
+			padding: 5px 0 !important;
+			transition: color 0.3s ease !important;
+		}
+		.custom-menu li a:hover {
+			color: #ff9800 !important; /* 菜单悬停变为橙色 */
+		}
 		
-		/* Projects 列表排版 (参考图1) */
+		/* 强制干掉原来模板里乱七八糟的线条和遮罩特效 */
+		.custom-menu li a::before, 
+		.custom-menu li a::after,
+		.custom-menu li a span::before, 
+		.custom-menu li a span::after {
+			display: none !important;
+		}
+		
+		/* 以下为 Projects、About、Skills 板块排版样式 */
 		.project-section-title { font-size: 40px; font-weight: bold; margin-bottom: 50px; color: #000; }
 		.project-item { margin-bottom: 60px; }
 		.project-item img { width: 100%; object-fit: cover; border-radius: 4px; }
 		.project-title { font-size: 32px; font-weight: bold; margin: 0 0 20px 0; color: #000; }
 		.project-desc { font-size: 16px; color: #555; line-height: 1.8; margin-bottom: 30px; text-align: justify; }
 		.project-btn { background-color: #000; color: #fff; padding: 12px 30px; font-size: 16px; font-weight: 500; text-decoration: none; display: inline-block; border-radius: 2px; transition: 0.3s; }
-		.project-btn:hover { background-color: #444; color: #fff; text-decoration: none; }
+		.project-btn:hover { background-color: #ff9800; color: #fff; text-decoration: none; } /* 顺手把项目按钮悬停也改为橙色 */
 
-		/* 居中排版模块 (About & Skills) */
 		.center-section { padding: 80px 0; text-align: center; }
 		.center-title { font-size: 36px; font-weight: bold; margin-bottom: 30px; color: #000; }
 		.center-content { font-size: 16px; color: #555; line-height: 1.8; max-width: 800px; margin: 0 auto; }
@@ -53,7 +98,7 @@
 	
 	<div class="w3_navigation" style="position: sticky; top: 0; z-index: 9999; background: #0f0f1b; box-shadow: 0 2px 10px rgba(0,0,0,0.5); padding: 10px 0;">
 		<div class="container">
-			<nav class="navbar navbar-default" style="background: transparent; border: none; margin: 0;">
+			<nav class="navbar navbar-default" style="background: transparent; border: none; margin: 0; min-height: auto;">
 				<div class="navbar-header navbar-left">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
 						data-target="#bs-example-navbar-collapse-1">
@@ -67,14 +112,12 @@
 					</div>
 				</div>
 				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
-					<nav class="cl-effect-5" id="cl-effect-5">
-						<ul class="nav navbar-nav" style="float: right; margin-top: 12px;">
-							<li><a href="index.html"><span data-hover="Home">Home</span></a></li>
-							<li><a href="#work" class="scroll"><span data-hover="Project">Project</span></a></li>
-							<li><a href="#about" class="scroll"><span data-hover="About">About</span></a></li>
-							<li><a href="#skills" class="scroll"><span data-hover="Skills">Skills</span></a></li>
-						</ul>
-					</nav>
+					<ul class="nav navbar-nav custom-menu">
+						<li><a href="index.html">HOME</a></li>
+						<li><a href="#work" class="scroll">PROJECT</a></li>
+						<li><a href="#about" class="scroll">ABOUT</a></li>
+						<li><a href="#skills" class="scroll">SKILLS</a></li>
+					</ul>
 				</div>
 			</nav>
 		</div>
@@ -213,7 +256,7 @@
 			$(".scroll").click(function (event) {
 				event.preventDefault();
 				$('html,body').animate({
-					scrollTop: $(this.hash).offset().top - 60 // 留出一点顶部导航栏的空间
+					scrollTop: $(this.hash).offset().top - 60 
 				}, 1000);
 			});
 		});
