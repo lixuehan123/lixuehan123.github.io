@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Project 3 | Xuehan Li</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+	<link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Jura:300,400,500,600" rel="stylesheet">
+
+	<style>
+		body { margin: 0; padding: 0; font-family: 'Open Sans', sans-serif; background-color: #f7f7f7; color: #333; }
+
+		/* --- 导航栏样式 (与主页绝对一致) --- */
+		.my-clean-header { display: flex; justify-content: space-between; align-items: center; background: #0f0f1b; padding: 15px 5%; position: sticky; top: 0; z-index: 99999; box-shadow: 0 2px 10px rgba(0,0,0,0.5); width: 100%; box-sizing: border-box; }
+		.my-clean-logo a { color: #ffffff; text-decoration: none; font-size: 32px; font-weight: bold; letter-spacing: 1px; transition: color 0.3s ease; }
+		.my-clean-logo a:hover { color: #ff9800; }
+		.my-clean-nav { display: flex; list-style: none; margin: 0; padding: 0; align-items: center; flex-wrap: wrap; }
+		.my-clean-nav li { margin-left: 40px; }
+		.my-clean-nav a { color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 600; text-transform: uppercase; transition: color 0.3s ease; display: block; padding: 5px 0; }
+		.my-clean-nav a:hover { color: #ff9800; }
+
+		@media (max-width: 768px) {
+			.my-clean-header { flex-direction: column; justify-content: center; padding: 15px; }
+			.my-clean-nav { margin-top: 15px; justify-content: center; }
+			.my-clean-nav li { margin: 5px 15px; }
+		}
+
+		/* --- 详情页排版 --- */
+		.project-detail-container { max-width: 1000px; margin: 50px auto; padding: 40px; background: #ffffff; box-shadow: 0 5px 25px rgba(0,0,0,0.05); border-radius: 8px; box-sizing: border-box; }
+		.project-header { text-align: center; margin-bottom: 40px; }
+		.project-header h1 { font-size: 42px; font-weight: 800; margin: 0 0 15px 0; color: #111; }
+		.project-header p.subtitle { font-size: 18px; color: #777; margin: 0; }
+
+		.video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 6px; background: #000; margin-bottom: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+		.video-wrapper iframe, .video-wrapper video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+		.content-section { margin-bottom: 50px; }
+		.content-section h2 { font-size: 28px; font-weight: bold; color: #111; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 3px solid #ff9800; display: inline-block; }
+		.content-section p { font-size: 16px; line-height: 1.8; color: #444; text-align: justify; margin-bottom: 15px; }
+
+		.back-btn-container { text-align: center; margin-top: 60px; border-top: 1px solid #eee; padding-top: 40px; }
+		.back-btn { background-color: #0f0f1b; color: #fff; padding: 12px 35px; font-size: 16px; font-weight: 600; text-decoration: none; border-radius: 4px; transition: background-color 0.3s ease; display: inline-block; }
+		.back-btn:hover { background-color: #ff9800; }
+
+		@media (max-width: 1024px) { .project-detail-container { margin: 30px 20px; padding: 30px 20px; } }
+	</style>
+</head>
+
+<body>
+	
+	<header class="my-clean-header">
+		<div class="my-clean-logo">
+			<a href="index.html" title="Xuehan Li - Portfolio">XUEHAN LI</a>
+		</div>
+		<ul class="my-clean-nav">
+			<li><a href="index.html">HOME</a></li>
+			<li><a href="index.html#work">PROJECT</a></li>
+			<li><a href="index.html#about">ABOUT</a></li>
+			<li><a href="index.html#skills">SKILLS</a></li>
+		</ul>
+	</header>
+
+	<div class="project-detail-container">
+		
+		<div class="project-header">
+			<h1>Project 3: PICO-8 Retro Game</h1>
+			<p class="subtitle">Custom Game Loops & Collision Algorithms</p>
+		</div>
+
+		<div class="video-wrapper">
+			<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Project 3 Video Placeholder" allowfullscreen></iframe>
+		</div>
+
+		<div class="content-section">
+			<h2>Project Introduction</h2>
+			<p>Here you will describe the concept of your PICO-8 retro game. What classic genres inspired you? Detail the limitations of the PICO-8 virtual console and how you used those constraints to spark creativity.</p>
+			<p>Explain your overall development process, from sketching out the initial pixel art to synthesizing the sound effects directly within the editor.</p>
+		</div>
+
+		<div class="content-section">
+			<h2>Project Analysis</h2>
+			<p>Here you will dive into the code and mechanics. Discuss how you structured the Lua scripts for the game loop, handled the math behind custom collision detection, and managed the limited token count of PICO-8.</p>
+			<p>Feel free to include snippets of your Lua code or pixel art sprite sheets to showcase your comprehensive understanding of the development pipeline.</p>
+		</div>
+
+		<div class="back-btn-container">
+			<a href="index.html" class="back-btn">← Back to Portfolio</a>
+		</div>
+
+	</div>
+
+</body>
+</html>
