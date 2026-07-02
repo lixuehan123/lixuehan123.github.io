@@ -24,34 +24,42 @@
 	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 
 	<style>
-		/* 1. 彻底去掉 Logo 外面的框，并设置鼠标悬停变橙色 */
+		/* --- 导航栏核心修复 --- */
+		
+		/* 1. 彻底去掉 Logo 外面的框，并设置居中与橙色悬停 */
 		.w3_navigation_pos, .w3_navigation_pos h1 { 
 			border: none !important; 
 			background: transparent !important; 
 			outline: none !important;
+			margin: 0 !important;
+			padding: 0 !important;
 		}
-		.w3_navigation_pos h1 { margin: 0; padding: 10px 0 0 0 !important; }
 		.w3_navigation_pos h1 a { 
 			color: #ffffff !important; 
 			text-decoration: none !important; 
-			border: none !important; 
-			background: transparent !important; 
-			display: inline-block; 
-			padding: 0 !important;
+			font-size: 32px !important; 
+			line-height: 50px !important; /* 强制与菜单同高 */
+			font-weight: bold;
+			letter-spacing: 1px;
 			transition: color 0.3s ease !important;
+			display: block;
 		}
-		.w3_navigation_pos h1 a:hover { color: #ff9800 !important; } /* Logo 悬停变橙色 */
+		.w3_navigation_pos h1 a:hover { color: #ff9800 !important; }
 
-		/* 2. 重置导航栏菜单，修复间距、干掉粗白线、悬停变橙色 */
-		.custom-menu { 
-			margin-top: 15px !important; 
-			float: right; 
-			padding: 0; 
+		/* 2. 采用 Flexbox 强制菜单在同一行且间距完美 */
+		.custom-menu {
+			margin: 0 !important; 
+			padding: 0 !important;
 			list-style: none; 
+			display: flex !important; /* 强制弹性同行 */
+			align-items: center; /* 垂直居中对齐 */
+			justify-content: flex-end; /* 靠右对齐 */
+			height: 50px;
 		}
 		.custom-menu li { 
-			display: inline-block; 
-			margin-left: 35px !important; /* 统一控制间距，解决 Skills 跑偏的问题 */
+			margin: 0 0 0 40px !important; /* 统一设置左侧 40px 的完美间距 */
+			padding: 0 !important;
+			float: none !important; /* 杀掉破坏排版的浮动 */
 		}
 		.custom-menu li a {
 			color: #ffffff !important;
@@ -61,58 +69,67 @@
 			font-weight: 600;
 			text-transform: uppercase;
 			text-decoration: none !important;
-			padding: 5px 0 !important;
+			padding: 0 !important;
 			transition: color 0.3s ease !important;
 		}
-		.custom-menu li a:hover {
-			color: #ff9800 !important; /* 菜单悬停变为橙色 */
-		}
-		
-		/* 强制干掉原来模板里乱七八糟的线条和遮罩特效 */
+		.custom-menu li a:hover { color: #ff9800 !important; }
+
+		/* 干掉原模板特效的伪元素干扰 */
 		.custom-menu li a::before, 
 		.custom-menu li a::after,
 		.custom-menu li a span::before, 
-		.custom-menu li a span::after {
-			display: none !important;
+		.custom-menu li a span::after { display: none !important; }
+
+		/* 移动端菜单折叠适配 */
+		@media (max-width: 768px) {
+			.custom-menu {
+				flex-direction: column;
+				height: auto;
+				background: #0f0f1b;
+				padding: 20px 0 !important;
+			}
+			.custom-menu li { margin: 15px 0 !important; text-align: center; }
+			.w3_navigation_pos { padding-top: 5px !important; }
 		}
-		
-		/* 以下为 Projects、About、Skills 板块排版样式 */
+
+		/* --- 页面其余板块样式 --- */
 		.project-section-title { font-size: 40px; font-weight: bold; margin-bottom: 50px; color: #000; }
 		.project-item { margin-bottom: 60px; }
 		.project-item img { width: 100%; object-fit: cover; border-radius: 4px; }
 		.project-title { font-size: 32px; font-weight: bold; margin: 0 0 20px 0; color: #000; }
 		.project-desc { font-size: 16px; color: #555; line-height: 1.8; margin-bottom: 30px; text-align: justify; }
 		.project-btn { background-color: #000; color: #fff; padding: 12px 30px; font-size: 16px; font-weight: 500; text-decoration: none; display: inline-block; border-radius: 2px; transition: 0.3s; }
-		.project-btn:hover { background-color: #ff9800; color: #fff; text-decoration: none; } /* 顺手把项目按钮悬停也改为橙色 */
+		.project-btn:hover { background-color: #ff9800; color: #fff; text-decoration: none; }
 
 		.center-section { padding: 80px 0; text-align: center; }
 		.center-title { font-size: 36px; font-weight: bold; margin-bottom: 30px; color: #000; }
 		.center-content { font-size: 16px; color: #555; line-height: 1.8; max-width: 800px; margin: 0 auto; }
 		
-		/* 技能标签样式 */
 		.skill-tag { display: inline-block; padding: 8px 20px; background: #eee; color: #333; margin: 5px; border-radius: 20px; font-weight: 600; font-size: 14px; }
 	</style>
 </head>
 
 <body>
 	
-	<div class="w3_navigation" style="position: sticky; top: 0; z-index: 9999; background: #0f0f1b; box-shadow: 0 2px 10px rgba(0,0,0,0.5); padding: 10px 0;">
+	<div class="w3_navigation" style="position: sticky; top: 0; z-index: 9999; background: #0f0f1b; box-shadow: 0 2px 10px rgba(0,0,0,0.5); padding: 15px 0;">
 		<div class="container">
 			<nav class="navbar navbar-default" style="background: transparent; border: none; margin: 0; min-height: auto;">
-				<div class="navbar-header navbar-left">
+				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-						data-target="#bs-example-navbar-collapse-1">
+						data-target="#bs-example-navbar-collapse-1" style="margin-top: 10px;">
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<div class="w3_navigation_pos" style="position: static; float: left;">
+					
+					<div class="w3_navigation_pos">
 						<h1><a href="index.html" title="Xuehan Li - Portfolio">XUEHAN LI</a></h1>
 					</div>
 				</div>
-				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav custom-menu">
+
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right custom-menu">
 						<li><a href="index.html">HOME</a></li>
 						<li><a href="#work" class="scroll">PROJECT</a></li>
 						<li><a href="#about" class="scroll">ABOUT</a></li>
@@ -256,7 +273,7 @@
 			$(".scroll").click(function (event) {
 				event.preventDefault();
 				$('html,body').animate({
-					scrollTop: $(this.hash).offset().top - 60 
+					scrollTop: $(this.hash).offset().top - 80 // 增加一点滚动偏移量，避免导航栏挡住标题
 				}, 1000);
 			});
 		});
