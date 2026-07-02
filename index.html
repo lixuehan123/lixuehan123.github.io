@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-	<title>Xuehan Li | Portfolio</title>
+	<title>Xuehan Li | Level Design Portfolio</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="keywords" content="Xuehan Li, Level Design, Portfolio, Game Developer" />
+	<meta name="keywords" content="Xuehan Li, Level Design, Portfolio, Game Developer, Unreal Engine" />
 	<script type="application/x-javascript">
 		addEventListener("load", function () {
 			setTimeout(hideURLbar, 0);
@@ -17,37 +17,43 @@
 	</script>
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-	<link rel="stylesheet" href="css/lightGallery.css" type="text/css" media="all" />
+	
 	<link href="css/font-awesome.css" rel="stylesheet">
-
 	<link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Jura:300,400,500,600" rel="stylesheet">
-	<link
-		href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
-		rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 
+	<style>
+		/* 强制导航栏字体白色，去掉 Logo 背景框 */
+		.w3_navigation_pos h1 a { color: #ffffff !important; text-decoration: none; display: block; }
+		.w3_navigation_pos h1 { background: transparent !important; padding: 15px 0 0 0 !important; margin: 0; }
+		.cl-effect-5 ul li a span { color: #ffffff !important; }
+		.cl-effect-5 ul li a span::before { background: #ffffff !important; }
+		
+		/* Projects 列表排版 (参考图1) */
+		.project-section-title { font-size: 40px; font-weight: bold; margin-bottom: 50px; color: #000; }
+		.project-item { margin-bottom: 60px; }
+		.project-item img { width: 100%; object-fit: cover; border-radius: 4px; }
+		.project-title { font-size: 32px; font-weight: bold; margin: 0 0 20px 0; color: #000; }
+		.project-desc { font-size: 16px; color: #555; line-height: 1.8; margin-bottom: 30px; text-align: justify; }
+		.project-btn { background-color: #000; color: #fff; padding: 12px 30px; font-size: 16px; font-weight: 500; text-decoration: none; display: inline-block; border-radius: 2px; transition: 0.3s; }
+		.project-btn:hover { background-color: #444; color: #fff; text-decoration: none; }
+
+		/* 居中排版模块 (About & Skills) */
+		.center-section { padding: 80px 0; text-align: center; }
+		.center-title { font-size: 36px; font-weight: bold; margin-bottom: 30px; color: #000; }
+		.center-content { font-size: 16px; color: #555; line-height: 1.8; max-width: 800px; margin: 0 auto; }
+		
+		/* 技能标签样式 */
+		.skill-tag { display: inline-block; padding: 8px 20px; background: #eee; color: #333; margin: 5px; border-radius: 20px; font-weight: 600; font-size: 14px; }
+	</style>
 </head>
 
 <body>
-	<div class="header">
-		<div class="w3layouts_header_left">
-			<div class="top-nav-text">
-				<p>Call Us : <span class="call">+00 111 2222 333</span></p>
-				<p>Email Us : <span class="mail"><a href="mailto:info@example.com">info@example.com</a></span></p>
-			</div>
-		</div>
-		<div class="w3layouts_header_right">
-			<form action="#" method="post">
-				<input name="Search heare" type="search" placeholder="Search" required="">
-
-				<input type="submit" value="">
-			</form>
-		</div>
-		<div class="clearfix"> </div>
-	</div>
-	<div class="w3_navigation" style="position: sticky; top: 0; z-index: 9999; background: #0f0f1b; box-shadow: 0 2px 10px rgba(0,0,0,0.5);">
+	
+	<div class="w3_navigation" style="position: sticky; top: 0; z-index: 9999; background: #0f0f1b; box-shadow: 0 2px 10px rgba(0,0,0,0.5); padding: 10px 0;">
 		<div class="container">
-			<nav class="navbar navbar-default">
+			<nav class="navbar navbar-default" style="background: transparent; border: none; margin: 0;">
 				<div class="navbar-header navbar-left">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
 						data-target="#bs-example-navbar-collapse-1">
@@ -56,16 +62,17 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<div class="w3_navigation_pos" style="position: static; float: left; padding: 10px 0;">
+					<div class="w3_navigation_pos" style="position: static; float: left;">
 						<h1><a href="index.html" title="Xuehan Li - Portfolio">XUEHAN LI</a></h1>
 					</div>
 				</div>
 				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
 					<nav class="cl-effect-5" id="cl-effect-5">
-						<ul class="nav navbar-nav" style="float: right;">
-							<li class="active"><a href="index.html"><span data-hover="Home">Home</span></a></li>
+						<ul class="nav navbar-nav" style="float: right; margin-top: 12px;">
+							<li><a href="index.html"><span data-hover="Home">Home</span></a></li>
 							<li><a href="#work" class="scroll"><span data-hover="Project">Project</span></a></li>
 							<li><a href="#about" class="scroll"><span data-hover="About">About</span></a></li>
+							<li><a href="#skills" class="scroll"><span data-hover="Skills">Skills</span></a></li>
 						</ul>
 					</nav>
 				</div>
@@ -81,10 +88,9 @@
 							<img src="images/banner1.jpg" class="img-responsive" alt="Project 1">
 						</div>
 						<div class="slider-info">
-
 							<h4>Project 1</h4>
-							<p>World building is component of fantasy </p>
-							<a href="#work" class="hvr-shutter-in-horizontal scroll">Read More</a>
+							<p>Soulslike Map Layout & Graph Topology</p>
+							<a href="#work" class="hvr-shutter-in-horizontal scroll">View Details</a>
 						</div>
 					</li>
 					<li>
@@ -92,10 +98,9 @@
 							<img src="images/banner2.jpg" class="img-responsive" alt="Project 2">
 						</div>
 						<div class="slider-info">
-
 							<h4>Project 2</h4>
-							<p>World building is component of fantasy </p>
-							<a href="#work" class="hvr-shutter-in-horizontal scroll">Read More</a>
+							<p>Starfield Custom Mod & Survival Mechanics</p>
+							<a href="#work" class="hvr-shutter-in-horizontal scroll">View Details</a>
 						</div>
 					</li>
 					<li>
@@ -103,269 +108,81 @@
 							<img src="images/banner3.jpg" class="img-responsive" alt="Project 3">
 						</div>
 						<div class="slider-info">
-
 							<h4>Project 3</h4>
-							<p>World building is component of fantasy </p>
-							<a href="#work" class="hvr-shutter-in-horizontal scroll">Read More</a>
+							<p>PICO-8 Retro Game Development</p>
+							<a href="#work" class="hvr-shutter-in-horizontal scroll">View Details</a>
 						</div>
 					</li>
-
-
 				</ul>
-
 			</div>
 			<div class="clearfix"></div>
 		</div>
+	</div>
+	<div id="work" class="container" style="padding: 80px 0;">
+		<h2 class="project-section-title">Projects</h2>
+		
+		<div class="row project-item">
+			<div class="col-md-5">
+				<img src="images/g1.jpg" alt="Project 1 Image" class="img-responsive">
+			</div>
+			<div class="col-md-7">
+				<h3 class="project-title">Soulslike Level Layout</h3>
+				<p class="project-desc">This project focuses on the quantitative analysis of Soulslike level layouts and diorama generation based on graph topological features. Using the Dying Light engine, I designed complex non-linear paths, optimized loop rates, and tested stability factors to create deeply engaging player experiences.</p>
+				<a href="#" class="project-btn">View Project</a>
+			</div>
 		</div>
-	<div class="modal fade" id="myModal1" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4>Contracts</h4>
-					<img src="images/ab.jpg" alt=" " class="img-responsive">
-					<h5>Donec lobortis pharetra dolor</h5>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-						industry's standard dummy text ever since the 1500s, rds which don't look even slightly believable. If you
-						are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
-						the middle of text.</p>
-				</div>
+
+		<div class="row project-item">
+			<div class="col-md-5">
+				<img src="images/g2.jpg" alt="Project 2 Image" class="img-responsive">
+			</div>
+			<div class="col-md-7">
+				<h3 class="project-title">Starfield Survival Mod</h3>
+				<p class="project-desc">A custom survival mode mod developed using the Starfield Creation Kit, heavily inspired by Call of Duty Zombies mechanics. Key features include iterative wave control logic, custom weapon upgrade stations, and a carefully balanced spatial loop design for intense combat scenarios.</p>
+				<a href="#" class="project-btn">View Project</a>
+			</div>
+		</div>
+
+		<div class="row project-item">
+			<div class="col-md-5">
+				<img src="images/g3.jpg" alt="Project 3 Image" class="img-responsive">
+			</div>
+			<div class="col-md-7">
+				<h3 class="project-title">PICO-8 Retro Minigame</h3>
+				<p class="project-desc">A retro-style game built from scratch using the PICO-8 virtual console. This project showcases scripting of complex game loops, custom collision detection algorithms, and handcrafted sound effects and music simulated directly within the PICO-8 editor.</p>
+				<a href="#" class="project-btn">View Project</a>
 			</div>
 		</div>
 	</div>
-	<div class="about" id="about">
+	<div id="about" class="center-section" style="background-color: #f9f9f9;">
 		<div class="container">
-			<div class="col-md-4 agileits_about_left">
-				<h3 class="w3l_head">About Me</h3>
-				<p class="w3ls_head_para">who we are</p>
-			</div>
-			<div class="agileits_banner_bottom_grids">
-				<div class="col-md-6 agileits_banner_bottom_grid_l">
-					<h4>Aliquam a nunc non erat lobortis</h4>
-					<p><i>Vestibulum nec consequat nisl. Aliquam vehicula egestas commodo.
-							Pellentesque lorem magna, pulvinar sed lacinia et, venenatis in mi.</i>Nullam sodales rutrum nisl, gravida
-						porttitor lectus porta et.
-						Duis purus arcu, semper at magna faucibus, elementum maximus ligula.
-						Etiam imperdiet posuere odio gravida vehicula. Nulla consectetur massa
-						eget tincidunt suscipit. Integer vitae ex eros. Cras ornare dignissim
-						scelerisque.</p>
-				</div>
-				<div class="col-md-6 agileits_banner_bottom_grid_r">
-					<div class="agileits_banner_btm_grid_r">
-						<img src="images/ab.jpg" alt=" " class="img-responsive">
-						<div class="agileits_banner_btm_grid_r_pos">
-							<img src="images/ab1.jpg" alt=" " class="img-responsive">
-						</div>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
+			<h2 class="center-title">About Me</h2>
+			<p class="center-content">
+				Hello! I am Xuehan Li, a Level Designer with a background in Architecture and Urban Planning. Currently pursuing a Master's degree in Level Design at SMU Guildhall. I am passionate about spatial storytelling, topology analysis in games, and crafting compelling environmental aesthetics. My unique architectural background allows me to design game spaces that are not only visually appealing but also structurally sound and highly playable.
+			</p>
 		</div>
 	</div>
-	<div class="services" id="services">
-		<h3 class="w3l_head w3l_head1">Services</h3>
-		<p class="w3ls_head_para w3ls_head_para1">View Our Services</p>
-		<div class="services-agile-w3l">
-			<div class="col-md-3 services-gd text-center">
-				<div class="hi-icon-wrap hi-icon-effect-9 hi-icon-effect-9a">
-					<a href="#" class="hi-icon"><img src="images/s1.png" alt=" " /></a>
-				</div>
-				<h4>Service 1</h4>
-				<p>Lorem Ipsum</p>
-			</div>
-
-			<div class="col-md-3 services-gd text-center">
-				<div class="hi-icon-wrap hi-icon-effect-9 hi-icon-effect-9a">
-					<a href="#" class="hi-icon"><img src="images/s2.png" alt=" " /></a>
-				</div>
-				<h4>Service 2</h4>
-				<p>Lorem Ipsum</p>
-			</div>
-			<div class="col-md-3 services-gd text-center">
-				<div class="hi-icon-wrap hi-icon-effect-9 hi-icon-effect-9a">
-					<a href="#" class="hi-icon"><img src="images/s3.png" alt=" " /></a>
-				</div>
-				<h4>Service 3</h4>
-				<p>Lorem Ipsum</p>
-			</div>
-			<div class="col-md-3 services-gd text-center">
-				<div class="hi-icon-wrap hi-icon-effect-9 hi-icon-effect-9a">
-					<a href="#" class="hi-icon"><img src="images/s4.png" alt=" " /></a>
-				</div>
-				<h4>Service 4</h4>
-				<p>Lorem Ipsum</p>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-	</div>
-	<div class="team-bottom" id="work">
+	<div id="skills" class="center-section">
 		<div class="container">
-			<h3 class="w3l_head w3l_head1">Latest Projects</h3>
-			<p class="w3ls_head_para w3ls_head_para1">Lorem Ipsum Dolor</p>
-			<div class="w3layouts_gallery_grids">
-				<ul class="w3l_gallery_grid" id="lightGallery">
-					<li data-title="Games" data-desc="Lorem Ipsum is simply dummy text of the printing." data-src="images/ab.jpg"
-						data-responsive-src="images/ab.jpg">
-						<div class="w3layouts_gallery_grid1 box">
-							<a href="#">
-								<img src="images/ab.jpg" alt=" " class="img-responsive" />
-								<div class="overbox">
-									<h4 class="title overtext"> Project Showcase</h4>
-
-								</div>
-							</a>
-						</div>
-					</li>
-					<li data-title="Games" data-desc="Lorem Ipsum is simply dummy text of the printing." data-src="images/g1.jpg"
-						data-responsive-src="images/g1.jpg">
-						<div class="w3layouts_gallery_grid1 box">
-							<a href="#">
-								<img src="images/g1.jpg" alt=" " class="img-responsive" />
-								<div class="overbox">
-									<h4 class="title overtext"> Project Showcase</h4>
-
-								</div>
-							</a>
-						</div>
-					</li>
-					<li data-title="Games" data-desc="Lorem Ipsum is simply dummy text of the printing." data-src="images/g2.jpg"
-						data-responsive-src="images/g2.jpg">
-						<div class="w3layouts_gallery_grid1 box">
-							<a href="#">
-								<img src="images/g2.jpg" alt=" " class="img-responsive" />
-								<div class="overbox">
-									<h4 class="title overtext"> Project Showcase</h4>
-
-								</div>
-							</a>
-						</div>
-					</li>
-					<li data-title="Games" data-desc="Lorem Ipsum is simply dummy text of the printing." data-src="images/g3.jpg"
-						data-responsive-src="images/g3.jpg">
-						<div class="w3layouts_gallery_grid1 box">
-							<a href="#">
-								<img src="images/g3.jpg" alt=" " class="img-responsive" />
-								<div class="overbox">
-									<h4 class="title overtext"> Project Showcase</h4>
-
-								</div>
-							</a>
-						</div>
-					</li>
-					<li data-title="Games" data-desc="Lorem Ipsum is simply dummy text of the printing." data-src="images/g4.jpg"
-						data-responsive-src="images/g4.jpg">
-						<div class="w3layouts_gallery_grid1 box">
-							<a href="#">
-								<img src="images/g4.jpg" alt=" " class="img-responsive" />
-								<div class="overbox">
-									<h4 class="title overtext"> Project Showcase</h4>
-
-								</div>
-							</a>
-						</div>
-					</li>
-					<li data-title="Games" data-desc="Lorem Ipsum is simply dummy text of the printing." data-src="images/g5.jpg"
-						data-responsive-src="images/g5.jpg">
-						<div class="w3layouts_gallery_grid1 box">
-							<a href="#">
-								<img src="images/g5.jpg" alt=" " class="img-responsive" />
-								<div class="overbox">
-									<h4 class="title overtext"> Project Showcase</h4>
-
-								</div>
-							</a>
-						</div>
-					</li>
-					<li data-title="Games" data-desc="Lorem Ipsum is simply dummy text of the printing." data-src="images/g8.jpg"
-						data-responsive-src="images/g8.jpg">
-						<div class="w3layouts_gallery_grid1 box">
-							<a href="#">
-								<img src="images/g8.jpg" alt=" " class="img-responsive" />
-								<div class="overbox">
-									<h4 class="title overtext"> Project Showcase</h4>
-
-								</div>
-							</a>
-						</div>
-					</li>
-					<li data-title="Games" data-desc="Lorem Ipsum is simply dummy text of the printing." data-src="images/g6.jpg"
-						data-responsive-src="images/g6.jpg">
-						<div class="w3layouts_gallery_grid1 box">
-							<a href="#">
-								<img src="images/g6.jpg" alt=" " class="img-responsive" />
-								<div class="overbox">
-									<h4 class="title overtext"> Project Showcase</h4>
-
-								</div>
-							</a>
-						</div>
-					</li>
-					<li data-title="Games" data-desc="Lorem Ipsum is simply dummy text of the printing." data-src="images/g7.jpg"
-						data-responsive-src="images/g7.jpg">
-						<div class="w3layouts_gallery_grid1 box">
-							<a href="#">
-								<img src="images/g7.jpg" alt=" " class="img-responsive" />
-								<div class="overbox">
-									<h4 class="title overtext"> Project Showcase</h4>
-
-								</div>
-							</a>
-						</div>
-					</li>
-				</ul>
+			<h2 class="center-title">Skills</h2>
+			<div class="center-content">
+				<p style="margin-bottom: 25px;">Here are some of the tools, engines, and concepts I work with daily to bring virtual worlds to life:</p>
+				<div>
+					<span class="skill-tag">Level Design</span>
+					<span class="skill-tag">Unreal Engine 5</span>
+					<span class="skill-tag">Starfield Creation Kit</span>
+					<span class="skill-tag">Dying Light Engine</span>
+					<span class="skill-tag">Graph Topology</span>
+					<span class="skill-tag">Papyrus Scripting</span>
+					<span class="skill-tag">PICO-8</span>
+					<span class="skill-tag">Spatial Storytelling</span>
+					<span class="skill-tag">Greyboxing</span>
+					<span class="skill-tag">Architecture</span>
+				</div>
 			</div>
 		</div>
-	</div>
-	< class="map">
-		<div class="container">
-			<h3 class="w3l_head w3l_head1">Locate Us</h3>
-			<p class="w3ls_head_para w3ls_head_para1">How to find us</p>
-		</div>
-		<iframe
-			src="https://www.amap.com/"
-			allowfullscreen="" sandbox=""></iframe>
-
 	</div>
 	<div class="w3l_footer">
-		<div class="container">
-
-			<div class="w3ls_footer_grids">
-
-				<div class="w3ls_footer_grid">
-					<div class="col-md-4 w3ls_footer_grid_left">
-						<div class="w3ls_footer_grid_leftl">
-							<i class="fa fa-map-marker" aria-hidden="true"></i>
-						</div>
-						<div class="w3ls_footer_grid_leftr">
-							<h4>Location</h4>
-							<p>Dallas, TX, USA</p>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="col-md-4 w3ls_footer_grid_left">
-						<div class="w3ls_footer_grid_leftl">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</div>
-						<div class="w3ls_footer_grid_leftr">
-							<h4>Email</h4>
-							<a href="mailto:info@example.com">info@example.com</a>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="col-md-4 w3ls_footer_grid_left">
-						<div class="w3ls_footer_grid_leftl">
-							<i class="fa fa-phone" aria-hidden="true"></i>
-						</div>
-						<div class="w3ls_footer_grid_leftr">
-							<h4>Call Us</h4>
-							<p>(+000) 003 003 0052</p>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-			</div>
-		</div>
 		<div class="w3l_footer_pos">
 			<p>© 2026 Xuehan Li. All Rights Reserved</p>
 		</div>
@@ -373,9 +190,7 @@
 	<script src="js/jquery-2.2.3.min.js"></script>
 	<script src="js/responsiveslides.min.js"></script>
 	<script>
-		// You can also use "$(window).load(function() {"
 		$(function () {
-			// Slideshow 4
 			$("#slider3").responsiveSlides({
 				auto: true,
 				pager: false,
@@ -389,22 +204,8 @@
 					$('.events').append("<li>after event fired.</li>");
 				}
 			});
-
 		});
 	</script>
-	<script src="js/lightGallery.js"></script>
-	<script>
-		$(document).ready(function () {
-			$("#lightGallery").lightGallery({
-				mode: "fade",
-				speed: 800,
-				caption: true,
-				desc: true,
-				mobileSrc: true
-			});
-		});
-	</script>
-
 	<script type="text/javascript" src="js/move-top.js"></script>
 	<script type="text/javascript" src="js/easing.js"></script>
 	<script type="text/javascript">
@@ -412,29 +213,11 @@
 			$(".scroll").click(function (event) {
 				event.preventDefault();
 				$('html,body').animate({
-					scrollTop: $(this.hash).offset().top
+					scrollTop: $(this.hash).offset().top - 60 // 留出一点顶部导航栏的空间
 				}, 1000);
 			});
 		});
 	</script>
 	<script src="js/bootstrap.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function () {
-			/*
-				var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear' 
-				};
-			*/
-
-			$().UItoTop({
-				easingType: 'easeOutQuart'
-			});
-
-		});
-	</script>
-	</body>
-
+</body>
 </html>
