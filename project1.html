@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Project 1 | Xuehan Li</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+	<link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Jura:300,400,500,600" rel="stylesheet">
+
+	<style>
+		/* --- 基础重置与全局样式 --- */
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Open Sans', sans-serif;
+			background-color: #f7f7f7; /* 浅灰色背景，让主内容区域更突出 */
+			color: #333;
+		}
+
+		/* --- 导航栏样式 (与主页完全一致，保持完美衔接) --- */
+		.my-clean-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			background: #0f0f1b;
+			padding: 15px 5%;
+			position: sticky;
+			top: 0;
+			z-index: 99999;
+			box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+			width: 100%;
+			box-sizing: border-box;
+		}
+		.my-clean-logo a { color: #ffffff; text-decoration: none; font-size: 32px; font-weight: bold; letter-spacing: 1px; transition: color 0.3s ease; }
+		.my-clean-logo a:hover { color: #ff9800; }
+		.my-clean-nav { display: flex; list-style: none; margin: 0; padding: 0; align-items: center; flex-wrap: wrap; }
+		.my-clean-nav li { margin-left: 40px; }
+		.my-clean-nav a { color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 600; text-transform: uppercase; transition: color 0.3s ease; display: block; padding: 5px 0; }
+		.my-clean-nav a:hover { color: #ff9800; }
+
+		/* 移动端导航栏自适应 */
+		@media (max-width: 768px) {
+			.my-clean-header { flex-direction: column; justify-content: center; padding: 15px; }
+			.my-clean-nav { margin-top: 15px; justify-content: center; }
+			.my-clean-nav li { margin: 5px 15px; }
+		}
+
+		/* --- 项目详情页专属排版 --- */
+		.project-detail-container {
+			max-width: 1000px;
+			margin: 50px auto;
+			padding: 40px;
+			background: #ffffff;
+			box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+			border-radius: 8px;
+			box-sizing: border-box;
+		}
+
+		.project-header {
+			text-align: center;
+			margin-bottom: 40px;
+		}
+
+		.project-header h1 {
+			font-size: 42px;
+			font-weight: 800;
+			margin: 0 0 15px 0;
+			color: #111;
+		}
+
+		.project-header p.subtitle {
+			font-size: 18px;
+			color: #777;
+			margin: 0;
+		}
+
+		/* --- 视频窗口样式 --- */
+		.video-wrapper {
+			position: relative;
+			padding-bottom: 56.25%; /* 强制 16:9 比例 */
+			height: 0;
+			overflow: hidden;
+			border-radius: 6px;
+			background: #000;
+			margin-bottom: 50px;
+			box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+		}
+
+		.video-wrapper iframe, .video-wrapper video {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border: none;
+		}
+
+		/* --- 内容区块样式 --- */
+		.content-section {
+			margin-bottom: 50px;
+		}
+
+		.content-section h2 {
+			font-size: 28px;
+			font-weight: bold;
+			color: #111;
+			margin-bottom: 20px;
+			padding-bottom: 10px;
+			border-bottom: 3px solid #ff9800; /* 橙色强调下划线 */
+			display: inline-block;
+		}
+
+		.content-section p {
+			font-size: 16px;
+			line-height: 1.8;
+			color: #444;
+			text-align: justify;
+			margin-bottom: 15px;
+		}
+
+		/* --- 底部返回按钮 --- */
+		.back-btn-container {
+			text-align: center;
+			margin-top: 60px;
+			border-top: 1px solid #eee;
+			padding-top: 40px;
+		}
+
+		.back-btn {
+			background-color: #0f0f1b;
+			color: #fff;
+			padding: 12px 35px;
+			font-size: 16px;
+			font-weight: 600;
+			text-decoration: none;
+			border-radius: 4px;
+			transition: background-color 0.3s ease;
+			display: inline-block;
+		}
+
+		.back-btn:hover {
+			background-color: #ff9800;
+		}
+
+		/* 移动端页面容器适配 */
+		@media (max-width: 1024px) {
+			.project-detail-container { margin: 30px 20px; padding: 30px 20px; }
+		}
+	</style>
+</head>
+
+<body>
+	
+	<header class="my-clean-header">
+		<div class="my-clean-logo">
+			<a href="index.html" title="Xuehan Li - Portfolio">XUEHAN LI</a>
+		</div>
+		<ul class="my-clean-nav">
+			<li><a href="index.html">HOME</a></li>
+		</ul>
+	</header>
+
+	<div class="project-detail-container">
+		
+		<div class="project-header">
+			<h1>Project 1</h1>
+			<p class="subtitle">Brief subtitle or project category goes here</p>
+		</div>
+
+		<div class="video-wrapper">
+			<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Project Video Placeholder" allowfullscreen></iframe>
+		</div>
+
+		<div class="content-section">
+			<h2>Project Introduction</h2>
+			<p>Here you will describe the core concept of Project 1. What was the goal of this project? What were the main mechanics or design philosophies? (Text placeholder for Project 1).</p>
+			<p>You can add multiple paragraphs here to explain the setting, the tools used (like Unreal Engine 5, Dying Light Engine, etc.), and your specific role in bringing this project to life.</p>
+		</div>
+
+		<div class="content-section">
+			<h2>Project Analysis</h2>
+			<p>Here you will dive deep into the technical and design analysis. For example, explaining your graph topology flow, loop rates, or how you balanced the survival mechanics. (Text placeholder for Project 1).</p>
+			<p>In the future, you can also insert images or topological diagrams in this section by using standard HTML image tags.</p>
+		</div>
+
+		<div class="back-btn-container">
+			<a href="index.html" class="back-btn">← Back to Portfolio</a>
+		</div>
+
+	</div>
+
+</body>
+</html>
