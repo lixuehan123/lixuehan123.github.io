@@ -3,7 +3,6 @@
 
 <head>
 	<title>Xuehan Li | Level Design Portfolio</title>
-	<!-- for-mobile-apps -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="Xuehan Li, Level Design, Portfolio, Game Developer, Unreal Engine" />
@@ -16,100 +15,87 @@
 			window.scrollTo(0, 1);
 		}
 	</script>
-	<!-- //for-mobile-apps -->
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 	
-	<!-- font-awesome icons -->
 	<link href="css/font-awesome.css" rel="stylesheet">
-	<!-- //font-awesome icons -->
-	
 	<link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Jura:300,400,500,600" rel="stylesheet">
 	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 
 	<style>
-		/* --- 导航栏终极修复方案 --- */
-		.header-flex-container {
-			display: flex !important;
-			justify-content: space-between !important;
-			align-items: center !important;
-			width: 100% !important;
-			flex-wrap: wrap !important; /* 允许换行，防止空间不足时死磕 */
+		.my-clean-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			background: #0f0f1b;
+			padding: 15px 5%; /* 两侧留白 */
+			position: sticky;
+			top: 0;
+			z-index: 99999;
+			box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+			width: 100%;
+			box-sizing: border-box;
 		}
 
-		/* 核心修复：干掉外部 style.css 里的绝对定位，强行拽回文档流 */
-		.w3_navigation_pos {
-			position: relative !important; 
-			border: none !important; 
-			background: transparent !important; 
-			outline: none !important;
-			margin: 0 !important;
-			padding: 0 !important;
-			z-index: 10;
-		}
-		
-		.w3_navigation_pos h1 { margin: 0 !important; padding: 0 !important; border: none !important; }
-
-		.w3_navigation_pos h1 a { 
-			color: #ffffff !important; 
-			text-decoration: none !important; 
-			font-size: 32px !important; 
+		.my-clean-logo a {
+			color: #ffffff;
+			text-decoration: none;
+			font-size: 32px;
 			font-weight: bold;
 			letter-spacing: 1px;
-			transition: color 0.3s ease !important;
-			display: block;
+			transition: color 0.3s ease;
 		}
-		.w3_navigation_pos h1 a:hover { color: #ff9800 !important; }
+		
+		.my-clean-logo a:hover {
+			color: #ff9800;
+			text-decoration: none;
+		}
 
-		/* 右侧菜单样式 */
-		.custom-menu {
-			margin: 0 !important; 
-			padding: 0 !important;
-			list-style: none; 
-			display: flex !important; 
-			align-items: center; 
-			flex-wrap: wrap !important;
+		.my-clean-nav {
+			display: flex;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			align-items: center;
+			flex-wrap: wrap; /* 空间不够自动换行 */
 		}
-		
-		.custom-menu li { 
-			margin: 0 0 0 35px !important; 
-			padding: 0 !important;
-			white-space: nowrap !important;
+
+		.my-clean-nav li {
+			margin-left: 40px;
 		}
-		
-		.custom-menu li a {
-			color: #ffffff !important;
-			background: transparent !important;
-			border: none !important;
+
+		.my-clean-nav a {
+			color: #ffffff;
+			text-decoration: none;
 			font-size: 15px;
 			font-weight: 600;
 			text-transform: uppercase;
-			text-decoration: none !important;
-			padding: 0 !important;
-			transition: color 0.3s ease !important;
-		}
-		.custom-menu li a:hover { color: #ff9800 !important; }
-
-		/* 移动端与平板适配：在屏幕小于 992px 时自动居中上下排列，彻底告别重叠 */
-		@media (max-width: 992px) {
-			.header-flex-container {
-				flex-direction: column !important;
-				justify-content: center !important;
-				padding: 15px 0 !important;
-			}
-			.custom-menu {
-				margin-top: 15px !important;
-				justify-content: center !important;
-			}
-			.custom-menu li { 
-				margin: 5px 15px !important; /* 缩小间距，均匀分布 */
-			}
+			transition: color 0.3s ease;
+			display: block;
+			padding: 5px 0;
 		}
 
-		/* 干掉原模板特效的伪元素干扰 */
-		.custom-menu li a::before, .custom-menu li a::after,
-		.custom-menu li a span::before, .custom-menu li a span::after { display: none !important; }
+		.my-clean-nav a:hover {
+			color: #ff9800;
+			text-decoration: none;
+		}
+
+		/* 移动端与平板自适应：屏幕小于 768px 时，上下排列居中对齐 */
+		@media (max-width: 768px) {
+			.my-clean-header {
+				flex-direction: column;
+				justify-content: center;
+				padding: 15px;
+			}
+			.my-clean-nav {
+				margin-top: 15px;
+				justify-content: center;
+			}
+			.my-clean-nav li {
+				margin: 5px 15px;
+			}
+		}
 
 		/* --- 页面其余板块样式 --- */
 		.project-section-title { font-size: 40px; font-weight: bold; margin-bottom: 50px; color: #000; }
@@ -129,27 +115,17 @@
 
 <body>
 	
-	<!-- header 导航栏 (极简重构版) -->
-	<div class="w3_navigation" style="position: sticky; top: 0; z-index: 9999; background: #0f0f1b; box-shadow: 0 2px 10px rgba(0,0,0,0.5); padding: 15px 0;">
-		<!-- 启用全新的 Flex 容器 -->
-		<div class="container header-flex-container">
-			<!-- 左侧 Logo -->
-			<div class="w3_navigation_pos">
-				<h1><a href="index.html" title="Xuehan Li - Portfolio">XUEHAN LI</a></h1>
-			</div>
-
-			<!-- 右侧菜单 -->
-			<ul class="custom-menu">
-				<li><a href="index.html">HOME</a></li>
-				<li><a href="#work" class="scroll">PROJECT</a></li>
-				<li><a href="#about" class="scroll">ABOUT</a></li>
-				<li><a href="#skills" class="scroll">SKILLS</a></li>
-			</ul>
+	<header class="my-clean-header">
+		<div class="my-clean-logo">
+			<a href="index.html" title="Xuehan Li - Portfolio">XUEHAN LI</a>
 		</div>
-	</div>
-	<!-- //header -->
-
-	<!-- banner (主视觉轮播图) -->
+		<ul class="my-clean-nav">
+			<li><a href="index.html">HOME</a></li>
+			<li><a href="#work" class="scroll">PROJECT</a></li>
+			<li><a href="#about" class="scroll">ABOUT</a></li>
+			<li><a href="#skills" class="scroll">SKILLS</a></li>
+		</ul>
+	</header>
 	<div class="banner">
 		<div class="slider">
 			<div class="callbacks_container">
@@ -189,9 +165,6 @@
 			<div class="clearfix"></div>
 		</div>
 	</div>
-	<!-- //banner -->
-
-	<!-- Projects Section -->
 	<div id="work" class="container" style="padding: 80px 0;">
 		<h2 class="project-section-title">Projects</h2>
 		
@@ -228,9 +201,6 @@
 			</div>
 		</div>
 	</div>
-	<!-- //Projects Section -->
-
-	<!-- About Me Section -->
 	<div id="about" class="center-section" style="background-color: #f9f9f9;">
 		<div class="container">
 			<h2 class="center-title">About Me</h2>
@@ -239,9 +209,6 @@
 			</p>
 		</div>
 	</div>
-	<!-- //About Me Section -->
-
-	<!-- Skills Section -->
 	<div id="skills" class="center-section">
 		<div class="container">
 			<h2 class="center-title">Skills</h2>
@@ -262,17 +229,11 @@
 			</div>
 		</div>
 	</div>
-	<!-- //Skills Section -->
-
-	<!-- footer -->
 	<div class="w3l_footer">
 		<div class="w3l_footer_pos">
 			<p>© 2026 Xuehan Li. All Rights Reserved</p>
 		</div>
 	</div>
-	<!-- //footer -->
-
-	<!-- js scripts -->
 	<script src="js/jquery-2.2.3.min.js"></script>
 	<script src="js/responsiveslides.min.js"></script>
 	<script>
@@ -299,7 +260,7 @@
 			$(".scroll").click(function (event) {
 				event.preventDefault();
 				$('html,body').animate({
-					scrollTop: $(this.hash).offset().top - 80 
+					scrollTop: $(this.hash).offset().top - 70 
 				}, 1000);
 			});
 		});
