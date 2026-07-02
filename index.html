@@ -28,25 +28,29 @@
 	<link href="https://fonts.googleapis.com/css?family=Jura:300,400,500,600" rel="stylesheet">
 	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 
-	<!-- 自定义样式覆盖：彻底解决掉行问题 -->
 	<style>
 		/* --- 导航栏终极修复方案 --- */
-		/* 使用 Flexbox 强制锁定在一行，无视 Bootstrap 的换行规则 */
 		.header-flex-container {
 			display: flex !important;
 			justify-content: space-between !important;
 			align-items: center !important;
 			width: 100% !important;
+			flex-wrap: wrap !important; /* 允许换行，防止空间不足时死磕 */
 		}
 
-		/* Logo 样式：无边框，居中，悬停变橙色 */
-		.w3_navigation_pos, .w3_navigation_pos h1 { 
+		/* 核心修复：干掉外部 style.css 里的绝对定位，强行拽回文档流 */
+		.w3_navigation_pos {
+			position: relative !important; 
 			border: none !important; 
 			background: transparent !important; 
 			outline: none !important;
 			margin: 0 !important;
 			padding: 0 !important;
+			z-index: 10;
 		}
+		
+		.w3_navigation_pos h1 { margin: 0 !important; padding: 0 !important; border: none !important; }
+
 		.w3_navigation_pos h1 a { 
 			color: #ffffff !important; 
 			text-decoration: none !important; 
@@ -58,19 +62,22 @@
 		}
 		.w3_navigation_pos h1 a:hover { color: #ff9800 !important; }
 
-		/* 右侧菜单样式：强制弹性排布，不换行 */
+		/* 右侧菜单样式 */
 		.custom-menu {
 			margin: 0 !important; 
 			padding: 0 !important;
 			list-style: none; 
 			display: flex !important; 
 			align-items: center; 
+			flex-wrap: wrap !important;
 		}
+		
 		.custom-menu li { 
-			margin: 0 0 0 40px !important; 
+			margin: 0 0 0 35px !important; 
 			padding: 0 !important;
-			white-space: nowrap !important; /* 核心：绝对不允许文字换行 */
+			white-space: nowrap !important;
 		}
+		
 		.custom-menu li a {
 			color: #ffffff !important;
 			background: transparent !important;
@@ -84,17 +91,20 @@
 		}
 		.custom-menu li a:hover { color: #ff9800 !important; }
 
-		/* 移动端适配：屏幕变小时自动变回垂直排列 */
-		@media (max-width: 768px) {
+		/* 移动端与平板适配：在屏幕小于 992px 时自动居中上下排列，彻底告别重叠 */
+		@media (max-width: 992px) {
 			.header-flex-container {
 				flex-direction: column !important;
-				align-items: center !important;
+				justify-content: center !important;
+				padding: 15px 0 !important;
 			}
 			.custom-menu {
-				flex-direction: column !important;
-				margin-top: 20px !important;
+				margin-top: 15px !important;
+				justify-content: center !important;
 			}
-			.custom-menu li { margin: 10px 0 !important; text-align: center; }
+			.custom-menu li { 
+				margin: 5px 15px !important; /* 缩小间距，均匀分布 */
+			}
 		}
 
 		/* 干掉原模板特效的伪元素干扰 */
