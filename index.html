@@ -3,6 +3,7 @@
 
 <head>
 	<title>Xuehan Li | Level Design Portfolio</title>
+	<!-- for-mobile-apps -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="Xuehan Li, Level Design, Portfolio, Game Developer, Unreal Engine" />
@@ -15,84 +16,79 @@
 			window.scrollTo(0, 1);
 		}
 	</script>
+	<!-- //for-mobile-apps -->
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 	
+	<!-- font-awesome icons -->
 	<link href="css/font-awesome.css" rel="stylesheet">
+	<!-- //font-awesome icons -->
+	
 	<link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Jura:300,400,500,600" rel="stylesheet">
 	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 
+	<!-- 自定义样式：启用全新命名，彻底屏蔽旧模板的干扰 -->
 	<style>
-		/* --- 导航栏核心修复 --- */
-		
-		/* 1. 彻底去掉 Logo 外面的框，并设置居中与橙色悬停 */
-		.w3_navigation_pos, .w3_navigation_pos h1 { 
-			border: none !important; 
-			background: transparent !important; 
-			outline: none !important;
-			margin: 0 !important;
-			padding: 0 !important;
-		}
-		.w3_navigation_pos h1 a { 
-			color: #ffffff !important; 
-			text-decoration: none !important; 
-			font-size: 32px !important; 
-			line-height: 50px !important; /* 强制与菜单同高 */
-			font-weight: bold;
-			letter-spacing: 1px;
-			transition: color 0.3s ease !important;
-			display: block;
-		}
-		.w3_navigation_pos h1 a:hover { color: #ff9800 !important; }
-
-		/* 2. 采用 Flexbox 强制菜单在同一行且间距完美 */
-		.custom-menu {
-			margin: 0 !important; 
-			padding: 0 !important;
-			list-style: none; 
-			display: flex !important; /* 强制弹性同行 */
-			align-items: center; /* 垂直居中对齐 */
-			justify-content: flex-end; /* 靠右对齐 */
-			height: 50px;
-		}
-		.custom-menu li { 
-			margin: 0 0 0 40px !important; /* 统一设置左侧 40px 的完美间距 */
-			padding: 0 !important;
-			float: none !important; /* 杀掉破坏排版的浮动 */
-		}
-		.custom-menu li a {
+		/* 1. 全新 Logo 样式：绝对没有边框，绝对靠左，悬停橙色 */
+		.my-logo-brand {
+			float: left;
 			color: #ffffff !important;
+			font-size: 32px !important;
+			font-weight: bold;
+			line-height: 80px; /* 与导航栏整体高度一致，实现完美垂直居中 */
+			text-decoration: none !important;
+			border: none !important; 
+			outline: none !important;
 			background: transparent !important;
-			border: none !important;
+			letter-spacing: 2px;
+			transition: color 0.3s ease !important;
+		}
+		.my-logo-brand:hover {
+			color: #ff9800 !important;
+			text-decoration: none !important;
+		}
+
+		/* 2. 全新菜单样式：绝对靠右，强制同行，没有白线 */
+		.my-clean-menu {
+			margin: 0 !important;
+			padding-top: 15px !important;
+		}
+		.my-clean-menu li {
+			margin-left: 35px; /* 菜单项之间的间距 */
+		}
+		.my-clean-menu li a {
+			color: #ffffff !important;
 			font-size: 15px;
 			font-weight: 600;
 			text-transform: uppercase;
+			line-height: 50px !important;
 			text-decoration: none !important;
+			background: transparent !important;
+			border: none !important;
 			padding: 0 !important;
 			transition: color 0.3s ease !important;
 		}
-		.custom-menu li a:hover { color: #ff9800 !important; }
+		.my-clean-menu li a:hover,
+		.my-clean-menu li a:focus {
+			color: #ff9800 !important; /* 鼠标悬停变橙色 */
+			background-color: transparent !important;
+		}
+		
+		/* 霸道清除：杀掉原来模板里的 ::before 和 ::after 粗白线伪元素 */
+		.my-clean-menu li a::before, 
+		.my-clean-menu li a::after,
+		.my-clean-menu li a span::before, 
+		.my-clean-menu li a span::after { display: none !important; }
 
-		/* 干掉原模板特效的伪元素干扰 */
-		.custom-menu li a::before, 
-		.custom-menu li a::after,
-		.custom-menu li a span::before, 
-		.custom-menu li a span::after { display: none !important; }
-
-		/* 移动端菜单折叠适配 */
+		/* 移动端菜单适配 */
 		@media (max-width: 768px) {
-			.custom-menu {
-				flex-direction: column;
-				height: auto;
-				background: #0f0f1b;
-				padding: 20px 0 !important;
-			}
-			.custom-menu li { margin: 15px 0 !important; text-align: center; }
-			.w3_navigation_pos { padding-top: 5px !important; }
+			.my-clean-menu { background: #0f0f1b; padding-bottom: 20px !important; }
+			.my-clean-menu li { margin: 15px 0; text-align: center; }
+			.my-logo-brand { font-size: 24px !important; margin-left: 15px; }
 		}
 
-		/* --- 页面其余板块样式 --- */
+		/* --- 以下为排版样式 --- */
 		.project-section-title { font-size: 40px; font-weight: bold; margin-bottom: 50px; color: #000; }
 		.project-item { margin-bottom: 60px; }
 		.project-item img { width: 100%; object-fit: cover; border-radius: 4px; }
@@ -111,34 +107,41 @@
 
 <body>
 	
-	<div class="w3_navigation" style="position: sticky; top: 0; z-index: 9999; background: #0f0f1b; box-shadow: 0 2px 10px rgba(0,0,0,0.5); padding: 15px 0;">
+	<!-- 极致干净的全新 header 导航栏 -->
+	<div style="position: sticky; top: 0; z-index: 9999; background: #0f0f1b; box-shadow: 0 2px 10px rgba(0,0,0,0.5);">
 		<div class="container">
-			<nav class="navbar navbar-default" style="background: transparent; border: none; margin: 0; min-height: auto;">
+			<nav class="navbar navbar-default" style="background: transparent; border: none; margin: 0; min-height: 80px;">
+				
 				<div class="navbar-header">
+					<!-- 手机端折叠按钮 -->
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-						data-target="#bs-example-navbar-collapse-1" style="margin-top: 10px;">
+						data-target="#bs-example-navbar-collapse-1" style="margin-top: 23px;">
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
 					
-					<div class="w3_navigation_pos">
-						<h1><a href="index.html" title="Xuehan Li - Portfolio">XUEHAN LI</a></h1>
-					</div>
+					<!-- 彻底抛弃旧的 w3_navigation_pos，直接使用最干净的 A 标签当 Logo -->
+					<a href="index.html" class="my-logo-brand">XUEHAN LI</a>
 				</div>
 
+				<!-- 菜单部分，使用原生的 navbar-right 保证绝对靠右对齐 -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav navbar-right custom-menu">
+					<ul class="nav navbar-nav navbar-right my-clean-menu">
 						<li><a href="index.html">HOME</a></li>
 						<li><a href="#work" class="scroll">PROJECT</a></li>
 						<li><a href="#about" class="scroll">ABOUT</a></li>
 						<li><a href="#skills" class="scroll">SKILLS</a></li>
 					</ul>
 				</div>
+				
 			</nav>
 		</div>
 	</div>
+	<!-- //header -->
+
+	<!-- banner (主视觉轮播图) -->
 	<div class="banner">
 		<div class="slider">
 			<div class="callbacks_container">
@@ -178,6 +181,9 @@
 			<div class="clearfix"></div>
 		</div>
 	</div>
+	<!-- //banner -->
+
+	<!-- Projects Section -->
 	<div id="work" class="container" style="padding: 80px 0;">
 		<h2 class="project-section-title">Projects</h2>
 		
@@ -214,6 +220,9 @@
 			</div>
 		</div>
 	</div>
+	<!-- //Projects Section -->
+
+	<!-- About Me Section -->
 	<div id="about" class="center-section" style="background-color: #f9f9f9;">
 		<div class="container">
 			<h2 class="center-title">About Me</h2>
@@ -222,6 +231,9 @@
 			</p>
 		</div>
 	</div>
+	<!-- //About Me Section -->
+
+	<!-- Skills Section -->
 	<div id="skills" class="center-section">
 		<div class="container">
 			<h2 class="center-title">Skills</h2>
@@ -242,11 +254,17 @@
 			</div>
 		</div>
 	</div>
+	<!-- //Skills Section -->
+
+	<!-- footer -->
 	<div class="w3l_footer">
 		<div class="w3l_footer_pos">
 			<p>© 2026 Xuehan Li. All Rights Reserved</p>
 		</div>
 	</div>
+	<!-- //footer -->
+
+	<!-- js scripts -->
 	<script src="js/jquery-2.2.3.min.js"></script>
 	<script src="js/responsiveslides.min.js"></script>
 	<script>
@@ -273,11 +291,12 @@
 			$(".scroll").click(function (event) {
 				event.preventDefault();
 				$('html,body').animate({
-					scrollTop: $(this.hash).offset().top - 80 // 增加一点滚动偏移量，避免导航栏挡住标题
+					scrollTop: $(this.hash).offset().top - 80 
 				}, 1000);
 			});
 		});
 	</script>
 	<script src="js/bootstrap.js"></script>
 </body>
+</html>
 </html>
