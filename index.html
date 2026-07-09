@@ -6,122 +6,104 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="Xuehan Li, Level Design, Portfolio, Game Developer, Unreal Engine" />
-	<script type="application/x-javascript">
-		addEventListener("load", function () {
-			setTimeout(hideURLbar, 0);
-		}, false);
-
-		function hideURLbar() {
-			window.scrollTo(0, 1);
-		}
-	</script>
+	
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-	
 	<link href="css/font-awesome.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Jura:300,400,500,600" rel="stylesheet">
 	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 
 	<style>
+		/* 基础重置 */
+		body { background-color: #f7f7f9; }
+
+		/* --- 导航栏与下拉菜单 --- */
 		.my-clean-header {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			background: #0f0f1b;
-			padding: 15px 5%; 
-			position: sticky;
-			top: 0;
-			z-index: 99999;
-			box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-			width: 100%;
-			box-sizing: border-box;
+			display: flex; justify-content: space-between; align-items: center;
+			background: #0f0f1b; padding: 15px 5%; position: sticky; top: 0;
+			z-index: 99999; box-shadow: 0 2px 10px rgba(0,0,0,0.5); width: 100%; box-sizing: border-box;
+		}
+		
+		.my-clean-logo { display: flex; flex-direction: column; }
+		.my-clean-logo a { color: #ffffff; text-decoration: none; font-size: 32px; font-weight: bold; letter-spacing: 1px; transition: color 0.3s ease; line-height: 1; }
+		.my-clean-logo a:hover { color: #ff9800; text-decoration: none; }
+		.job-title { color: #ff9800; font-size: 14px; font-weight: 600; letter-spacing: 2px; margin-top: 6px; text-transform: uppercase; }
+
+		.my-clean-nav { display: flex; list-style: none; margin: 0; padding: 0; align-items: center; flex-wrap: wrap; }
+		.my-clean-nav li { margin-left: 40px; position: relative; } /* position relative 给下拉菜单定位用 */
+		.my-clean-nav a { color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 600; text-transform: uppercase; transition: color 0.3s ease; display: block; padding: 15px 0; }
+		.my-clean-nav a:hover { color: #ff9800; text-decoration: none; }
+
+		/* 核心：项目下拉菜单样式 */
+		.dropdown-content {
+			display: none; position: absolute; background-color: #1a1a24;
+			min-width: 240px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+			z-index: 1; top: 100%; left: 0; border-radius: 4px; padding: 10px 0;
+		}
+		/* 悬停显示下拉菜单 */
+		.dropdown:hover .dropdown-content { display: block; }
+		
+		.dropdown-content a { color: #fff; padding: 10px 20px; text-decoration: none; display: block; font-size: 13px; text-transform: none; font-weight: 400; transition: 0.2s; border-left: 3px solid transparent; }
+		.dropdown-content a:hover { background-color: #2a2a3d; color: #ff9800; border-left: 3px solid #ff9800; }
+		
+		.dropdown-category-title {
+			padding: 10px 20px 5px 20px; color: #777; font-size: 11px;
+			text-transform: uppercase; letter-spacing: 1px; font-weight: bold;
+			border-bottom: 1px solid #333; margin-bottom: 5px; margin-top: 5px; pointer-events: none;
 		}
 
-		/* 姓名与职位头衔组合 */
-		.my-clean-logo {
-			display: flex;
-			flex-direction: column;
+		/* --- 项目网格排版 (Grid) --- */
+		.portfolio-section { padding: 40px 0; }
+		.section-heading { font-size: 32px; font-weight: bold; color: #111; margin-bottom: 30px; border-bottom: 3px solid #ff9800; display: inline-block; padding-bottom: 10px; }
+		
+		.portfolio-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+			gap: 30px;
+			margin-bottom: 40px;
 		}
-		.my-clean-logo a {
-			color: #ffffff;
-			text-decoration: none;
-			font-size: 32px;
-			font-weight: bold;
-			letter-spacing: 1px;
-			transition: color 0.3s ease;
-			line-height: 1;
+		
+		.portfolio-card {
+			background: #fff; border-radius: 8px; overflow: hidden;
+			box-shadow: 0 4px 15px rgba(0,0,0,0.06); transition: transform 0.3s ease, box-shadow 0.3s ease;
+			display: flex; flex-direction: column;
 		}
-		.my-clean-logo a:hover {
-			color: #ff9800;
-			text-decoration: none;
+		.portfolio-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+		
+		.card-img-wrapper { height: 200px; width: 100%; overflow: hidden; background: #222; }
+		.card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+		.portfolio-card:hover .card-img-wrapper img { transform: scale(1.05); }
+		
+		.card-content { padding: 25px 20px; flex-grow: 1; display: flex; flex-direction: column; }
+		.card-title { font-size: 20px; font-weight: 800; margin: 0 0 10px 0; color: #111; }
+		.card-desc { font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
+		
+		.card-btn {
+			background: #0f0f1b; color: #fff; padding: 10px 15px; text-align: center;
+			border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 14px; transition: 0.3s;
 		}
-		.job-title {
-			color: #ff9800; /* 橙色高亮职位，极其吸睛 */
-			font-size: 14px;
-			font-weight: 600;
-			letter-spacing: 2px;
-			margin-top: 6px;
-			text-transform: uppercase;
-		}
+		.card-btn:hover { background: #ff9800; color: #fff; text-decoration: none; }
 
-		.my-clean-nav {
-			display: flex;
-			list-style: none;
-			margin: 0;
-			padding: 0;
-			align-items: center;
-			flex-wrap: wrap; 
-		}
-
-		.my-clean-nav li {
-			margin-left: 40px;
-		}
-
-		.my-clean-nav a {
-			color: #ffffff;
-			text-decoration: none;
-			font-size: 15px;
-			font-weight: 600;
-			text-transform: uppercase;
-			transition: color 0.3s ease;
-			display: block;
-			padding: 5px 0;
-		}
-
-		.my-clean-nav a:hover {
-			color: #ff9800;
-			text-decoration: none;
-		}
-
-		@media (max-width: 768px) {
-			.my-clean-header { flex-direction: column; justify-content: center; padding: 15px; }
-			.my-clean-logo { align-items: center; }
-			.my-clean-nav { margin-top: 15px; justify-content: center; }
-			.my-clean-nav li { margin: 5px 15px; }
-		}
-
-		/* --- 页面其余板块样式 --- */
-		.hero-welcome { text-align: center; margin: 60px 0 20px 0; }
-		.hero-welcome h2 { font-size: 42px; font-weight: 800; color: #111; }
-		.hero-welcome p { font-size: 18px; color: #666; max-width: 700px; margin: 15px auto 0; line-height: 1.6; }
-
-		.project-section-title { font-size: 32px; font-weight: bold; margin-bottom: 50px; color: #000; border-bottom: 3px solid #ff9800; display: inline-block; padding-bottom: 10px; }
-		.project-item { margin-bottom: 80px; align-items: center; } /* 增加项目间距，居中对齐 */
-		.project-item img { width: 100%; object-fit: cover; border-radius: 6px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-		.project-title { font-size: 32px; font-weight: bold; margin: 0 0 15px 0; color: #000; }
-		.project-desc { font-size: 16px; color: #555; line-height: 1.8; margin-bottom: 25px; text-align: justify; }
-		.project-btn { background-color: #0f0f1b; color: #fff; padding: 12px 30px; font-size: 16px; font-weight: 600; text-decoration: none; display: inline-block; border-radius: 4px; transition: 0.3s; }
-		.project-btn:hover { background-color: #ff9800; color: #fff; text-decoration: none; }
-
-		.center-section { padding: 80px 0; text-align: center; }
+		/* --- Resume/Contact 板块 --- */
+		.center-section { padding: 80px 0; text-align: center; background: #fff; border-top: 1px solid #eaeaea; }
 		.center-title { font-size: 36px; font-weight: bold; margin-bottom: 30px; color: #000; }
 		.center-content { font-size: 16px; color: #555; line-height: 1.8; max-width: 800px; margin: 0 auto; }
-		
-		/* 联系方式链接样式 */
 		.contact-link { display: inline-block; margin: 10px 20px; color: #333; font-size: 18px; font-weight: 600; text-decoration: none; transition: 0.3s; }
 		.contact-link i { margin-right: 8px; color: #ff9800; }
 		.contact-link:hover { color: #ff9800; text-decoration: none; }
+		.resume-btn { background-color: #0f0f1b; color: #fff; padding: 15px 40px; font-size: 18px; font-weight: 600; text-decoration: none; display: inline-block; border-radius: 4px; transition: 0.3s; margin-top: 20px;}
+		.resume-btn:hover { background-color: #ff9800; color: #fff; }
+
+		/* 移动端适配 */
+		@media (max-width: 768px) {
+			.my-clean-header { flex-direction: column; padding: 15px; }
+			.my-clean-logo { align-items: center; }
+			.my-clean-nav { margin-top: 15px; width: 100%; justify-content: center; }
+			.my-clean-nav li { margin: 5px 10px; }
+			.dropdown-content { position: static; display: none; box-shadow: none; background: #222; width: 100%; }
+			.dropdown:hover .dropdown-content { display: block; }
+		}
 	</style>
 </head>
 
@@ -134,52 +116,138 @@
 		</div>
 		<ul class="my-clean-nav">
 			<li><a href="index.html">HOME</a></li>
-			<li><a href="#work" class="scroll">PROJECTS</a></li>
+			
+			<li class="dropdown">
+				<a href="#work" class="scroll dropbtn">PROJECTS <i class="fa fa-angle-down"></i></a>
+				<div class="dropdown-content">
+					<div class="dropdown-category-title">Team Projects</div>
+					<a href="project_containment.html">Petalnaut</a>
+					<a href="project_containment.html">HamsterBallin</a>
+					<a href="project_containment.html">Unannounced Project</a>
+					
+					<div class="dropdown-category-title">Personal & Thesis</div>
+					<a href="project_containment.html">ContainmentBreach (Starfield)</a>
+					<a href="project_containment.html">Thesis: Souls-like Topology</a>
+					<a href="project_containment.html">Invalidprescription</a>
+					<a href="project_containment.html">Escape from Power Plant</a>
+					<a href="project_containment.html">Coldfront (Quake 3)</a>
+					
+					<div class="dropdown-category-title">Game Jams</div>
+					<a href="project_containment.html">GGJ 2024: Make me laugh</a>
+					<a href="project_containment.html">LD 54: Summon</a>
+					<a href="project_containment.html">GMTK 2024: Build to scale</a>
+				</div>
+			</li>
+			
 			<li><a href="#about" class="scroll">ABOUT</a></li>
 			<li><a href="#resume" class="scroll">RESUME</a></li>
 		</ul>
 	</header>
-	<div class="hero-welcome container">
-		<h2>Selected Works</h2>
-		<p>Crafting structural logic, exploring spatial topology, and delivering deeply engaging environmental experiences.</p>
-	</div>
 
-	<div id="work" class="container" style="padding: 40px 0 80px 0;">
+	<div id="work" class="container portfolio-section">
 		
-		<div class="row project-item">
-			<div class="col-md-6">
-				<a href="project1.html"><img src="images/g1.jpg" alt="Project 1 Image" class="img-responsive"></a>
+		<h2 class="section-heading">Team Projects</h2>
+		<div class="portfolio-grid">
+			<div class="portfolio-card">
+				<div class="card-img-wrapper"><img src="images/g1.jpg" alt="Petalnaut"></div>
+				<div class="card-content">
+					<h3 class="card-title">Petalnaut</h3>
+					<p class="card-desc">Short description of your role as a level designer in this team project, focusing on spatial layout and team collaboration.</p>
+					<a href="project_containment.html" class="card-btn">View Project</a>
+				</div>
 			</div>
-			<div class="col-md-6">
-				<h3 class="project-title">Soulslike Level Layout</h3>
-				<p class="project-desc">This project focuses on the quantitative analysis of Soulslike level layouts and diorama generation based on graph topological features. Using the Dying Light engine, I designed complex non-linear paths, optimized loop rates, and tested stability factors to create deeply engaging player experiences.</p>
-				<a href="project1.html" class="project-btn">View Project</a>
+			<div class="portfolio-card">
+				<div class="card-img-wrapper"><img src="images/g2.jpg" alt="HamsterBallin"></div>
+				<div class="card-content">
+					<h3 class="card-title">HamsterBallin</h3>
+					<p class="card-desc">Briefly explain the core mechanics and how your level design supported the gameplay loop in this team environment.</p>
+					<a href="project_containment.html" class="card-btn">View Project</a>
+				</div>
+			</div>
+			<div class="portfolio-card">
+				<div class="card-img-wrapper"><img src="images/g3.jpg" alt="Unannounced Project"></div>
+				<div class="card-content">
+					<h3 class="card-title">Unannounced Project</h3>
+					<p class="card-desc">Working title. Highlight the engine used and your specific contributions to the grayboxing or asset implementation phase.</p>
+					<a href="project_containment.html" class="card-btn">View Project</a>
+				</div>
 			</div>
 		</div>
 
-		<div class="row project-item">
-			<div class="col-md-6">
-				<a href="project2.html"><img src="images/g2.jpg" alt="Project 2 Image" class="img-responsive"></a>
+		<h2 class="section-heading">Personal Projects & Thesis</h2>
+		<div class="portfolio-grid">
+			<div class="portfolio-card">
+				<div class="card-img-wrapper"><img src="images/banner1.jpg" alt="ContainmentBreach"></div>
+				<div class="card-content">
+					<h3 class="card-title">ContainmentBreach</h3>
+					<p class="card-desc">Starfield Mod Level. Designed custom survival mechanics, wave control logic, and a highly balanced combat space.</p>
+					<a href="project_containment.html" class="card-btn">View Project</a>
+				</div>
 			</div>
-			<div class="col-md-6">
-				<h3 class="project-title">Starfield Survival Mod</h3>
-				<p class="project-desc">A custom survival mode mod developed using the Starfield Creation Kit, heavily inspired by Call of Duty Zombies mechanics. Key features include iterative wave control logic, custom weapon upgrade stations, and a carefully balanced spatial loop design for intense combat scenarios.</p>
-				<a href="project2.html" class="project-btn">View Project</a>
+			<div class="portfolio-card">
+				<div class="card-img-wrapper"><img src="images/banner2.jpg" alt="Thesis"></div>
+				<div class="card-content">
+					<h3 class="card-title">Souls-like Topology Thesis</h3>
+					<p class="card-desc">Quantitative research on level shortcuts, graph topology stability factors, and diorama layout pacing.</p>
+					<a href="project_containment.html" class="card-btn">View Project</a>
+				</div>
+			</div>
+			<div class="portfolio-card">
+				<div class="card-img-wrapper"><img src="images/banner3.jpg" alt="Invalidprescription"></div>
+				<div class="card-content">
+					<h3 class="card-title">Invalidprescription</h3>
+					<p class="card-desc">Starfield custom quest/level mod focusing on narrative pacing and environmental storytelling.</p>
+					<a href="project_containment.html" class="card-btn">View Project</a>
+				</div>
+			</div>
+			<div class="portfolio-card">
+				<div class="card-img-wrapper"><img src="images/g4.jpg" alt="Escape from the Power Plant"></div>
+				<div class="card-content">
+					<h3 class="card-title">Escape from the Power Plant</h3>
+					<p class="card-desc">Half-Life 2 Mod. A classic linear FPS level design focusing on visual scripting and enemy encounter pacing.</p>
+					<a href="project_containment.html" class="card-btn">View Project</a>
+				</div>
+			</div>
+			<div class="portfolio-card">
+				<div class="card-img-wrapper"><img src="images/g5.jpg" alt="Coldfront"></div>
+				<div class="card-content">
+					<h3 class="card-title">Coldfront (Quake 3)</h3>
+					<p class="card-desc">Custom Team Deathmatch map. Prioritized sightlines, weapon pickup placement, and fast-paced vertical mobility.</p>
+					<a href="project_containment.html" class="card-btn">View Project</a>
+				</div>
 			</div>
 		</div>
 
-		<div class="row project-item">
-			<div class="col-md-6">
-				<a href="project3.html"><img src="images/g3.jpg" alt="Project 3 Image" class="img-responsive"></a>
+		<h2 class="section-heading">Game Jams</h2>
+		<div class="portfolio-grid">
+			<div class="portfolio-card">
+				<div class="card-img-wrapper"><img src="images/g6.jpg" alt="GGJ2024"></div>
+				<div class="card-content">
+					<h3 class="card-title">Make Me Laugh</h3>
+					<p class="card-desc">Global Game Jam 2024 submission. Built under 48 hours focusing on rapid prototyping and level iteration.</p>
+					<a href="project_containment.html" class="card-btn">View Project</a>
+				</div>
 			</div>
-			<div class="col-md-6">
-				<h3 class="project-title">PICO-8 Retro Minigame</h3>
-				<p class="project-desc">A retro-style game built from scratch using the PICO-8 virtual console. This project showcases scripting of complex game loops, custom collision detection algorithms, and handcrafted sound effects and music simulated directly within the PICO-8 editor.</p>
-				<a href="project3.html" class="project-btn">View Project</a>
+			<div class="portfolio-card">
+				<div class="card-img-wrapper"><img src="images/g7.jpg" alt="Ludum Dare 54"></div>
+				<div class="card-content">
+					<h3 class="card-title">Summon</h3>
+					<p class="card-desc">Ludum Dare 54 submission. Demonstrated ability to quickly script level logic and adapt to constraints.</p>
+					<a href="project_containment.html" class="card-btn">View Project</a>
+				</div>
+			</div>
+			<div class="portfolio-card">
+				<div class="card-img-wrapper"><img src="images/g8.jpg" alt="GMTK2024"></div>
+				<div class="card-content">
+					<h3 class="card-title">Build To Scale</h3>
+					<p class="card-desc">GMTK 2024 submission. Focused on unique scale-shifting mechanics and puzzle-oriented level design.</p>
+					<a href="project_containment.html" class="card-btn">View Project</a>
+				</div>
 			</div>
 		</div>
+
 	</div>
-	<div id="about" class="center-section" style="background-color: #f9f9f9;">
+	<div id="about" class="center-section">
 		<div class="container">
 			<h2 class="center-title">About Me</h2>
 			<p class="center-content">
@@ -187,7 +255,8 @@
 			</p>
 		</div>
 	</div>
-	<div id="resume" class="center-section">
+
+	<div id="resume" class="center-section" style="background-color: #f7f7f9;">
 		<div class="container">
 			<h2 class="center-title">Resume & Contact</h2>
 			<div class="center-content">
@@ -200,31 +269,34 @@
 						<i class="fa fa-envelope"></i> your.email@example.com
 					</a>
 					<a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-link">
-						<i class="fa fa-linkedin-square"></i> LinkedIn Profile
+						<i class="fa fa-linkedin-square"></i> LinkedIn
 					</a>
 				</div>
 				
-				<a href="Resume_XuehanLi.pdf" target="_blank" class="project-btn" style="padding: 15px 40px; font-size: 18px;">
+				<a href="Resume_XuehanLi.pdf" target="_blank" class="resume-btn">
 					<i class="fa fa-download" style="margin-right: 10px;"></i> Download Resume (PDF)
 				</a>
 			</div>
 		</div>
 	</div>
-	<div class="w3l_footer">
-		<div class="w3l_footer_pos">
-			<p>© 2026 Xuehan Li. All Rights Reserved</p>
-		</div>
+
+	<div class="w3l_footer" style="background: #0f0f1b; padding: 20px 0; text-align: center;">
+		<p style="color: #666; margin: 0;">© 2026 Xuehan Li. All Rights Reserved</p>
 	</div>
+
 	<script src="js/jquery-2.2.3.min.js"></script>
 	<script type="text/javascript" src="js/move-top.js"></script>
 	<script type="text/javascript" src="js/easing.js"></script>
 	<script type="text/javascript">
 		jQuery(document).ready(function ($) {
 			$(".scroll").click(function (event) {
-				event.preventDefault();
-				$('html,body').animate({
-					scrollTop: $(this.hash).offset().top - 70 
-				}, 1000);
+				// 如果是下拉菜单中的链接，并且带有锚点，就正常跳转
+				if(this.hash) {
+					event.preventDefault();
+					$('html,body').animate({
+						scrollTop: $(this.hash).offset().top - 70 
+					}, 800);
+				}
 			});
 		});
 	</script>
