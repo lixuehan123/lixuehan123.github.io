@@ -29,7 +29,7 @@
 			justify-content: space-between;
 			align-items: center;
 			background: #0f0f1b;
-			padding: 15px 5%; /* 两侧留白 */
+			padding: 15px 5%; 
 			position: sticky;
 			top: 0;
 			z-index: 99999;
@@ -38,6 +38,11 @@
 			box-sizing: border-box;
 		}
 
+		/* 姓名与职位头衔组合 */
+		.my-clean-logo {
+			display: flex;
+			flex-direction: column;
+		}
 		.my-clean-logo a {
 			color: #ffffff;
 			text-decoration: none;
@@ -45,11 +50,19 @@
 			font-weight: bold;
 			letter-spacing: 1px;
 			transition: color 0.3s ease;
+			line-height: 1;
 		}
-		
 		.my-clean-logo a:hover {
 			color: #ff9800;
 			text-decoration: none;
+		}
+		.job-title {
+			color: #ff9800; /* 橙色高亮职位，极其吸睛 */
+			font-size: 14px;
+			font-weight: 600;
+			letter-spacing: 2px;
+			margin-top: 6px;
+			text-transform: uppercase;
 		}
 
 		.my-clean-nav {
@@ -58,7 +71,7 @@
 			margin: 0;
 			padding: 0;
 			align-items: center;
-			flex-wrap: wrap; /* 空间不够自动换行 */
+			flex-wrap: wrap; 
 		}
 
 		.my-clean-nav li {
@@ -81,35 +94,34 @@
 			text-decoration: none;
 		}
 
-		/* 移动端与平板自适应：屏幕小于 768px 时，上下排列居中对齐 */
 		@media (max-width: 768px) {
-			.my-clean-header {
-				flex-direction: column;
-				justify-content: center;
-				padding: 15px;
-			}
-			.my-clean-nav {
-				margin-top: 15px;
-				justify-content: center;
-			}
-			.my-clean-nav li {
-				margin: 5px 15px;
-			}
+			.my-clean-header { flex-direction: column; justify-content: center; padding: 15px; }
+			.my-clean-logo { align-items: center; }
+			.my-clean-nav { margin-top: 15px; justify-content: center; }
+			.my-clean-nav li { margin: 5px 15px; }
 		}
 
 		/* --- 页面其余板块样式 --- */
-		.project-section-title { font-size: 40px; font-weight: bold; margin-bottom: 50px; color: #000; }
-		.project-item { margin-bottom: 60px; }
-		.project-item img { width: 100%; object-fit: cover; border-radius: 4px; }
-		.project-title { font-size: 32px; font-weight: bold; margin: 0 0 20px 0; color: #000; }
-		.project-desc { font-size: 16px; color: #555; line-height: 1.8; margin-bottom: 30px; text-align: justify; }
-		.project-btn { background-color: #000; color: #fff; padding: 12px 30px; font-size: 16px; font-weight: 500; text-decoration: none; display: inline-block; border-radius: 2px; transition: 0.3s; }
+		.hero-welcome { text-align: center; margin: 60px 0 20px 0; }
+		.hero-welcome h2 { font-size: 42px; font-weight: 800; color: #111; }
+		.hero-welcome p { font-size: 18px; color: #666; max-width: 700px; margin: 15px auto 0; line-height: 1.6; }
+
+		.project-section-title { font-size: 32px; font-weight: bold; margin-bottom: 50px; color: #000; border-bottom: 3px solid #ff9800; display: inline-block; padding-bottom: 10px; }
+		.project-item { margin-bottom: 80px; align-items: center; } /* 增加项目间距，居中对齐 */
+		.project-item img { width: 100%; object-fit: cover; border-radius: 6px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+		.project-title { font-size: 32px; font-weight: bold; margin: 0 0 15px 0; color: #000; }
+		.project-desc { font-size: 16px; color: #555; line-height: 1.8; margin-bottom: 25px; text-align: justify; }
+		.project-btn { background-color: #0f0f1b; color: #fff; padding: 12px 30px; font-size: 16px; font-weight: 600; text-decoration: none; display: inline-block; border-radius: 4px; transition: 0.3s; }
 		.project-btn:hover { background-color: #ff9800; color: #fff; text-decoration: none; }
 
 		.center-section { padding: 80px 0; text-align: center; }
 		.center-title { font-size: 36px; font-weight: bold; margin-bottom: 30px; color: #000; }
 		.center-content { font-size: 16px; color: #555; line-height: 1.8; max-width: 800px; margin: 0 auto; }
-		.skill-tag { display: inline-block; padding: 8px 20px; background: #eee; color: #333; margin: 5px; border-radius: 20px; font-weight: 600; font-size: 14px; }
+		
+		/* 联系方式链接样式 */
+		.contact-link { display: inline-block; margin: 10px 20px; color: #333; font-size: 18px; font-weight: 600; text-decoration: none; transition: 0.3s; }
+		.contact-link i { margin-right: 8px; color: #ff9800; }
+		.contact-link:hover { color: #ff9800; text-decoration: none; }
 	</style>
 </head>
 
@@ -118,61 +130,27 @@
 	<header class="my-clean-header">
 		<div class="my-clean-logo">
 			<a href="index.html" title="Xuehan Li - Portfolio">XUEHAN LI</a>
+			<span class="job-title">Level Designer</span>
 		</div>
 		<ul class="my-clean-nav">
 			<li><a href="index.html">HOME</a></li>
-			<li><a href="#work" class="scroll">PROJECT</a></li>
+			<li><a href="#work" class="scroll">PROJECTS</a></li>
 			<li><a href="#about" class="scroll">ABOUT</a></li>
-			<li><a href="#skills" class="scroll">SKILLS</a></li>
+			<li><a href="#resume" class="scroll">RESUME</a></li>
 		</ul>
 	</header>
-	<div class="banner">
-		<div class="slider">
-			<div class="callbacks_container">
-				<ul class="rslides" id="slider3">
-					<li>
-						<div class="slider-img">
-							<img src="images/banner1.jpg" class="img-responsive" alt="Project 1">
-						</div>
-						<div class="slider-info">
-							<h4>Project 1</h4>
-							<p>Soulslike Map Layout & Graph Topology</p>
-							<a href="#work" class="hvr-shutter-in-horizontal scroll">View Details</a>
-						</div>
-					</li>
-					<li>
-						<div class="slider-img">
-							<img src="images/banner2.jpg" class="img-responsive" alt="Project 2">
-						</div>
-						<div class="slider-info">
-							<h4>Project 2</h4>
-							<p>Starfield Custom Mod & Survival Mechanics</p>
-							<a href="#work" class="hvr-shutter-in-horizontal scroll">View Details</a>
-						</div>
-					</li>
-					<li>
-						<div class="slider-img">
-							<img src="images/banner3.jpg" class="img-responsive" alt="Project 3">
-						</div>
-						<div class="slider-info">
-							<h4>Project 3</h4>
-							<p>PICO-8 Retro Game Development</p>
-							<a href="#work" class="hvr-shutter-in-horizontal scroll">View Details</a>
-						</div>
-					</li>
-				</ul>
-			</div>
-			<div class="clearfix"></div>
-		</div>
+	<div class="hero-welcome container">
+		<h2>Selected Works</h2>
+		<p>Crafting structural logic, exploring spatial topology, and delivering deeply engaging environmental experiences.</p>
 	</div>
-	<div id="work" class="container" style="padding: 80px 0;">
-		<h2 class="project-section-title">Projects</h2>
+
+	<div id="work" class="container" style="padding: 40px 0 80px 0;">
 		
 		<div class="row project-item">
-			<div class="col-md-5">
-				<img src="images/g1.jpg" alt="Project 1 Image" class="img-responsive">
+			<div class="col-md-6">
+				<a href="project1.html"><img src="images/g1.jpg" alt="Project 1 Image" class="img-responsive"></a>
 			</div>
-			<div class="col-md-7">
+			<div class="col-md-6">
 				<h3 class="project-title">Soulslike Level Layout</h3>
 				<p class="project-desc">This project focuses on the quantitative analysis of Soulslike level layouts and diorama generation based on graph topological features. Using the Dying Light engine, I designed complex non-linear paths, optimized loop rates, and tested stability factors to create deeply engaging player experiences.</p>
 				<a href="project1.html" class="project-btn">View Project</a>
@@ -180,10 +158,10 @@
 		</div>
 
 		<div class="row project-item">
-			<div class="col-md-5">
-				<img src="images/g2.jpg" alt="Project 2 Image" class="img-responsive">
+			<div class="col-md-6">
+				<a href="project2.html"><img src="images/g2.jpg" alt="Project 2 Image" class="img-responsive"></a>
 			</div>
-			<div class="col-md-7">
+			<div class="col-md-6">
 				<h3 class="project-title">Starfield Survival Mod</h3>
 				<p class="project-desc">A custom survival mode mod developed using the Starfield Creation Kit, heavily inspired by Call of Duty Zombies mechanics. Key features include iterative wave control logic, custom weapon upgrade stations, and a carefully balanced spatial loop design for intense combat scenarios.</p>
 				<a href="project2.html" class="project-btn">View Project</a>
@@ -191,10 +169,10 @@
 		</div>
 
 		<div class="row project-item">
-			<div class="col-md-5">
-				<img src="images/g3.jpg" alt="Project 3 Image" class="img-responsive">
+			<div class="col-md-6">
+				<a href="project3.html"><img src="images/g3.jpg" alt="Project 3 Image" class="img-responsive"></a>
 			</div>
-			<div class="col-md-7">
+			<div class="col-md-6">
 				<h3 class="project-title">PICO-8 Retro Minigame</h3>
 				<p class="project-desc">A retro-style game built from scratch using the PICO-8 virtual console. This project showcases scripting of complex game loops, custom collision detection algorithms, and handcrafted sound effects and music simulated directly within the PICO-8 editor.</p>
 				<a href="project3.html" class="project-btn">View Project</a>
@@ -209,23 +187,26 @@
 			</p>
 		</div>
 	</div>
-	<div id="skills" class="center-section">
+	<div id="resume" class="center-section">
 		<div class="container">
-			<h2 class="center-title">Skills</h2>
+			<h2 class="center-title">Resume & Contact</h2>
 			<div class="center-content">
-				<p style="margin-bottom: 25px;">Here are some of the tools, engines, and concepts I work with daily to bring virtual worlds to life:</p>
-				<div>
-					<span class="skill-tag">Level Design</span>
-					<span class="skill-tag">Unreal Engine 5</span>
-					<span class="skill-tag">Starfield Creation Kit</span>
-					<span class="skill-tag">Dying Light Engine</span>
-					<span class="skill-tag">Graph Topology</span>
-					<span class="skill-tag">Papyrus Scripting</span>
-					<span class="skill-tag">PICO-8</span>
-					<span class="skill-tag">Spatial Storytelling</span>
-					<span class="skill-tag">Greyboxing</span>
-					<span class="skill-tag">Architecture</span>
+				<p style="margin-bottom: 30px; font-size: 18px;">
+					Let's build incredible worlds together. Feel free to reach out via email or connect with me on LinkedIn.
+				</p>
+				
+				<div style="margin-bottom: 40px;">
+					<a href="mailto:your.email@example.com" class="contact-link">
+						<i class="fa fa-envelope"></i> your.email@example.com
+					</a>
+					<a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-link">
+						<i class="fa fa-linkedin-square"></i> LinkedIn Profile
+					</a>
 				</div>
+				
+				<a href="Resume_XuehanLi.pdf" target="_blank" class="project-btn" style="padding: 15px 40px; font-size: 18px;">
+					<i class="fa fa-download" style="margin-right: 10px;"></i> Download Resume (PDF)
+				</a>
 			</div>
 		</div>
 	</div>
@@ -235,24 +216,6 @@
 		</div>
 	</div>
 	<script src="js/jquery-2.2.3.min.js"></script>
-	<script src="js/responsiveslides.min.js"></script>
-	<script>
-		$(function () {
-			$("#slider3").responsiveSlides({
-				auto: true,
-				pager: false,
-				nav: true,
-				speed: 500,
-				namespace: "callbacks",
-				before: function () {
-					$('.events').append("<li>before event fired.</li>");
-				},
-				after: function () {
-					$('.events').append("<li>after event fired.</li>");
-				}
-			});
-		});
-	</script>
 	<script type="text/javascript" src="js/move-top.js"></script>
 	<script type="text/javascript" src="js/easing.js"></script>
 	<script type="text/javascript">
