@@ -1,95 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<title>Project 2 | Xuehan Li</title>
+	<title>Xuehan Li | Level Design Portfolio</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Xuehan Li, Level Design, Portfolio, Game Developer, Unreal Engine" />
 	
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/font-awesome.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Jura:300,400,500,600" rel="stylesheet">
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 
 	<style>
-		body { margin: 0; padding: 0; font-family: 'Open Sans', sans-serif; background-color: #f7f7f7; color: #333; }
+		/* 基础重置 */
+		body { background-color: #f7f7f9; }
 
-		/* --- 导航栏样式 (与主页绝对一致) --- */
-		.my-clean-header { display: flex; justify-content: space-between; align-items: center; background: #0f0f1b; padding: 15px 5%; position: sticky; top: 0; z-index: 99999; box-shadow: 0 2px 10px rgba(0,0,0,0.5); width: 100%; box-sizing: border-box; }
-		.my-clean-logo a { color: #ffffff; text-decoration: none; font-size: 32px; font-weight: bold; letter-spacing: 1px; transition: color 0.3s ease; }
-		.my-clean-logo a:hover { color: #ff9800; }
+		/* --- 导航栏与下拉菜单 --- */
+		.my-clean-header {
+			display: flex; justify-content: space-between; align-items: center;
+			background: #0f0f1b; padding: 15px 5%; position: sticky; top: 0;
+			z-index: 99999; box-shadow: 0 2px 10px rgba(0,0,0,0.5); width: 100%; box-sizing: border-box;
+		}
+		
+		.my-clean-logo { display: flex; flex-direction: column; }
+		.my-clean-logo a { color: #ffffff; text-decoration: none; font-size: 32px; font-weight: bold; letter-spacing: 1px; transition: color 0.3s ease; line-height: 1; }
+		.my-clean-logo a:hover { color: #ff9800; text-decoration: none; }
+		.job-title { color: #ff9800; font-size: 14px; font-weight: 600; letter-spacing: 2px; margin-top: 6px; text-transform: uppercase; }
+
 		.my-clean-nav { display: flex; list-style: none; margin: 0; padding: 0; align-items: center; flex-wrap: wrap; }
-		.my-clean-nav li { margin-left: 40px; }
-		.my-clean-nav a { color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 600; text-transform: uppercase; transition: color 0.3s ease; display: block; padding: 5px 0; }
-		.my-clean-nav a:hover { color: #ff9800; }
+		.my-clean-nav li { margin-left: 40px; position: relative; } 
+		.my-clean-nav a { color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 600; text-transform: uppercase; transition: color 0.3s ease; display: block; padding: 15px 0; }
+		.my-clean-nav a:hover { color: #ff9800; text-decoration: none; }
 
-		@media (max-width: 768px) {
-			.my-clean-header { flex-direction: column; justify-content: center; padding: 15px; }
-			.my-clean-nav { margin-top: 15px; justify-content: center; }
-			.my-clean-nav li { margin: 5px 15px; }
+		.dropdown-content {
+			display: none; position: absolute; background-color: #1a1a24;
+			min-width: 250px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+			z-index: 1; top: 100%; left: 0; border-radius: 4px; padding: 10px 0;
+		}
+		.dropdown:hover .dropdown-content { display: block; }
+		
+		.dropdown-content a { color: #fff; padding: 10px 20px; text-decoration: none; display: block; font-size: 13px; text-transform: none; font-weight: 400; transition: 0.2s; border-left: 3px solid transparent; }
+		.dropdown-content a:hover { background-color: #2a2a3d; color: #ff9800; border-left: 3px solid #ff9800; }
+		
+		.dropdown-category-title {
+			padding: 10px 20px 5px 20px; color: #777; font-size: 11px;
+			text-transform: uppercase; letter-spacing: 1px; font-weight: bold;
+			border-bottom: 1px solid #333; margin-bottom: 5px; margin-top: 5px; pointer-events: none;
 		}
 
-		/* --- 详情页排版 --- */
-		.project-detail-container { max-width: 1000px; margin: 50px auto; padding: 40px; background: #ffffff; box-shadow: 0 5px 25px rgba(0,0,0,0.05); border-radius: 8px; box-sizing: border-box; }
-		.project-header { text-align: center; margin-bottom: 40px; }
-		.project-header h1 { font-size: 42px; font-weight: 800; margin: 0 0 15px 0; color: #111; }
-		.project-header p.subtitle { font-size: 18px; color: #777; margin: 0; }
+		/* --- 项目网格排版 (Grid) --- */
+		.portfolio-section { padding: 40px 0; }
+		.section-heading { font-size: 32px; font-weight: bold; color: #111; margin-bottom: 30px; border-bottom: 3px solid #ff9800; display: inline-block; padding-bottom: 10px; }
+		
+		.portfolio-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+			gap: 30px;
+			margin-bottom: 40px;
+		}
+		
+		.portfolio-card {
+			background: #fff; border-radius: 8px; overflow: hidden;
+			box-shadow: 0 4px 15px rgba(0,0,0,0.06); transition: transform 0.3s ease, box-shadow 0.3s ease;
+			display: flex; flex-direction: column;
+		}
+		.portfolio-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+		
+		.card-img-wrapper { height: 200px; width: 100%; overflow: hidden; background: #222; }
+		.card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+		.portfolio-card:hover .card-img-wrapper img { transform: scale(1.05); }
+		
+		.card-content { padding: 25px 20px; flex-grow: 1; display: flex; flex-direction: column; }
+		.card-title { font-size: 20px; font-weight: 800; margin: 0 0 10px 0; color: #111; }
+		.card-desc { font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
+		
+		.card-btn {
+			background: #0f0f1b; color: #fff; padding: 10px 15px; text-align: center;
+			border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 14px; transition: 0.3s;
+		}
+		.card-btn:hover { background: #ff9800; color: #fff; text-decoration: none; }
 
-		.video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 6px; background: #000; margin-bottom: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-		.video-wrapper iframe, .video-wrapper video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+		/* --- About & Contact 板块 --- */
+		.center-section { padding: 80px 0; text-align: center; background: #fff; border-top: 1px solid #eaeaea; }
+		.center-title { font-size: 36px; font-weight: bold; margin-bottom: 30px; color: #000; }
+		.center-content { font-size: 16px; color: #555; line-height: 1.8; max-width: 800px; margin: 0 auto; }
+		
+		/* 专门为众多联系方式设计的网格系统 */
+		.contact-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+			gap: 15px;
+			margin-bottom: 40px;
+			text-align: left;
+			max-width: 800px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.contact-link {
+			display: flex; align-items: center; padding: 12px 15px; background: #fff; 
+			border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); color: #444; 
+			font-size: 14px; font-weight: 600; text-decoration: none; transition: 0.3s;
+			border: 1px solid #f0f0f0;
+		}
+		.contact-link i { margin-right: 12px; color: #ff9800; font-size: 18px; width: 20px; text-align: center; }
+		.contact-link:hover { color: #fff; background: #ff9800; text-decoration: none; transform: translateY(-3px); box-shadow: 0 6px 15px rgba(255,152,0,0.3); border-color: #ff9800;}
+		.contact-link:hover i { color: #fff; }
 
-		.content-section { margin-bottom: 50px; }
-		.content-section h2 { font-size: 28px; font-weight: bold; color: #111; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 3px solid #ff9800; display: inline-block; }
-		.content-section p { font-size: 16px; line-height: 1.8; color: #444; text-align: justify; margin-bottom: 15px; }
+		.resume-btn { background-color: #0f0f1b; color: #fff; padding: 15px 40px; font-size: 18px; font-weight: 600; text-decoration: none; display: inline-block; border-radius: 4px; transition: 0.3s; margin-top: 10px;}
+		.resume-btn:hover { background-color: #ff9800; color: #fff; text-decoration: none; }
 
-		.back-btn-container { text-align: center; margin-top: 60px; border-top: 1px solid #eee; padding-top: 40px; }
-		.back-btn { background-color: #0f0f1b; color: #fff; padding: 12px 35px; font-size: 16px; font-weight: 600; text-decoration: none; border-radius: 4px; transition: background-color 0.3s ease; display: inline-block; }
-		.back-btn:hover { background-color: #ff9800; }
-
-		@media (max-width: 1024px) { .project-detail-container { margin: 30px 20px; padding: 30px 20px; } }
+		/* 移动端适配 */
+		@media (max-width: 768px) {
+			.my-clean-header { flex-direction: column; padding: 15px; }
+			.my-clean-logo { align-items: center; }
+			.my-clean-nav { margin-top: 15px; width: 100%; justify-content: center; }
+			.my-clean-nav li { margin: 5px 10px; }
+			.dropdown-content { position: static; display: none; box-shadow: none; background: #222; width: 100%; }
+			.dropdown:hover .dropdown-content { display: block; }
+			.contact-grid { grid-template-columns: 1fr; }
+		}
 	</style>
 </head>
-
-<body>
-	
-	<header class="my-clean-header">
-		<div class="my-clean-logo">
-			<a href="index.html" title="Xuehan Li - Portfolio">XUEHAN LI</a>
-		</div>
-		<ul class="my-clean-nav">
-			<li><a href="index.html">HOME</a></li>
-			<li><a href="index.html#work">PROJECT</a></li>
-			<li><a href="index.html#about">ABOUT</a></li>
-			<li><a href="index.html#skills">SKILLS</a></li>
-		</ul>
-	</header>
 
 	<div class="project-detail-container">
 		
 		<div class="project-header">
-			<h1>Project 2: Starfield Survival Mod</h1>
-			<p class="subtitle">Custom Survival Mechanics & Wave Control Logic</p>
+			<h1>Thesis: Souls-like Topology</h1>
+			<p class="subtitle">Quantitative Research on Level Shortcuts & Diorama Pacing</p>
 		</div>
 
 		<div class="video-wrapper">
-			<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Project 2 Video Placeholder" allowfullscreen></iframe>
+			<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Thesis Video Placeholder" allowfullscreen></iframe>
 		</div>
 
 		<div class="content-section">
 			<h2>Project Introduction</h2>
-			<p>Here you will describe the core concept of the Starfield Survival Mod. Explain how it was inspired by Call of Duty Zombies and what unique twists you brought to the Starfield universe.</p>
-			<p>Detail your experience using the Starfield Creation Kit and Papyrus scripting to implement custom weapon upgrade stations and balanced spatial loops for intense combat.</p>
+			<p>This master's thesis focuses on establishing a "Golden Benchmark" for non-linear 3D level design, heavily inspired by the intricate map structures found in Souls-like games. It aims to decode the magic behind interconnectivity, verticality, and reward-driven exploration through the lens of graph theory.</p>
 		</div>
 
 		<div class="content-section">
-			<h2>Project Analysis</h2>
-			<p>Here you will dive deep into the technical design. Explain the iterative scripting process for the wave control logic. How did you manage enemy spawning, pacing, and player progression?</p>
-			<p>You can add specific breakdown charts or Papyrus script logic screenshots here to demonstrate your technical level design skills to the interviewers.</p>
+			<h2>My Contributions</h2>
+			<ul class="contribution-list">
+				<li><strong>Research & Methodology:</strong> Formulated mathematical models integrating directed edges and cognitive load to quantify spatial complexity.</li>
+				<li><strong>Engine Implementation:</strong> Utilized the Dying Light Engine to build diorama test maps, validating theoretical topological structures in a playable 3D space.</li>
+				<li><strong>Architectural Integration:</strong> Applied real-world architectural principles (spatial syntax, courtyard layering, scenic borrowing) to control sightlines and navigation.</li>
+				<li><strong>Data Analysis:</strong> Documented the correlation between loop rates, shortcut unlock pacing, and player satisfaction.</li>
+			</ul>
+		</div>
+
+		<div class="content-section">
+			<h2>Design Analysis</h2>
+			<p>A key finding in this project is the "Extended Stability Factor," which addresses the limitations of 2D abstraction when designing vertically stacked 3D environments. By mapping out nodes (checkpoints) and edges (paths/shortcuts), I calculated the optimal topological depth required before a player experiences cognitive fatigue.</p>
+			<p>The practical application of this research allows for the systematic generation of levels that feel highly organic yet are meticulously structured to guide player movement and combat pacing naturally.</p>
 		</div>
 
 		<div class="back-btn-container">
-			<a href="index.html" class="back-btn">← Back to Portfolio</a>
+			<a href="index.html#work" class="back-btn">← Back to Portfolio</a>
 		</div>
 
 	</div>
-
 </body>
 </html>
