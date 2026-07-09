@@ -31,17 +31,15 @@
 		.job-title { color: #ff9800; font-size: 14px; font-weight: 600; letter-spacing: 2px; margin-top: 6px; text-transform: uppercase; }
 
 		.my-clean-nav { display: flex; list-style: none; margin: 0; padding: 0; align-items: center; flex-wrap: wrap; }
-		.my-clean-nav li { margin-left: 40px; position: relative; } /* position relative 给下拉菜单定位用 */
+		.my-clean-nav li { margin-left: 40px; position: relative; } 
 		.my-clean-nav a { color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 600; text-transform: uppercase; transition: color 0.3s ease; display: block; padding: 15px 0; }
 		.my-clean-nav a:hover { color: #ff9800; text-decoration: none; }
 
-		/* 核心：项目下拉菜单样式 */
 		.dropdown-content {
 			display: none; position: absolute; background-color: #1a1a24;
-			min-width: 240px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+			min-width: 250px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
 			z-index: 1; top: 100%; left: 0; border-radius: 4px; padding: 10px 0;
 		}
-		/* 悬停显示下拉菜单 */
 		.dropdown:hover .dropdown-content { display: block; }
 		
 		.dropdown-content a { color: #fff; padding: 10px 20px; text-decoration: none; display: block; font-size: 13px; text-transform: none; font-weight: 400; transition: 0.2s; border-left: 3px solid transparent; }
@@ -85,15 +83,34 @@
 		}
 		.card-btn:hover { background: #ff9800; color: #fff; text-decoration: none; }
 
-		/* --- Resume/Contact 板块 --- */
+		/* --- About & Contact 板块 --- */
 		.center-section { padding: 80px 0; text-align: center; background: #fff; border-top: 1px solid #eaeaea; }
 		.center-title { font-size: 36px; font-weight: bold; margin-bottom: 30px; color: #000; }
 		.center-content { font-size: 16px; color: #555; line-height: 1.8; max-width: 800px; margin: 0 auto; }
-		.contact-link { display: inline-block; margin: 10px 20px; color: #333; font-size: 18px; font-weight: 600; text-decoration: none; transition: 0.3s; }
-		.contact-link i { margin-right: 8px; color: #ff9800; }
-		.contact-link:hover { color: #ff9800; text-decoration: none; }
-		.resume-btn { background-color: #0f0f1b; color: #fff; padding: 15px 40px; font-size: 18px; font-weight: 600; text-decoration: none; display: inline-block; border-radius: 4px; transition: 0.3s; margin-top: 20px;}
-		.resume-btn:hover { background-color: #ff9800; color: #fff; }
+		
+		/* 专门为众多联系方式设计的网格系统 */
+		.contact-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+			gap: 15px;
+			margin-bottom: 40px;
+			text-align: left;
+			max-width: 800px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.contact-link {
+			display: flex; align-items: center; padding: 12px 15px; background: #fff; 
+			border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); color: #444; 
+			font-size: 14px; font-weight: 600; text-decoration: none; transition: 0.3s;
+			border: 1px solid #f0f0f0;
+		}
+		.contact-link i { margin-right: 12px; color: #ff9800; font-size: 18px; width: 20px; text-align: center; }
+		.contact-link:hover { color: #fff; background: #ff9800; text-decoration: none; transform: translateY(-3px); box-shadow: 0 6px 15px rgba(255,152,0,0.3); border-color: #ff9800;}
+		.contact-link:hover i { color: #fff; }
+
+		.resume-btn { background-color: #0f0f1b; color: #fff; padding: 15px 40px; font-size: 18px; font-weight: 600; text-decoration: none; display: inline-block; border-radius: 4px; transition: 0.3s; margin-top: 10px;}
+		.resume-btn:hover { background-color: #ff9800; color: #fff; text-decoration: none; }
 
 		/* 移动端适配 */
 		@media (max-width: 768px) {
@@ -103,6 +120,7 @@
 			.my-clean-nav li { margin: 5px 10px; }
 			.dropdown-content { position: static; display: none; box-shadow: none; background: #222; width: 100%; }
 			.dropdown:hover .dropdown-content { display: block; }
+			.contact-grid { grid-template-columns: 1fr; }
 		}
 	</style>
 </head>
@@ -131,8 +149,7 @@
 					<a href="project_containment.html">Invalidprescription</a>
 					<a href="project_containment.html">Escape from Power Plant</a>
 					<a href="project_containment.html">Coldfront (Quake 3)</a>
-					
-					<div class="dropdown-category-title">Game Jams</div>
+					<a href="project_containment.html">Beast Motos (Board Game)</a> <div class="dropdown-category-title">Game Jams</div>
 					<a href="project_containment.html">GGJ 2024: Make me laugh</a>
 					<a href="project_containment.html">LD 54: Summon</a>
 					<a href="project_containment.html">GMTK 2024: Build to scale</a>
@@ -140,7 +157,7 @@
 			</li>
 			
 			<li><a href="#about" class="scroll">ABOUT</a></li>
-			<li><a href="#resume" class="scroll">RESUME</a></li>
+			<li><a href="#contact" class="scroll">CONTACT</a></li>
 		</ul>
 	</header>
 
@@ -216,6 +233,14 @@
 					<a href="project_containment.html" class="card-btn">View Project</a>
 				</div>
 			</div>
+			<div class="portfolio-card">
+				<div class="card-img-wrapper"><img src="images/ab.jpg" alt="Beast Motos"></div>
+				<div class="card-content">
+					<h3 class="card-title">Beast Motos</h3>
+					<p class="card-desc">Tabletop Board Game. Designed core rulesets, tested numerical balance, and conducted extensive paper prototyping for player interactions.</p>
+					<a href="project_containment.html" class="card-btn">View Project</a>
+				</div>
+			</div>
 		</div>
 
 		<h2 class="section-heading">Game Jams</h2>
@@ -256,20 +281,35 @@
 		</div>
 	</div>
 
-	<div id="resume" class="center-section" style="background-color: #f7f7f9;">
+	<div id="contact" class="center-section" style="background-color: #f7f7f9;">
 		<div class="container">
-			<h2 class="center-title">Resume & Contact</h2>
+			<h2 class="center-title">Contact & Resume</h2>
 			<div class="center-content">
-				<p style="margin-bottom: 30px; font-size: 18px;">
-					Let's build incredible worlds together. Feel free to reach out via email or connect with me on LinkedIn.
+				<p style="margin-bottom: 40px; font-size: 18px;">
+					Let's build incredible worlds together. Feel free to reach out to me via any of the platforms below!
 				</p>
 				
-				<div style="margin-bottom: 40px;">
+				<div class="contact-grid">
 					<a href="mailto:your.email@example.com" class="contact-link">
 						<i class="fa fa-envelope"></i> your.email@example.com
 					</a>
+					<a href="tel:+1234567890" class="contact-link">
+						<i class="fa fa-phone"></i> +1 (234) 567-890
+					</a>
 					<a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-link">
 						<i class="fa fa-linkedin-square"></i> LinkedIn
+					</a>
+					<a href="https://space.bilibili.com/yourID" target="_blank" class="contact-link">
+						<i class="fa fa-television"></i> Bilibili Channel
+					</a>
+					<a href="#" class="contact-link">
+						<i class="fa fa-weixin"></i> WeChat: YourWeChatID
+					</a>
+					<a href="#" class="contact-link">
+						<i class="fa fa-qq"></i> QQ: YourQQNumber
+					</a>
+					<a href="https://github.com/yourgithub" target="_blank" class="contact-link">
+						<i class="fa fa-github"></i> GitHub (Scripts & Logic)
 					</a>
 				</div>
 				
@@ -290,7 +330,6 @@
 	<script type="text/javascript">
 		jQuery(document).ready(function ($) {
 			$(".scroll").click(function (event) {
-				// 如果是下拉菜单中的链接，并且带有锚点，就正常跳转
 				if(this.hash) {
 					event.preventDefault();
 					$('html,body').animate({
