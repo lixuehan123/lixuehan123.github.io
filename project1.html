@@ -1,95 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<title>Project 1 | Xuehan Li</title>
+	<title>Xuehan Li | Level Design Portfolio</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Xuehan Li, Level Design, Portfolio, Game Developer, Unreal Engine" />
 	
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/font-awesome.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Jura:300,400,500,600" rel="stylesheet">
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 
 	<style>
-		body { margin: 0; padding: 0; font-family: 'Open Sans', sans-serif; background-color: #f7f7f7; color: #333; }
+		/* 基础重置 */
+		body { background-color: #f7f7f9; }
 
-		/* --- 导航栏样式 (与主页绝对一致) --- */
-		.my-clean-header { display: flex; justify-content: space-between; align-items: center; background: #0f0f1b; padding: 15px 5%; position: sticky; top: 0; z-index: 99999; box-shadow: 0 2px 10px rgba(0,0,0,0.5); width: 100%; box-sizing: border-box; }
-		.my-clean-logo a { color: #ffffff; text-decoration: none; font-size: 32px; font-weight: bold; letter-spacing: 1px; transition: color 0.3s ease; }
-		.my-clean-logo a:hover { color: #ff9800; }
+		/* --- 导航栏与下拉菜单 --- */
+		.my-clean-header {
+			display: flex; justify-content: space-between; align-items: center;
+			background: #0f0f1b; padding: 15px 5%; position: sticky; top: 0;
+			z-index: 99999; box-shadow: 0 2px 10px rgba(0,0,0,0.5); width: 100%; box-sizing: border-box;
+		}
+		
+		.my-clean-logo { display: flex; flex-direction: column; }
+		.my-clean-logo a { color: #ffffff; text-decoration: none; font-size: 32px; font-weight: bold; letter-spacing: 1px; transition: color 0.3s ease; line-height: 1; }
+		.my-clean-logo a:hover { color: #ff9800; text-decoration: none; }
+		.job-title { color: #ff9800; font-size: 14px; font-weight: 600; letter-spacing: 2px; margin-top: 6px; text-transform: uppercase; }
+
 		.my-clean-nav { display: flex; list-style: none; margin: 0; padding: 0; align-items: center; flex-wrap: wrap; }
-		.my-clean-nav li { margin-left: 40px; }
-		.my-clean-nav a { color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 600; text-transform: uppercase; transition: color 0.3s ease; display: block; padding: 5px 0; }
-		.my-clean-nav a:hover { color: #ff9800; }
+		.my-clean-nav li { margin-left: 40px; position: relative; } 
+		.my-clean-nav a { color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 600; text-transform: uppercase; transition: color 0.3s ease; display: block; padding: 15px 0; }
+		.my-clean-nav a:hover { color: #ff9800; text-decoration: none; }
 
-		@media (max-width: 768px) {
-			.my-clean-header { flex-direction: column; justify-content: center; padding: 15px; }
-			.my-clean-nav { margin-top: 15px; justify-content: center; }
-			.my-clean-nav li { margin: 5px 15px; }
+		.dropdown-content {
+			display: none; position: absolute; background-color: #1a1a24;
+			min-width: 250px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+			z-index: 1; top: 100%; left: 0; border-radius: 4px; padding: 10px 0;
+		}
+		.dropdown:hover .dropdown-content { display: block; }
+		
+		.dropdown-content a { color: #fff; padding: 10px 20px; text-decoration: none; display: block; font-size: 13px; text-transform: none; font-weight: 400; transition: 0.2s; border-left: 3px solid transparent; }
+		.dropdown-content a:hover { background-color: #2a2a3d; color: #ff9800; border-left: 3px solid #ff9800; }
+		
+		.dropdown-category-title {
+			padding: 10px 20px 5px 20px; color: #777; font-size: 11px;
+			text-transform: uppercase; letter-spacing: 1px; font-weight: bold;
+			border-bottom: 1px solid #333; margin-bottom: 5px; margin-top: 5px; pointer-events: none;
 		}
 
-		/* --- 详情页排版 --- */
-		.project-detail-container { max-width: 1000px; margin: 50px auto; padding: 40px; background: #ffffff; box-shadow: 0 5px 25px rgba(0,0,0,0.05); border-radius: 8px; box-sizing: border-box; }
-		.project-header { text-align: center; margin-bottom: 40px; }
-		.project-header h1 { font-size: 42px; font-weight: 800; margin: 0 0 15px 0; color: #111; }
-		.project-header p.subtitle { font-size: 18px; color: #777; margin: 0; }
+		/* --- 项目网格排版 (Grid) --- */
+		.portfolio-section { padding: 40px 0; }
+		.section-heading { font-size: 32px; font-weight: bold; color: #111; margin-bottom: 30px; border-bottom: 3px solid #ff9800; display: inline-block; padding-bottom: 10px; }
+		
+		.portfolio-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+			gap: 30px;
+			margin-bottom: 40px;
+		}
+		
+		.portfolio-card {
+			background: #fff; border-radius: 8px; overflow: hidden;
+			box-shadow: 0 4px 15px rgba(0,0,0,0.06); transition: transform 0.3s ease, box-shadow 0.3s ease;
+			display: flex; flex-direction: column;
+		}
+		.portfolio-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+		
+		.card-img-wrapper { height: 200px; width: 100%; overflow: hidden; background: #222; }
+		.card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+		.portfolio-card:hover .card-img-wrapper img { transform: scale(1.05); }
+		
+		.card-content { padding: 25px 20px; flex-grow: 1; display: flex; flex-direction: column; }
+		.card-title { font-size: 20px; font-weight: 800; margin: 0 0 10px 0; color: #111; }
+		.card-desc { font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
+		
+		.card-btn {
+			background: #0f0f1b; color: #fff; padding: 10px 15px; text-align: center;
+			border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 14px; transition: 0.3s;
+		}
+		.card-btn:hover { background: #ff9800; color: #fff; text-decoration: none; }
 
-		.video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 6px; background: #000; margin-bottom: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-		.video-wrapper iframe, .video-wrapper video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+		/* --- About & Contact 板块 --- */
+		.center-section { padding: 80px 0; text-align: center; background: #fff; border-top: 1px solid #eaeaea; }
+		.center-title { font-size: 36px; font-weight: bold; margin-bottom: 30px; color: #000; }
+		.center-content { font-size: 16px; color: #555; line-height: 1.8; max-width: 800px; margin: 0 auto; }
+		
+		/* 专门为众多联系方式设计的网格系统 */
+		.contact-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+			gap: 15px;
+			margin-bottom: 40px;
+			text-align: left;
+			max-width: 800px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.contact-link {
+			display: flex; align-items: center; padding: 12px 15px; background: #fff; 
+			border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); color: #444; 
+			font-size: 14px; font-weight: 600; text-decoration: none; transition: 0.3s;
+			border: 1px solid #f0f0f0;
+		}
+		.contact-link i { margin-right: 12px; color: #ff9800; font-size: 18px; width: 20px; text-align: center; }
+		.contact-link:hover { color: #fff; background: #ff9800; text-decoration: none; transform: translateY(-3px); box-shadow: 0 6px 15px rgba(255,152,0,0.3); border-color: #ff9800;}
+		.contact-link:hover i { color: #fff; }
 
-		.content-section { margin-bottom: 50px; }
-		.content-section h2 { font-size: 28px; font-weight: bold; color: #111; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 3px solid #ff9800; display: inline-block; }
-		.content-section p { font-size: 16px; line-height: 1.8; color: #444; text-align: justify; margin-bottom: 15px; }
+		.resume-btn { background-color: #0f0f1b; color: #fff; padding: 15px 40px; font-size: 18px; font-weight: 600; text-decoration: none; display: inline-block; border-radius: 4px; transition: 0.3s; margin-top: 10px;}
+		.resume-btn:hover { background-color: #ff9800; color: #fff; text-decoration: none; }
 
-		.back-btn-container { text-align: center; margin-top: 60px; border-top: 1px solid #eee; padding-top: 40px; }
-		.back-btn { background-color: #0f0f1b; color: #fff; padding: 12px 35px; font-size: 16px; font-weight: 600; text-decoration: none; border-radius: 4px; transition: background-color 0.3s ease; display: inline-block; }
-		.back-btn:hover { background-color: #ff9800; }
-
-		@media (max-width: 1024px) { .project-detail-container { margin: 30px 20px; padding: 30px 20px; } }
+		/* 移动端适配 */
+		@media (max-width: 768px) {
+			.my-clean-header { flex-direction: column; padding: 15px; }
+			.my-clean-logo { align-items: center; }
+			.my-clean-nav { margin-top: 15px; width: 100%; justify-content: center; }
+			.my-clean-nav li { margin: 5px 10px; }
+			.dropdown-content { position: static; display: none; box-shadow: none; background: #222; width: 100%; }
+			.dropdown:hover .dropdown-content { display: block; }
+			.contact-grid { grid-template-columns: 1fr; }
+		}
 	</style>
 </head>
-
 <body>
 	
 	<header class="my-clean-header">
 		<div class="my-clean-logo">
 			<a href="index.html" title="Xuehan Li - Portfolio">XUEHAN LI</a>
+			<span class="job-title">Level Designer</span>
 		</div>
 		<ul class="my-clean-nav">
 			<li><a href="index.html">HOME</a></li>
-			<li><a href="index.html#work">PROJECT</a></li>
+			
+			<li class="dropdown">
+				<a href="index.html#work" class="dropbtn">PROJECTS <i class="fa fa-angle-down"></i></a>
+				<div class="dropdown-content">
+					<div class="dropdown-category-title">Team Projects</div>
+					<a href="#">Petalnaut</a>
+					<a href="#">HamsterBallin</a>
+					<a href="#">Unannounced Project</a>
+					<div class="dropdown-category-title">Personal & Thesis</div>
+					<a href="project1.html">ContainmentBreach (Starfield)</a>
+					<a href="project2.html">Thesis: Souls-like Topology</a>
+					<a href="project3.html">Invalidprescription (Starfield)</a>
+					<a href="#">Escape from Power Plant (Half-Life 2)</a>
+					<a href="#">Coldfront (Quake 3)</a>
+					<a href="#">Beast Motos (Board Game)</a>
+					<div class="dropdown-category-title">Game Jams</div>
+					<a href="#">GGJ 2024: Make me laugh</a>
+					<a href="#">LD 54: Summon</a>
+					<a href="#">GMTK 2024: Build to scale</a>
+				</div>
+			</li>
+			
 			<li><a href="index.html#about">ABOUT</a></li>
-			<li><a href="index.html#skills">SKILLS</a></li>
+			<li><a href="index.html#contact">CONTACT</a></li>
 		</ul>
 	</header>
 
 	<div class="project-detail-container">
 		
 		<div class="project-header">
-			<h1>Project 1: Soulslike Level Layout</h1>
-			<p class="subtitle">Graph Topology Analysis & Diorama Generation</p>
+			<h1>ContainmentBreach</h1>
+			<p class="subtitle">Starfield Custom Level Mod & Survival Mechanics</p>
 		</div>
 
 		<div class="video-wrapper">
-			<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Project 1 Video Placeholder" allowfullscreen></iframe>
+			<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="ContainmentBreach Video Placeholder" allowfullscreen></iframe>
 		</div>
 
 		<div class="content-section">
 			<h2>Project Introduction</h2>
-			<p>Here you will describe the core concept of this Soulslike level design. Explain your approach to applying graph theory to analyze and design complex, non-linear spatial layouts. Discuss how you set up the initial framework and the main objectives of your design.</p>
-			<p>Mention the tools and engines used, specifically how you utilized the Dying Light engine to construct the map and test the topological structures and pathing loop designs.</p>
+			<p>ContainmentBreach is a highly intense, combat-focused custom level developed using the Starfield Creation Kit. Inspired by classic wave-based survival modes, the level traps the player in a heavily fortified facility where they must manage resources, optimize movement, and survive against escalating waves of enemies.</p>
 		</div>
 
 		<div class="content-section">
-			<h2>Project Analysis</h2>
-			<p>Here you will dive deep into the quantitative analysis. Elaborate on the mathematical metrics you used, such as loop rates, stability factors, and path stretch ratios, to evaluate the quality of your level design.</p>
-			<p>You can add specific screenshots of your nodes, diorama visual styles, or graph topology charts here to showcase the depth of your research and layout planning.</p>
+			<h2>My Contributions</h2>
+			<ul class="contribution-list">
+				<li><strong>Level Layout & Greyboxing:</strong> Designed the spatial flow of the facility to encourage circular movement and prevent player camping.</li>
+				<li><strong>Papyrus Scripting:</strong> Authored custom Papyrus scripts to handle iterative wave control logic and dynamic enemy spawning.</li>
+				<li><strong>Custom Upgrade Stations:</strong> Implemented interactive weapon tier upgrade mechanics to reward player progression during the survival loop.</li>
+				<li><strong>Combat Balancing:</strong> Adjusted enemy spawn rates, health scaling, and ammo distribution to ensure a challenging yet fair combat pacing.</li>
+			</ul>
+		</div>
+
+		<div class="content-section">
+			<h2>Design Analysis</h2>
+			<p>The core design philosophy of ContainmentBreach revolves around "Combat Loops and Spatial Tension." By strategically placing chokepoints and vertical transition areas, the player is constantly forced to evaluate their positioning.</p>
+			<p>I utilized the Creation Kit's NavMesh tools to ensure AI enemies flank the player effectively. The wave logic was iterated multiple times through Papyrus to create distinct "rest phases" versus "chaos phases," allowing for narrative pacing even within a pure survival setting.</p>
 		</div>
 
 		<div class="back-btn-container">
-			<a href="index.html" class="back-btn">← Back to Portfolio</a>
+			<a href="index.html#work" class="back-btn">← Back to Portfolio</a>
 		</div>
 
 	</div>
-
 </body>
 </html>
