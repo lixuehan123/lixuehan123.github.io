@@ -13,20 +13,15 @@
 	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 
 	<style>
-		/* ========================================== */
-		/* 全局与背景设定 */
-		/* ========================================== */
 		body { 
 			margin: 0; 
 			padding: 0; 
 			font-family: 'Open Sans', sans-serif; 
-			background-color: #f7f7f9; /* 与主页一致的高级浅灰背景 */
+			background-color: #f7f7f9; 
 			color: #333; 
 		}
 
-		/* ========================================== */
-		/* 导航栏 (与 index.html 完全一致) */
-		/* ========================================== */
+		/* 导航栏样式 */
 		.my-clean-header { display: flex; justify-content: space-between; align-items: center; background: #0f0f1b; padding: 15px 5%; position: sticky; top: 0; z-index: 99999; box-shadow: 0 2px 10px rgba(0,0,0,0.5); width: 100%; box-sizing: border-box; }
 		.my-clean-logo { display: flex; flex-direction: column; }
 		.my-clean-logo a { color: #ffffff; text-decoration: none; font-size: 32px; font-weight: bold; letter-spacing: 1px; transition: color 0.3s ease; line-height: 1; }
@@ -38,32 +33,29 @@
 		.my-clean-nav a { color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 600; text-transform: uppercase; transition: color 0.3s ease; display: block; padding: 15px 0; }
 		.my-clean-nav a:hover { color: #ff9800; text-decoration: none; }
 
-		/* 下拉菜单 */
-		.dropdown-content { display: none; position: absolute; background-color: #1a1a24; min-width: 250px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5); z-index: 1; top: 100%; left: 0; border-radius: 4px; padding: 10px 0; }
+		/* 下拉菜单样式 */
+		.dropdown-content { display: none; position: absolute; background-color: #1a1a24; min-width: 280px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5); z-index: 1; top: 100%; left: 0; border-radius: 4px; padding: 10px 0; }
 		.dropdown:hover .dropdown-content { display: block; }
 		.dropdown-content a { color: #fff; padding: 10px 20px; text-decoration: none; display: block; font-size: 13px; text-transform: none; font-weight: 400; transition: 0.2s; border-left: 3px solid transparent; }
 		.dropdown-content a:hover { background-color: #2a2a3d; color: #ff9800; border-left: 3px solid #ff9800; }
 		.dropdown-category-title { padding: 10px 20px 5px 20px; color: #777; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; border-bottom: 1px solid #333; margin-bottom: 5px; margin-top: 5px; pointer-events: none; }
 
-		/* ========================================== */
-		/* 项目详情页专属卡片排版 */
-		/* ========================================== */
+		/* 项目详情容器排版 (修复挤在左边的问题) */
 		.project-detail-container { 
-			max-width: 900px; /* 稍微缩窄，让阅读视线更集中 */
-			margin: 60px auto; /* 居中显示 */
+			max-width: 900px; 
+			margin: 60px auto; 
 			padding: 60px; 
 			background: #ffffff; 
-			box-shadow: 0 10px 40px rgba(0,0,0,0.08); /* 增加高级阴影 */
+			box-shadow: 0 10px 40px rgba(0,0,0,0.08); 
 			border-radius: 12px; 
 			box-sizing: border-box; 
 		}
 
-		/* 顶部标题区 */
 		.project-header { text-align: center; margin-bottom: 40px; }
 		.project-header h1 { font-size: 42px; font-weight: 800; margin: 0 0 15px 0; color: #111; letter-spacing: 1px; text-transform: uppercase; }
 		.project-header p.subtitle { font-size: 18px; color: #777; margin: 0; font-weight: 500; }
 
-		/* 视频包裹层 (强制 16:9，永不变形) */
+		/* 视频自适应 (修复视频太小的问题) */
 		.video-wrapper { 
 			position: relative; 
 			padding-bottom: 56.25%; 
@@ -74,26 +66,11 @@
 			margin-bottom: 50px; 
 			box-shadow: 0 8px 25px rgba(0,0,0,0.15); 
 		}
-		.video-wrapper iframe, .video-wrapper video { 
-			position: absolute; 
-			top: 0; 
-			left: 0; 
-			width: 100%; 
-			height: 100%; 
-			border: none; 
-		}
+		.video-wrapper iframe, .video-wrapper video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-		/* 内容区段落 */
+		/* 内容段落 */
 		.content-section { margin-bottom: 50px; }
-		.content-section h2 { 
-			font-size: 26px; 
-			font-weight: bold; 
-			color: #111; 
-			margin-bottom: 20px; 
-			padding-left: 15px; 
-			border-left: 5px solid #ff9800; /* 改为左侧粗线修饰，更具现代感 */
-			line-height: 1.2;
-		}
+		.content-section h2 { font-size: 26px; font-weight: bold; color: #111; margin-bottom: 20px; padding-left: 15px; border-left: 5px solid #ff9800; line-height: 1.2; }
 		.content-section p { font-size: 16px; line-height: 1.8; color: #444; text-align: justify; margin-bottom: 15px; }
 		
 		/* 个人工作量列表样式 */
@@ -106,10 +83,8 @@
 		.back-btn { background-color: #0f0f1b; color: #fff; padding: 14px 40px; font-size: 16px; font-weight: 600; text-decoration: none; border-radius: 6px; transition: background-color 0.3s ease, transform 0.3s ease; display: inline-block; }
 		.back-btn:hover { background-color: #ff9800; color: #fff; text-decoration: none; transform: translateY(-3px); box-shadow: 0 6px 15px rgba(255,152,0,0.3); }
 
-		/* 响应式移动端适配 */
-		@media (max-width: 1024px) { 
-			.project-detail-container { margin: 40px 20px; padding: 40px 30px; } 
-		}
+		/* 响应式适配 */
+		@media (max-width: 1024px) { .project-detail-container { margin: 40px 20px; padding: 40px 30px; } }
 		@media (max-width: 768px) {
 			.my-clean-header { flex-direction: column; padding: 15px; }
 			.my-clean-logo { align-items: center; }
@@ -140,19 +115,19 @@
 					<a href="project1.html">ContainmentBreach (Starfield)</a>
 					<a href="project2.html">Thesis: Souls-like Topology</a>
 					<a href="project3.html">Invalidprescription (Starfield)</a>
-					<a href="#">Escape from Power Plant (Half-Life 2)</a>
-					<a href="#">Coldfront (Quake 3)</a>
-					<a href="#">Beast Motos (Board Game)</a>
+					<a href="project4.html">Escape from Power Plant (Half-Life 2)</a>
+					<a href="project5.html">Coldfront (Quake 3)</a>
+					<a href="project6.html">Beast Motos (Board Game)</a>
 
 					<div class="dropdown-category-title">Team Projects</div>
-					<a href="#">Petalnaut</a>
-					<a href="#">HamsterBallin</a>
-					<a href="#">Unannounced Project</a>
+					<a href="project7.html">Petalnaut</a>
+					<a href="project8.html">HamsterBallin</a>
+					<a href="project9.html">Unannounced Project</a>
 					
 					<div class="dropdown-category-title">Game Jams</div>
-					<a href="#">GGJ 2024: Make me laugh</a>
-					<a href="#">LD 54: Summon</a>
-					<a href="#">GMTK 2024: Build to scale</a>
+					<a href="project10.html">GGJ 2024: Make me laugh</a>
+					<a href="project11.html">LD 54: Summon</a>
+					<a href="project12.html">GMTK 2024: Build to scale</a>
 				</div>
 			</li>
 			
