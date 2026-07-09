@@ -7,6 +7,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="Xuehan Li, Level Design, Portfolio, Game Developer, Unreal Engine" />
 	
+	<!-- 引入基础框架和字体 -->
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="css/font-awesome.css" rel="stylesheet">
@@ -14,6 +15,9 @@
 	<link href="https://fonts.googleapis.com/css?family=Jura:300,400,500,600" rel="stylesheet">
 	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 
+	<!-- ========================================== -->
+	<!-- 🌟 全新导航栏下拉菜单 & 卡片网格布局 🌟 -->
+	<!-- ========================================== -->
 	<style>
 		/* 基础重置 */
 		body { background-color: #f7f7f9; }
@@ -127,6 +131,9 @@
 
 <body>
 	
+	<!-- ========================================== -->
+	<!-- 顶部导航栏 -->
+	<!-- ========================================== -->
 	<header class="my-clean-header">
 		<div class="my-clean-logo">
 			<a href="index.html" title="Xuehan Li - Portfolio">XUEHAN LI</a>
@@ -146,10 +153,13 @@
 					<div class="dropdown-category-title">Personal & Thesis</div>
 					<a href="project_containment.html">ContainmentBreach (Starfield)</a>
 					<a href="project_containment.html">Thesis: Souls-like Topology</a>
-					<a href="project_containment.html">Invalidprescription</a>
-					<a href="project_containment.html">Escape from Power Plant</a>
+					<!-- 已在下拉菜单中补充引擎标注 -->
+					<a href="project_containment.html">Invalidprescription (Starfield)</a>
+					<a href="project_containment.html">Escape from Power Plant (Half-Life 2)</a>
 					<a href="project_containment.html">Coldfront (Quake 3)</a>
-					<a href="project_containment.html">Beast Motos (Board Game)</a> <div class="dropdown-category-title">Game Jams</div>
+					<a href="project_containment.html">Beast Motos (Board Game)</a>
+					
+					<div class="dropdown-category-title">Game Jams</div>
 					<a href="project_containment.html">GGJ 2024: Make me laugh</a>
 					<a href="project_containment.html">LD 54: Summon</a>
 					<a href="project_containment.html">GMTK 2024: Build to scale</a>
@@ -161,8 +171,12 @@
 		</ul>
 	</header>
 
+	<!-- ========================================== -->
+	<!-- 项目展示区 -->
+	<!-- ========================================== -->
 	<div id="work" class="container portfolio-section">
 		
+		<!-- 类别 1: Team Projects -->
 		<h2 class="section-heading">Team Projects</h2>
 		<div class="portfolio-grid">
 			<div class="portfolio-card">
@@ -191,6 +205,7 @@
 			</div>
 		</div>
 
+		<!-- 类别 2: Personal Projects & Thesis -->
 		<h2 class="section-heading">Personal Projects & Thesis</h2>
 		<div class="portfolio-grid">
 			<div class="portfolio-card">
@@ -243,6 +258,7 @@
 			</div>
 		</div>
 
+		<!-- 类别 3: Game Jams -->
 		<h2 class="section-heading">Game Jams</h2>
 		<div class="portfolio-grid">
 			<div class="portfolio-card">
@@ -272,6 +288,9 @@
 		</div>
 
 	</div>
+	<!-- //Projects Section -->
+
+	<!-- About Me Section -->
 	<div id="about" class="center-section">
 		<div class="container">
 			<h2 class="center-title">About Me</h2>
@@ -281,6 +300,9 @@
 		</div>
 	</div>
 
+	<!-- ========================================== -->
+	<!-- Contact & Resume 板块 (更新所有具体联系方式) -->
+	<!-- ========================================== -->
 	<div id="contact" class="center-section" style="background-color: #f7f7f9;">
 		<div class="container">
 			<h2 class="center-title">Contact & Resume</h2>
@@ -289,30 +311,35 @@
 					Let's build incredible worlds together. Feel free to reach out to me via any of the platforms below!
 				</p>
 				
+				<!-- 联系方式网格展示 -->
 				<div class="contact-grid">
-					<a href="mailto:your.email@example.com" class="contact-link">
-						<i class="fa fa-envelope"></i> your.email@example.com
+					<!-- 邮箱 -->
+					<a href="mailto:2717426172@qq.com" class="contact-link">
+						<i class="fa fa-envelope"></i> 2717426172@qq.com
 					</a>
-					<a href="tel:+1234567890" class="contact-link">
-						<i class="fa fa-phone"></i> +1 (234) 567-890
+					<!-- 手机号 -->
+					<a href="tel:+8613051725451" class="contact-link">
+						<i class="fa fa-phone"></i> +86 130 5172 5451
 					</a>
-					<a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-link">
-						<i class="fa fa-linkedin-square"></i> LinkedIn
+					<!-- 工作微信 (没有网页链接，点击不会发生跳转) -->
+					<a href="javascript:void(0);" class="contact-link">
+						<i class="fa fa-weixin"></i> WeChat: li2717426172
 					</a>
-					<a href="https://space.bilibili.com/yourID" target="_blank" class="contact-link">
+					<!-- QQ (没有网页链接) -->
+					<a href="javascript:void(0);" class="contact-link">
+						<i class="fa fa-qq"></i> QQ: 2717426172
+					</a>
+					<!-- 领英 -->
+					<a href="https://linkedin.com/in/xuehan-li" target="_blank" class="contact-link">
+						<i class="fa fa-linkedin-square"></i> 李学汉 | LinkedIn
+					</a>
+					<!-- Bilibili -->
+					<a href="https://space.bilibili.com/394117586?spm_id_from=333.1007.0.0" target="_blank" class="contact-link">
 						<i class="fa fa-television"></i> Bilibili Channel
-					</a>
-					<a href="#" class="contact-link">
-						<i class="fa fa-weixin"></i> WeChat: YourWeChatID
-					</a>
-					<a href="#" class="contact-link">
-						<i class="fa fa-qq"></i> QQ: YourQQNumber
-					</a>
-					<a href="https://github.com/yourgithub" target="_blank" class="contact-link">
-						<i class="fa fa-github"></i> GitHub (Scripts & Logic)
 					</a>
 				</div>
 				
+				<!-- 简历下载按钮 -->
 				<a href="Resume_XuehanLi.pdf" target="_blank" class="resume-btn">
 					<i class="fa fa-download" style="margin-right: 10px;"></i> Download Resume (PDF)
 				</a>
@@ -320,10 +347,12 @@
 		</div>
 	</div>
 
+	<!-- footer -->
 	<div class="w3l_footer" style="background: #0f0f1b; padding: 20px 0; text-align: center;">
 		<p style="color: #666; margin: 0;">© 2026 Xuehan Li. All Rights Reserved</p>
 	</div>
 
+	<!-- js scripts -->
 	<script src="js/jquery-2.2.3.min.js"></script>
 	<script type="text/javascript" src="js/move-top.js"></script>
 	<script type="text/javascript" src="js/easing.js"></script>
