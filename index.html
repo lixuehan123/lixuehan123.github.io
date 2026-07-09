@@ -64,14 +64,47 @@
 		.card-btn:hover { background: #ff9800; color: #fff; text-decoration: none; }
 
 		/* ========================================== */
-		/* 全新 ABOUT ME 板块排版 */
+		/* ABOUT ME 板块排版 */
 		/* ========================================== */
 		.about-section { padding: 80px 0; background: #ffffff; border-top: 1px solid #eaeaea; }
 		.center-title { font-size: 36px; font-weight: bold; margin-bottom: 40px; color: #111; text-align: center; }
-		
-		/* 头像与个人简介 */
 		.profile-avatar { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 4px solid #0f0f1b; box-shadow: 0 5px 15px rgba(0,0,0,0.15); margin: 0 auto 25px auto; display: block; }
-		.about-hook { font-size: 17px; line-height: 1.8; color: #444; max-width: 850px; margin: 0 auto 60px auto; text-align: justify; text-align-last: center; }
+		
+		/* 🌟 全新设计的个人陈述引用框 🌟 */
+		.about-hook-container {
+			max-width: 800px;
+			margin: 0 auto 60px auto;
+			position: relative;
+			padding: 0 45px; /* 给左右引号留出空间 */
+		}
+		.about-hook-container::before {
+			content: '\201C'; /* 左大引号 */
+			font-family: Georgia, serif;
+			font-size: 70px;
+			color: #ff9800;
+			position: absolute;
+			left: 0;
+			top: -15px;
+			opacity: 0.4;
+		}
+		.about-hook-container::after {
+			content: '\201D'; /* 右大引号 */
+			font-family: Georgia, serif;
+			font-size: 70px;
+			color: #ff9800;
+			position: absolute;
+			right: 0;
+			bottom: -45px;
+			opacity: 0.4;
+		}
+		.about-hook { 
+			font-size: 15px; /* 缩小字号 */
+			line-height: 1.6; /* 缩紧行距 */
+			color: #555; 
+			text-align: center; 
+			font-style: italic; /* 改为斜体增加引用的感觉 */
+			margin: 0;
+		}
 		
 		/* 经历与技能双列排版 */
 		.sub-heading { font-size: 22px; font-weight: bold; margin-bottom: 25px; color: #111; border-bottom: 2px solid #eee; padding-bottom: 10px; }
@@ -84,6 +117,7 @@
 		.timeline-list h4 { font-size: 16px; font-weight: bold; margin: 0 0 5px 0; color: #111; }
 		.timeline-date { font-size: 13px; color: #ff9800; font-weight: 600; margin-bottom: 5px; }
 		.timeline-list p { font-size: 14px; color: #555; margin: 0; line-height: 1.6; }
+		.timeline-list p.sub-desc { font-size: 13px; color: #777; margin-top: 5px; }
 
 		/* 技能标签库 */
 		.skill-category { margin-bottom: 25px; }
@@ -92,7 +126,7 @@
 		.tag { background: #f0f0f0; color: #333; padding: 6px 14px; border-radius: 4px; font-size: 13px; font-weight: 600; border: 1px solid #e0e0e0; }
 
 		/* ========================================== */
-		/* 小黑盒风格：游戏时长条形图 */
+		/* 游戏时长条形图 */
 		/* ========================================== */
 		.game-hours-card { background: #15151e; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-top: 20px; }
 		.game-hours-title { color: #fff; font-size: 24px; font-weight: bold; margin-bottom: 30px; text-align: center; }
@@ -123,6 +157,7 @@
 			.dropdown:hover .dropdown-content { display: block; }
 			.contact-grid { grid-template-columns: 1fr; }
 			.game-hours-card { padding: 20px; }
+			.about-hook-container { padding: 0 20px; }
 		}
 	</style>
 </head>
@@ -281,9 +316,12 @@
 			<h2 class="center-title">About Me</h2>
 			
 			<img src="images/avatar.jpg" alt="Xuehan Li" class="profile-avatar">
-			<p class="about-hook">
-				Hello! I am Xuehan Li, a <strong>Level Designer</strong> with a rigorous foundation in Architecture and Urban Planning. My undergraduate training at Southeast University equipped me with a deep understanding of spatial penetration, visual guidance, and architectural typology. Currently pursuing my Master's in Level Design at SMU Guildhall, I am translating these theories into player flow and cognitive load management. I am deeply passionate about the quantitative topological analysis of 3D spaces, and I actively leverage UE5 Blueprints and AI-assisted workflows (Vibe Coding) to build highly playable, structural, and immersive game environments.
-			</p>
+			
+			<div class="about-hook-container">
+				<p class="about-hook">
+					Hello, I am Li Xuehan, a level designer with an architectural background. I completed my undergraduate studies at Southeast University, where I gained a profound understanding of architecture; I strive to integrate architectural theories into my level designs to make them unique. Currently pursuing a Master’s degree in Level Design at SMU Guildhall, I incorporate elements such as visual cues, spatial flow, player guidance, typology, gameplay mechanics, architectural structure, and atmosphere into my work. I am also proficient in using UE5 Blueprints and writing scripts. Thank you for taking the time to view my levels.
+				</p>
+			</div>
 
 			<div class="row">
 				<div class="col-md-6">
@@ -298,10 +336,11 @@
 							<h4>Southeast University</h4>
 							<p class="timeline-date">Sep 2018 - Jul 2024</p>
 							<p>Bachelor of Architecture</p>
+							<p class="sub-desc"><strong>Outstanding Graduation Design (Jun 2024):</strong> Application of UHPC. Utilized Rhino and BIM for a paperless web-based workflow, conducting FEA and environmental analysis for green building standards.</p>
 						</li>
 					</ul>
 
-					<h3 class="sub-heading"><i class="fa fa-briefcase"></i> Experience</h3>
+					<h3 class="sub-heading"><i class="fa fa-briefcase"></i> Experience & Leadership</h3>
 					<ul class="timeline-list">
 						<li>
 							<h4>System Designer Intern (Dota 2 Arcade)</h4>
@@ -317,6 +356,16 @@
 							<h4>Researcher & 3D Animator</h4>
 							<p class="timeline-date">Jul 2023 - Oct 2023</p>
 							<p>Conducted field interviews and created 3D SketchUp animations to reconstruct traditional roof construction workflows of the Confucius Temple.</p>
+						</li>
+						<li>
+							<h4>President of Woodworking Club</h4>
+							<p class="timeline-date">Sep 2020 - Jul 2021</p>
+							<p>School of Architecture. Managed club teaching curriculum, event scheduling, and workshop safety protocols.</p>
+						</li>
+						<li>
+							<h4>Publicity Dept. Member (Youth League)</h4>
+							<p class="timeline-date">Sep 2019 - Jul 2020</p>
+							<p>Managed faculty interviews, university event planning, poster illustration, and brochure typesetting/printing.</p>
 						</li>
 					</ul>
 				</div>
