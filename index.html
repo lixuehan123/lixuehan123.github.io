@@ -16,7 +16,7 @@
 
 	<style>
 		/* 基础重置 */
-		body { background-color: #f7f7f9; }
+		body { background-color: #f7f7f9; margin: 0; padding: 0; font-family: 'Open Sans', sans-serif; color: #333;}
 
 		/* --- 导航栏与下拉菜单 --- */
 		.my-clean-header {
@@ -24,7 +24,6 @@
 			background: #0f0f1b; padding: 15px 5%; position: sticky; top: 0;
 			z-index: 99999; box-shadow: 0 2px 10px rgba(0,0,0,0.5); width: 100%; box-sizing: border-box;
 		}
-		
 		.my-clean-logo { display: flex; flex-direction: column; }
 		.my-clean-logo a { color: #ffffff; text-decoration: none; font-size: 32px; font-weight: bold; letter-spacing: 1px; transition: color 0.3s ease; line-height: 1; }
 		.my-clean-logo a:hover { color: #ff9800; text-decoration: none; }
@@ -41,10 +40,8 @@
 			z-index: 1; top: 100%; left: 0; border-radius: 4px; padding: 10px 0;
 		}
 		.dropdown:hover .dropdown-content { display: block; }
-		
 		.dropdown-content a { color: #fff; padding: 10px 20px; text-decoration: none; display: block; font-size: 13px; text-transform: none; font-weight: 400; transition: 0.2s; border-left: 3px solid transparent; }
 		.dropdown-content a:hover { background-color: #2a2a3d; color: #ff9800; border-left: 3px solid #ff9800; }
-		
 		.dropdown-category-title {
 			padding: 10px 20px 5px 20px; color: #777; font-size: 11px;
 			text-transform: uppercase; letter-spacing: 1px; font-weight: bold;
@@ -54,63 +51,69 @@
 		/* --- 项目网格排版 (Grid) --- */
 		.portfolio-section { padding: 40px 0; }
 		.section-heading { font-size: 32px; font-weight: bold; color: #111; margin-bottom: 30px; border-bottom: 3px solid #ff9800; display: inline-block; padding-bottom: 10px; }
-		
-		.portfolio-grid {
-			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-			gap: 30px;
-			margin-bottom: 40px;
-		}
-		
-		.portfolio-card {
-			background: #fff; border-radius: 8px; overflow: hidden;
-			box-shadow: 0 4px 15px rgba(0,0,0,0.06); transition: transform 0.3s ease, box-shadow 0.3s ease;
-			display: flex; flex-direction: column;
-		}
+		.portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-bottom: 40px; }
+		.portfolio-card { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.06); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; }
 		.portfolio-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
-		
 		.card-img-wrapper { height: 200px; width: 100%; overflow: hidden; background: #222; }
 		.card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
 		.portfolio-card:hover .card-img-wrapper img { transform: scale(1.05); }
-		
 		.card-content { padding: 25px 20px; flex-grow: 1; display: flex; flex-direction: column; }
 		.card-title { font-size: 20px; font-weight: 800; margin: 0 0 10px 0; color: #111; }
 		.card-desc { font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
-		
-		.card-btn {
-			background: #0f0f1b; color: #fff; padding: 10px 15px; text-align: center;
-			border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 14px; transition: 0.3s;
-		}
+		.card-btn { background: #0f0f1b; color: #fff; padding: 10px 15px; text-align: center; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 14px; transition: 0.3s; }
 		.card-btn:hover { background: #ff9800; color: #fff; text-decoration: none; }
 
-		/* --- About & Contact 板块 --- */
-		.center-section { padding: 80px 0; text-align: center; background: #fff; border-top: 1px solid #eaeaea; }
-		.center-title { font-size: 36px; font-weight: bold; margin-bottom: 30px; color: #000; }
-		.center-content { font-size: 16px; color: #555; line-height: 1.8; max-width: 800px; margin: 0 auto; }
+		/* ========================================== */
+		/* 全新 ABOUT ME 板块排版 */
+		/* ========================================== */
+		.about-section { padding: 80px 0; background: #ffffff; border-top: 1px solid #eaeaea; }
+		.center-title { font-size: 36px; font-weight: bold; margin-bottom: 40px; color: #111; text-align: center; }
 		
-		.contact-grid {
-			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-			gap: 15px;
-			margin-bottom: 40px;
-			text-align: left;
-			max-width: 800px;
-			margin-left: auto;
-			margin-right: auto;
-		}
-		.contact-link {
-			display: flex; align-items: center; padding: 12px 15px; background: #fff; 
-			border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); color: #444; 
-			font-size: 14px; font-weight: 600; text-decoration: none; transition: 0.3s;
-			border: 1px solid #f0f0f0;
-		}
+		/* 头像与个人简介 */
+		.profile-avatar { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 4px solid #0f0f1b; box-shadow: 0 5px 15px rgba(0,0,0,0.15); margin: 0 auto 25px auto; display: block; }
+		.about-hook { font-size: 17px; line-height: 1.8; color: #444; max-width: 850px; margin: 0 auto 60px auto; text-align: justify; text-align-last: center; }
+		
+		/* 经历与技能双列排版 */
+		.sub-heading { font-size: 22px; font-weight: bold; margin-bottom: 25px; color: #111; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+		.sub-heading i { color: #ff9800; margin-right: 10px; }
+		
+		/* 时间轴样式 */
+		.timeline-list { list-style: none; padding: 0; margin: 0; border-left: 2px solid #ff9800; padding-left: 20px; margin-bottom: 40px; }
+		.timeline-list li { margin-bottom: 25px; position: relative; }
+		.timeline-list li::before { content: ''; position: absolute; left: -26px; top: 4px; width: 10px; height: 10px; background: #ff9800; border-radius: 50%; }
+		.timeline-list h4 { font-size: 16px; font-weight: bold; margin: 0 0 5px 0; color: #111; }
+		.timeline-date { font-size: 13px; color: #ff9800; font-weight: 600; margin-bottom: 5px; }
+		.timeline-list p { font-size: 14px; color: #555; margin: 0; line-height: 1.6; }
+
+		/* 技能标签库 */
+		.skill-category { margin-bottom: 25px; }
+		.skill-category h4 { font-size: 15px; font-weight: bold; color: #333; margin-bottom: 12px; }
+		.tags { display: flex; flex-wrap: wrap; gap: 10px; }
+		.tag { background: #f0f0f0; color: #333; padding: 6px 14px; border-radius: 4px; font-size: 13px; font-weight: 600; border: 1px solid #e0e0e0; }
+
+		/* ========================================== */
+		/* 小黑盒风格：游戏时长条形图 */
+		/* ========================================== */
+		.game-hours-card { background: #15151e; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-top: 20px; }
+		.game-hours-title { color: #fff; font-size: 24px; font-weight: bold; margin-bottom: 30px; text-align: center; }
+		.game-hours-title i { color: #ff9800; margin-right: 10px; }
+		.game-bar-item { margin-bottom: 18px; }
+		.game-info { display: flex; justify-content: space-between; font-size: 14px; font-weight: 600; color: #eee; margin-bottom: 6px; }
+		.game-info .hours { color: #aaa; font-size: 13px; }
+		.progress-track { height: 6px; background: #2a2a35; border-radius: 3px; overflow: hidden; }
+		.progress-fill { height: 100%; border-radius: 3px; }
+
+		/* --- Contact 板块 --- */
+		.contact-section { padding: 80px 0; text-align: center; background: #f7f7f9; }
+		.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-bottom: 40px; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto; }
+		.contact-link { display: flex; align-items: center; padding: 12px 15px; background: #fff; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); color: #444; font-size: 14px; font-weight: 600; text-decoration: none; transition: 0.3s; border: 1px solid #f0f0f0; }
 		.contact-link i { margin-right: 12px; color: #ff9800; font-size: 18px; width: 20px; text-align: center; }
 		.contact-link:hover { color: #fff; background: #ff9800; text-decoration: none; transform: translateY(-3px); box-shadow: 0 6px 15px rgba(255,152,0,0.3); border-color: #ff9800;}
 		.contact-link:hover i { color: #fff; }
-
 		.resume-btn { background-color: #0f0f1b; color: #fff; padding: 15px 40px; font-size: 18px; font-weight: 600; text-decoration: none; display: inline-block; border-radius: 4px; transition: 0.3s; margin-top: 10px;}
 		.resume-btn:hover { background-color: #ff9800; color: #fff; text-decoration: none; }
 
+		/* 移动端适配 */
 		@media (max-width: 768px) {
 			.my-clean-header { flex-direction: column; padding: 15px; }
 			.my-clean-logo { align-items: center; }
@@ -119,6 +122,7 @@
 			.dropdown-content { position: static; display: none; box-shadow: none; background: #222; width: 100%; }
 			.dropdown:hover .dropdown-content { display: block; }
 			.contact-grid { grid-template-columns: 1fr; }
+			.game-hours-card { padding: 20px; }
 		}
 	</style>
 </head>
@@ -165,69 +169,51 @@
 		
 		<h2 class="section-heading">Personal Projects & Thesis</h2>
 		<div class="portfolio-grid">
-			
 			<div class="portfolio-card">
-				<div class="card-img-wrapper">
-					<a href="project1.html"><img src="images/banner1.jpg" alt="ContainmentBreach"></a>
-				</div>
+				<div class="card-img-wrapper"><a href="project1.html"><img src="images/banner1.jpg" alt="ContainmentBreach"></a></div>
 				<div class="card-content">
 					<h3 class="card-title">ContainmentBreach</h3>
 					<p class="card-desc">Starfield Mod Level. Designed custom survival mechanics, wave control logic, and a highly balanced combat space.</p>
 					<a href="project1.html" class="card-btn">View Project</a>
 				</div>
 			</div>
-			
 			<div class="portfolio-card">
-				<div class="card-img-wrapper">
-					<a href="project2.html"><img src="images/banner2.jpg" alt="Thesis"></a>
-				</div>
+				<div class="card-img-wrapper"><a href="project2.html"><img src="images/banner2.jpg" alt="Thesis"></a></div>
 				<div class="card-content">
 					<h3 class="card-title">Souls-like Topology Thesis</h3>
 					<p class="card-desc">Quantitative research on level shortcuts, graph topology stability factors, and diorama layout pacing.</p>
 					<a href="project2.html" class="card-btn">View Project</a>
 				</div>
 			</div>
-			
 			<div class="portfolio-card">
-				<div class="card-img-wrapper">
-					<a href="project3.html"><img src="images/banner3.jpg" alt="Invalidprescription"></a>
-				</div>
+				<div class="card-img-wrapper"><a href="project3.html"><img src="images/banner3.jpg" alt="Invalidprescription"></a></div>
 				<div class="card-content">
 					<h3 class="card-title">Invalidprescription</h3>
 					<p class="card-desc">Starfield custom quest/level mod focusing on narrative pacing and environmental storytelling.</p>
 					<a href="project3.html" class="card-btn">View Project</a>
 				</div>
 			</div>
-			
 			<div class="portfolio-card">
-				<div class="card-img-wrapper">
-					<a href="project4.html"><img src="images/g4.jpg" alt="Escape from the Power Plant"></a>
-				</div>
+				<div class="card-img-wrapper"><a href="project4.html"><img src="images/g4.jpg" alt="Escape from the Power Plant"></a></div>
 				<div class="card-content">
 					<h3 class="card-title">Escape from the Power Plant</h3>
 					<p class="card-desc">Half-Life 2 Mod. A classic linear FPS level design focusing on visual scripting and enemy encounter pacing.</p>
 					<a href="project4.html" class="card-btn">View Project</a>
 				</div>
 			</div>
-			
 			<div class="portfolio-card">
-				<div class="card-img-wrapper">
-					<a href="project5.html"><img src="images/g5.jpg" alt="Coldfront"></a>
-				</div>
+				<div class="card-img-wrapper"><a href="project5.html"><img src="images/g5.jpg" alt="Coldfront"></a></div>
 				<div class="card-content">
 					<h3 class="card-title">Coldfront (Quake 3)</h3>
 					<p class="card-desc">Custom Team Deathmatch map. Prioritized sightlines, weapon pickup placement, and fast-paced vertical mobility.</p>
 					<a href="project5.html" class="card-btn">View Project</a>
 				</div>
 			</div>
-			
 			<div class="portfolio-card">
-				<div class="card-img-wrapper">
-					<a href="project6.html"><img src="images/ab.jpg" alt="Beast Motos"></a>
-				</div>
+				<div class="card-img-wrapper"><a href="project6.html"><img src="images/ab.jpg" alt="Beast Motos"></a></div>
 				<div class="card-content">
 					<h3 class="card-title">Beast Motos</h3>
-					<p class="card-desc">Tabletop Board Game. Designed core rulesets, tested numerical balance, and conducted extensive paper prototyping for player interactions.</p>
+					<p class="card-desc">Tabletop Board Game. Designed core rulesets, tested numerical balance, and conducted extensive paper prototyping.</p>
 					<a href="project6.html" class="card-btn">View Project</a>
 				</div>
 			</div>
@@ -235,36 +221,27 @@
 
 		<h2 class="section-heading">Team Projects</h2>
 		<div class="portfolio-grid">
-			
 			<div class="portfolio-card">
-				<div class="card-img-wrapper">
-					<a href="project7.html"><img src="images/g1.jpg" alt="Petalnaut"></a>
-				</div>
+				<div class="card-img-wrapper"><a href="project7.html"><img src="images/g1.jpg" alt="Petalnaut"></a></div>
 				<div class="card-content">
 					<h3 class="card-title">Petalnaut</h3>
-					<p class="card-desc">Short description of your role as a level designer in this team project, focusing on spatial layout and team collaboration.</p>
+					<p class="card-desc">Level designer in a team project, focusing on spatial layout, environmental landmarks, and team collaboration.</p>
 					<a href="project7.html" class="card-btn">View Project</a>
 				</div>
 			</div>
-			
 			<div class="portfolio-card">
-				<div class="card-img-wrapper">
-					<a href="project8.html"><img src="images/g2.jpg" alt="HamsterBallin"></a>
-				</div>
+				<div class="card-img-wrapper"><a href="project8.html"><img src="images/g2.jpg" alt="HamsterBallin"></a></div>
 				<div class="card-content">
 					<h3 class="card-title">HamsterBallin</h3>
-					<p class="card-desc">Briefly explain the core mechanics and how your level design supported the gameplay loop in this team environment.</p>
+					<p class="card-desc">Multiplayer arcade arena maps prioritizing continuous momentum and reducing player friction.</p>
 					<a href="project8.html" class="card-btn">View Project</a>
 				</div>
 			</div>
-			
 			<div class="portfolio-card">
-				<div class="card-img-wrapper">
-					<a href="project9.html"><img src="images/g3.jpg" alt="Unannounced Project"></a>
-				</div>
+				<div class="card-img-wrapper"><a href="project9.html"><img src="images/g3.jpg" alt="Unannounced Project"></a></div>
 				<div class="card-content">
 					<h3 class="card-title">Unannounced Project</h3>
-					<p class="card-desc">Working title. Highlight the engine used and your specific contributions to the grayboxing or asset implementation phase.</p>
+					<p class="card-desc">Working title. Highlight the engine used and specific contributions to the grayboxing and technical optimization.</p>
 					<a href="project9.html" class="card-btn">View Project</a>
 				</div>
 			</div>
@@ -272,33 +249,24 @@
 
 		<h2 class="section-heading">Game Jams</h2>
 		<div class="portfolio-grid">
-			
 			<div class="portfolio-card">
-				<div class="card-img-wrapper">
-					<a href="project10.html"><img src="images/g6.jpg" alt="GGJ2024"></a>
-				</div>
+				<div class="card-img-wrapper"><a href="project10.html"><img src="images/g6.jpg" alt="GGJ2024"></a></div>
 				<div class="card-content">
 					<h3 class="card-title">Make Me Laugh</h3>
-					<p class="card-desc">Global Game Jam 2024 submission. Built under 48 hours focusing on rapid prototyping and level iteration.</p>
+					<p class="card-desc">Global Game Jam 2024 submission. Built under 48 hours focusing on rapid prototyping and comedic setups.</p>
 					<a href="project10.html" class="card-btn">View Project</a>
 				</div>
 			</div>
-			
 			<div class="portfolio-card">
-				<div class="card-img-wrapper">
-					<a href="project11.html"><img src="images/g7.jpg" alt="Ludum Dare 54"></a>
-				</div>
+				<div class="card-img-wrapper"><a href="project11.html"><img src="images/g7.jpg" alt="Ludum Dare 54"></a></div>
 				<div class="card-content">
 					<h3 class="card-title">Summon</h3>
-					<p class="card-desc">Ludum Dare 54 submission. Demonstrated ability to quickly script level logic and adapt to constraints.</p>
+					<p class="card-desc">Ludum Dare 54 submission. Demonstrated ability to quickly script level logic and adapt to shrinking spatial constraints.</p>
 					<a href="project11.html" class="card-btn">View Project</a>
 				</div>
 			</div>
-			
 			<div class="portfolio-card">
-				<div class="card-img-wrapper">
-					<a href="project12.html"><img src="images/g8.jpg" alt="GMTK2024"></a>
-				</div>
+				<div class="card-img-wrapper"><a href="project12.html"><img src="images/g8.jpg" alt="GMTK2024"></a></div>
 				<div class="card-content">
 					<h3 class="card-title">Build To Scale</h3>
 					<p class="card-desc">GMTK 2024 submission. Focused on unique scale-shifting mechanics and puzzle-oriented level design.</p>
@@ -308,48 +276,184 @@
 		</div>
 
 	</div>
-	<div id="about" class="center-section">
+	<div id="about" class="about-section">
 		<div class="container">
 			<h2 class="center-title">About Me</h2>
-			<p class="center-content">
-				Hello! I am Xuehan Li, a Level Designer with a background in Architecture and Urban Planning. Currently pursuing a Master's degree in Level Design at SMU Guildhall. I am passionate about spatial storytelling, topology analysis in games, and crafting compelling environmental aesthetics. My unique architectural background allows me to design game spaces that are not only visually appealing but also structurally sound and highly playable.
+			
+			<img src="images/avatar.jpg" alt="Xuehan Li" class="profile-avatar">
+			<p class="about-hook">
+				Hello! I am Xuehan Li, a <strong>Level Designer</strong> with a rigorous foundation in Architecture and Urban Planning. My undergraduate training at Southeast University equipped me with a deep understanding of spatial penetration, visual guidance, and architectural typology. Currently pursuing my Master's in Level Design at SMU Guildhall, I am translating these theories into player flow and cognitive load management. I am deeply passionate about the quantitative topological analysis of 3D spaces, and I actively leverage UE5 Blueprints and AI-assisted workflows (Vibe Coding) to build highly playable, structural, and immersive game environments.
 			</p>
+
+			<div class="row">
+				<div class="col-md-6">
+					<h3 class="sub-heading"><i class="fa fa-graduation-cap"></i> Education</h3>
+					<ul class="timeline-list">
+						<li>
+							<h4>Southern Methodist University (SMU Guildhall)</h4>
+							<p class="timeline-date">Aug 2025 - May 2027</p>
+							<p>Master of Interactive Technology in Level Design</p>
+						</li>
+						<li>
+							<h4>Southeast University</h4>
+							<p class="timeline-date">Sep 2018 - Jul 2024</p>
+							<p>Bachelor of Architecture</p>
+						</li>
+					</ul>
+
+					<h3 class="sub-heading"><i class="fa fa-briefcase"></i> Experience</h3>
+					<ul class="timeline-list">
+						<li>
+							<h4>System Designer Intern (Dota 2 Arcade)</h4>
+							<p class="timeline-date">May 2025 - Aug 2025</p>
+							<p>Designed core builds, meta-progression, and monetization systems for a Hades-like roguelite project. Conducted rigorous numerical validation.</p>
+						</li>
+						<li>
+							<h4>Architectural Design Intern</h4>
+							<p class="timeline-date">Jul 2024 - Sep 2024</p>
+							<p>China Railway Architectural Design & Consulting. Drafted CAD blueprints, facades, and public area layouts for residential projects.</p>
+						</li>
+						<li>
+							<h4>Researcher & 3D Animator</h4>
+							<p class="timeline-date">Jul 2023 - Oct 2023</p>
+							<p>Conducted field interviews and created 3D SketchUp animations to reconstruct traditional roof construction workflows of the Confucius Temple.</p>
+						</li>
+					</ul>
+				</div>
+
+				<div class="col-md-6">
+					<h3 class="sub-heading"><i class="fa fa-wrench"></i> Technical Skills</h3>
+					
+					<div class="skill-category">
+						<h4>Game Engines & Editors</h4>
+						<div class="tags">
+							<span class="tag">Unreal Engine 5</span> <span class="tag">Unity</span> 
+							<span class="tag">Creation Kit (Starfield)</span> <span class="tag">Hammer</span> 
+							<span class="tag">Radiant</span> <span class="tag">PICO-8</span>
+						</div>
+					</div>
+					
+					<div class="skill-category">
+						<h4>Scripting & Programming</h4>
+						<div class="tags">
+							<span class="tag">C#</span> <span class="tag">C++</span> <span class="tag">UE Blueprints</span> 
+							<span class="tag">Papyrus</span> <span class="tag">Lua</span> <span class="tag">Vibe Coding</span>
+						</div>
+					</div>
+
+					<div class="skill-category">
+						<h4>3D Modeling & Architecture</h4>
+						<div class="tags">
+							<span class="tag">Rhino</span> <span class="tag">Blender</span> <span class="tag">3ds Max</span> 
+							<span class="tag">SketchUp</span> <span class="tag">AutoCAD</span> <span class="tag">V-Ray</span> <span class="tag">D5 Render</span>
+						</div>
+					</div>
+
+					<div class="skill-category">
+						<h4>Level Design Fundamentals</h4>
+						<div class="tags">
+							<span class="tag">Topology Analysis</span> <span class="tag">Cognitive Load Management</span> 
+							<span class="tag">Spatial Storytelling</span> <span class="tag">Encounter Pacing</span> <span class="tag">Greyboxing</span>
+						</div>
+					</div>
+					
+					<div class="skill-category">
+						<h4>2D & UI Tools</h4>
+						<div class="tags">
+							<span class="tag">Photoshop</span> <span class="tag">Illustrator</span> <span class="tag">InDesign</span> <span class="tag">Excel</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="game-hours-card">
+				<h3 class="game-hours-title"><i class="fa fa-gamepad"></i> Game Experience Profile</h3>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="game-bar-item">
+							<div class="game-info"><span>Starfield Creation Kit</span> <span class="hours">960h</span></div>
+							<div class="progress-track"><div class="progress-fill" style="width: 100%; background: #ff9800;"></div></div>
+						</div>
+						<div class="game-bar-item">
+							<div class="game-info"><span>Overwatch</span> <span class="hours">500h</span></div>
+							<div class="progress-track"><div class="progress-fill" style="width: 52%; background: #e2b714;"></div></div>
+						</div>
+						<div class="game-bar-item">
+							<div class="game-info"><span>Apex Legends</span> <span class="hours">320h</span></div>
+							<div class="progress-track"><div class="progress-fill" style="width: 33%; background: #d32f2f;"></div></div>
+						</div>
+						<div class="game-bar-item">
+							<div class="game-info"><span>CS:GO / CS2</span> <span class="hours">300h</span></div>
+							<div class="progress-track"><div class="progress-fill" style="width: 31%; background: #0078d7;"></div></div>
+						</div>
+						<div class="game-bar-item">
+							<div class="game-info"><span>Hearthstone</span> <span class="hours">300h</span></div>
+							<div class="progress-track"><div class="progress-fill" style="width: 31%; background: #0288d1;"></div></div>
+						</div>
+						<div class="game-bar-item">
+							<div class="game-info"><span>Gunfire Reborn</span> <span class="hours">150h</span></div>
+							<div class="progress-track"><div class="progress-fill" style="width: 15%; background: #4caf50;"></div></div>
+						</div>
+						<div class="game-bar-item">
+							<div class="game-info"><span>Rainbow Six Siege</span> <span class="hours">120h</span></div>
+							<div class="progress-track"><div class="progress-fill" style="width: 12%; background: #1976d2;"></div></div>
+						</div>
+					</div>
+					
+					<div class="col-md-6">
+						<div class="game-bar-item">
+							<div class="game-info"><span>Monster Hunter: World</span> <span class="hours">540h</span></div>
+							<div class="progress-track"><div class="progress-fill" style="width: 56%; background: #8e24aa;"></div></div>
+						</div>
+						<div class="game-bar-item">
+							<div class="game-info"><span>Dark Souls Series (1 & 3)</span> <span class="hours">160h</span></div>
+							<div class="progress-track"><div class="progress-fill" style="width: 16%; background: #757575;"></div></div>
+						</div>
+						<div class="game-bar-item">
+							<div class="game-info"><span>Monster Hunter: Rise</span> <span class="hours">140h</span></div>
+							<div class="progress-track"><div class="progress-fill" style="width: 14%; background: #fbc02d;"></div></div>
+						</div>
+						<div class="game-bar-item">
+							<div class="game-info"><span>Baldur's Gate 3</span> <span class="hours">130h</span></div>
+							<div class="progress-track"><div class="progress-fill" style="width: 13%; background: #7b1fa2;"></div></div>
+						</div>
+						<div class="game-bar-item">
+							<div class="game-info"><span>Elden Ring</span> <span class="hours">120h</span></div>
+							<div class="progress-track"><div class="progress-fill" style="width: 12%; background: #c2a052;"></div></div>
+						</div>
+						<div class="game-bar-item">
+							<div class="game-info"><span>Sekiro & Black Myth: Wukong</span> <span class="hours">120h</span></div>
+							<div class="progress-track"><div class="progress-fill" style="width: 12%; background: #bf360c;"></div></div>
+						</div>
+						<div class="game-bar-item">
+							<div class="game-info"><span>Nioh Series (2 & 3)</span> <span class="hours">80h</span></div>
+							<div class="progress-track"><div class="progress-fill" style="width: 8%; background: #e53935;"></div></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
 		</div>
 	</div>
-
-	<div id="contact" class="center-section" style="background-color: #f7f7f9;">
+	<div id="contact" class="contact-section">
 		<div class="container">
 			<h2 class="center-title">Contact & Resume</h2>
-			<div class="center-content">
-				<p style="margin-bottom: 40px; font-size: 18px;">
-					Let's build incredible worlds together. Feel free to reach out to me via any of the platforms below!
-				</p>
-				
-				<div class="contact-grid">
-					<a href="mailto:2717426172@qq.com" class="contact-link">
-						<i class="fa fa-envelope"></i> 2717426172@qq.com
-					</a>
-					<a href="tel:+8613051725451" class="contact-link">
-						<i class="fa fa-phone"></i> +86 130 5172 5451
-					</a>
-					<a href="javascript:void(0);" class="contact-link">
-						<i class="fa fa-weixin"></i> WeChat: li2717426172
-					</a>
-					<a href="javascript:void(0);" class="contact-link">
-						<i class="fa fa-qq"></i> QQ: 2717426172
-					</a>
-					<a href="https://www.linkedin.com/in/学汉-李-2372233aa" target="_blank" class="contact-link">
-						<i class="fa fa-linkedin-square"></i> 李学汉 | LinkedIn
-					</a>
-					<a href="https://space.bilibili.com/394117586?spm_id_from=333.1007.0.0" target="_blank" class="contact-link">
-						<i class="fa fa-television"></i> Bilibili Channel
-					</a>
-				</div>
-				
-				<a href="Resume_XuehanLi.pdf" target="_blank" class="resume-btn">
-					<i class="fa fa-download" style="margin-right: 10px;"></i> Download Resume (PDF)
-				</a>
+			<p style="margin-bottom: 40px; font-size: 18px; color: #555;">
+				Let's build incredible worlds together. Feel free to reach out to me via any of the platforms below!
+			</p>
+			
+			<div class="contact-grid">
+				<a href="mailto:2717426172@qq.com" class="contact-link"><i class="fa fa-envelope"></i> 2717426172@qq.com</a>
+				<a href="tel:+8613051725451" class="contact-link"><i class="fa fa-phone"></i> +86 130 5172 5451</a>
+				<a href="javascript:void(0);" class="contact-link"><i class="fa fa-weixin"></i> WeChat: li2717426172</a>
+				<a href="javascript:void(0);" class="contact-link"><i class="fa fa-qq"></i> QQ: 2717426172</a>
+				<a href="https://www.linkedin.com/in/学汉-李-2372233aa" target="_blank" class="contact-link"><i class="fa fa-linkedin-square"></i> 李学汉 | LinkedIn</a>
+				<a href="https://space.bilibili.com/394117586?spm_id_from=333.1007.0.0" target="_blank" class="contact-link"><i class="fa fa-television"></i> Bilibili Channel</a>
 			</div>
+			
+			<a href="Resume_XuehanLi.pdf" target="_blank" class="resume-btn">
+				<i class="fa fa-download" style="margin-right: 10px;"></i> Download Resume (PDF)
+			</a>
 		</div>
 	</div>
 
