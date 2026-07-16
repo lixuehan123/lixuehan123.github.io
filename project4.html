@@ -1,63 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Escape from Power Plant | Xuehan Li</title>
+	<title>Escape from the Power Plant | Xuehan Li</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	
-	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 	<link href="css/font-awesome.css" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Jura:300,400,500,600" rel="stylesheet">
-	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
 	<style>
-		body { margin: 0; padding: 0; font-family: 'Open Sans', sans-serif; background-color: #f7f7f9; color: #333; }
-		.my-clean-header { display: flex; justify-content: space-between; align-items: center; background: #0f0f1b; padding: 15px 5%; position: sticky; top: 0; z-index: 99999; box-shadow: 0 2px 10px rgba(0,0,0,0.5); width: 100%; box-sizing: border-box; }
-		.my-clean-logo { display: flex; flex-direction: column; }
-		.my-clean-logo a { color: #ffffff; text-decoration: none; font-size: 32px; font-weight: bold; letter-spacing: 1px; transition: color 0.3s ease; line-height: 1; }
-		.my-clean-logo a:hover { color: #ff9800; text-decoration: none; }
-		.job-title { color: #ff9800; font-size: 14px; font-weight: 600; letter-spacing: 2px; margin-top: 6px; text-transform: uppercase; }
-		.my-clean-nav { display: flex; list-style: none; margin: 0; padding: 0; align-items: center; flex-wrap: wrap; }
-		.my-clean-nav li { margin-left: 40px; position: relative; } 
-		.my-clean-nav a { color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 600; text-transform: uppercase; transition: color 0.3s ease; display: block; padding: 15px 0; }
-		.my-clean-nav a:hover { color: #ff9800; text-decoration: none; }
-		.dropdown-content { display: none; position: absolute; background-color: #1a1a24; min-width: 250px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5); z-index: 1; top: 100%; left: 0; border-radius: 4px; padding: 10px 0; }
-		.dropdown:hover .dropdown-content { display: block; }
-		.dropdown-content a { color: #fff; padding: 10px 20px; text-decoration: none; display: block; font-size: 13px; text-transform: none; font-weight: 400; transition: 0.2s; border-left: 3px solid transparent; }
-		.dropdown-content a:hover { background-color: #2a2a3d; color: #ff9800; border-left: 3px solid #ff9800; }
-		.dropdown-category-title { padding: 10px 20px 5px 20px; color: #777; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; border-bottom: 1px solid #333; margin-bottom: 5px; margin-top: 5px; pointer-events: none; }
-		.project-detail-container { max-width: 900px; margin: 60px auto; padding: 60px; background: #ffffff; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border-radius: 12px; box-sizing: border-box; }
-		.project-header { text-align: center; margin-bottom: 40px; }
-		.project-header h1 { font-size: 42px; font-weight: 800; margin: 0 0 15px 0; color: #111; letter-spacing: 1px; text-transform: uppercase; }
-		.project-header p.subtitle { font-size: 18px; color: #777; margin: 0; font-weight: 500; }
-		.video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; background: #000; margin-bottom: 50px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-		.video-wrapper iframe, .video-wrapper video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-		.content-section { margin-bottom: 50px; }
-		.content-section h2 { font-size: 26px; font-weight: bold; color: #111; margin-bottom: 20px; padding-left: 15px; border-left: 5px solid #ff9800; line-height: 1.2; }
-		.content-section p { font-size: 16px; line-height: 1.8; color: #444; text-align: justify; margin-bottom: 15px; }
-		.contribution-list { font-size: 16px; line-height: 1.8; color: #444; margin-bottom: 15px; padding-left: 25px; }
-		.contribution-list li { margin-bottom: 12px; }
-		.contribution-list li strong { color: #111; font-weight: 700; }
-		.back-btn-container { text-align: center; margin-top: 60px; border-top: 1px solid #eaeaea; padding-top: 40px; }
-		.back-btn { background-color: #0f0f1b; color: #fff; padding: 14px 40px; font-size: 16px; font-weight: 600; text-decoration: none; border-radius: 6px; transition: background-color 0.3s ease, transform 0.3s ease; display: inline-block; }
-		.back-btn:hover { background-color: #ff9800; color: #fff; text-decoration: none; transform: translateY(-3px); box-shadow: 0 6px 15px rgba(255,152,0,0.3); }
-
-		@media (max-width: 1024px) { .project-detail-container { margin: 40px 20px; padding: 40px 30px; } }
-		@media (max-width: 768px) {
-			.my-clean-header { flex-direction: column; padding: 15px; }
-			.my-clean-logo { align-items: center; }
-			.my-clean-nav { margin-top: 15px; width: 100%; justify-content: center; }
-			.my-clean-nav li { margin: 5px 10px; }
-			.dropdown-content { position: static; display: none; box-shadow: none; background: #222; width: 100%; }
-			.dropdown:hover .dropdown-content { display: block; }
-			.project-detail-container { padding: 30px 20px; margin: 20px 10px; }
-			.project-header h1 { font-size: 32px; }
+		body { margin:0; padding:0; font-family:'Open Sans','Microsoft YaHei',sans-serif; background:#f7f7f9; color:#333; }
+		.my-clean-header { display:flex; justify-content:space-between; align-items:center; background:#0f0f1b; padding:15px 5%; position:sticky; top:0; z-index:99999; box-shadow:0 2px 10px rgba(0,0,0,.5); width:100%; box-sizing:border-box; }
+		.my-clean-logo { display:flex; flex-direction:column; }
+		.my-clean-logo a { color:#fff; text-decoration:none; font-size:32px; font-weight:bold; letter-spacing:1px; line-height:1; }
+		.my-clean-logo a:hover, .my-clean-nav a:hover { color:#ff9800; text-decoration:none; }
+		.job-title { color:#ff9800; font-size:14px; font-weight:600; letter-spacing:2px; margin-top:6px; text-transform:uppercase; }
+		.my-clean-nav { display:flex; list-style:none; margin:0; padding:0; align-items:center; flex-wrap:wrap; }
+		.my-clean-nav li { margin-left:40px; position:relative; }
+		.my-clean-nav a { color:#fff; text-decoration:none; font-size:15px; font-weight:600; text-transform:uppercase; display:block; padding:15px 0; }
+		.dropdown-content { display:none; position:absolute; background:#1a1a24; min-width:250px; box-shadow:0 8px 16px rgba(0,0,0,.5); z-index:1; top:100%; left:0; border-radius:4px; padding:10px 0; }
+		.dropdown:hover .dropdown-content, .dropdown:focus-within .dropdown-content { display:block; }
+		.dropdown-content a { color:#fff; padding:10px 20px; font-size:13px; text-transform:none; font-weight:400; border-left:3px solid transparent; }
+		.dropdown-content a:hover { background:#2a2a3d; color:#ff9800; border-left-color:#ff9800; }
+		.dropdown-category-title { padding:10px 20px 5px; color:#777; font-size:11px; text-transform:uppercase; letter-spacing:1px; font-weight:bold; border-bottom:1px solid #333; margin:5px 0; }
+		.project-detail-container { max-width:1000px; margin:60px auto; padding:60px; background:#fff; box-shadow:0 10px 40px rgba(0,0,0,.08); border-radius:12px; box-sizing:border-box; }
+		.project-header { text-align:center; margin-bottom:40px; }
+		.project-header h1 { font-family:'Jura',sans-serif; font-size:44px; font-weight:700; margin:0 0 12px; color:#111; letter-spacing:1px; text-transform:uppercase; }
+		.project-header .subtitle { font-size:18px; color:#777; margin:0; font-weight:500; }
+		.video-wrapper { position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:8px; background:#000; margin-bottom:50px; box-shadow:0 8px 25px rgba(0,0,0,.15); }
+		.video-wrapper iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:0; }
+		.content-section { margin-bottom:52px; }
+		.content-section h2 { font-size:26px; font-weight:bold; color:#111; margin:0 0 20px; padding-left:15px; border-left:5px solid #ff9800; line-height:1.2; }
+		.content-section h3 { font-size:20px; font-weight:700; color:#222; margin:30px 0 12px; }
+		.content-section p, .content-section li { font-size:16px; line-height:1.8; color:#444; }
+		.content-section p { margin:0 0 15px; text-align:justify; }
+		.fact-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:24px; }
+		.fact { background:#fff6ea; border:1px solid #f3d2ad; border-radius:6px; padding:18px; }
+		.fact strong { display:block; color:#d76d00; font-size:20px; margin-bottom:4px; }
+		.fact span { font-size:13px; color:#6a5d50; }
+		.media-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; margin-top:22px; }
+		.media-grid.three { grid-template-columns:repeat(3,minmax(0,1fr)); }
+		.media-card { margin:0; border:1px solid #e7e7e7; border-radius:7px; overflow:hidden; background:#fafafa; }
+		.media-card a { display:block; background:#16161c; }
+		.media-card img { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; }
+		.media-card img.contain { object-fit:contain; background:#f3f3f3; }
+		.media-card figcaption { padding:11px 13px; font-size:13px; line-height:1.55; color:#666; }
+		.note { padding:18px 20px; margin:20px 0; border-left:4px solid #ff9800; background:#fff6ea; color:#555; line-height:1.75; }
+		.gallery-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+		.gallery-grid a { display:block; overflow:hidden; border-radius:6px; background:#111; }
+		.gallery-grid img { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; transition:transform .3s ease; }
+		.gallery-grid a:hover img { transform:scale(1.04); }
+		.back-btn-container { text-align:center; margin-top:60px; border-top:1px solid #eaeaea; padding-top:40px; }
+		.back-btn { background:#0f0f1b; color:#fff; padding:14px 40px; font-size:16px; font-weight:600; text-decoration:none; border-radius:6px; display:inline-block; }
+		.back-btn:hover { background:#ff9800; color:#fff; text-decoration:none; }
+		@media (max-width:1024px) { .project-detail-container { margin:40px 20px; padding:40px 30px; } }
+		@media (max-width:768px) {
+			.my-clean-header { flex-direction:column; padding:15px; position:relative; }
+			.my-clean-logo { align-items:center; }
+			.my-clean-nav { margin-top:15px; width:100%; justify-content:center; }
+			.my-clean-nav li { margin:5px 10px; }
+			.dropdown-content { position:absolute; left:50%; transform:translateX(-50%); }
+			.project-detail-container { padding:30px 20px; margin:20px 10px; }
+			.project-header h1 { font-size:32px; }
+			.fact-grid, .media-grid, .media-grid.three, .gallery-grid { grid-template-columns:1fr; }
 		}
 	</style>
 </head>
 <body>
-	
 	<header class="my-clean-header">
 		<div class="my-clean-logo">
 			<a href="index.html" title="Xuehan Li - Portfolio">XUEHAN LI</a>
@@ -65,73 +74,162 @@
 		</div>
 		<ul class="my-clean-nav">
 			<li><a href="index.html">HOME</a></li>
-			
 			<li class="dropdown">
 				<a href="index.html#work" class="dropbtn">PROJECTS <i class="fa fa-angle-down"></i></a>
 				<div class="dropdown-content">
-					<div class="dropdown-category-title">Personal & Thesis</div>
-					<a href="project1.html">ContainmentBreach (Starfield)</a>
-					<a href="project2.html">Thesis: Souls-like Topology</a>
-					<a href="project3.html">Invalidprescription (Starfield)</a>
-					<a href="project4.html">Escape from Power Plant (Half-Life 2)</a>
-					<a href="project5.html">Coldfront (Quake 3)</a>
-					<a href="project6.html">Beast Motos (Board Game)</a>
-
+					<div class="dropdown-category-title">Personal Projects</div>
+					<a href="project1.html">Containment Breach (Starfield)</a>
+					<a href="project3.html">Invalid Prescription (Starfield)</a>
+					<a href="project4.html">Escape from the Power Plant (Half-Life 2)</a>
 					<div class="dropdown-category-title">Team Projects</div>
-					<a href="#">Petalnaut</a>
-					<a href="#">HamsterBallin</a>
-					<a href="#">Unannounced Project</a>
-					
+					<a href="project7.html">Petalnaut</a>
+					<a href="project8.html">Hamsterballin'</a>
+					<a href="project9.html">Unannounced Project</a>
 					<div class="dropdown-category-title">Game Jams</div>
-					<a href="#">GGJ 2024: Make me laugh</a>
-					<a href="#">LD 54: Summon</a>
-					<a href="#">GMTK 2024: Build to scale</a>
+					<a href="project10.html">GGJ 2024: Make me laugh</a>
+					<a href="project11.html">LD 55: Summon</a>
+					<a href="project12.html">GMTK 2024: Built to Scale</a>
 				</div>
 			</li>
-			
 			<li><a href="index.html#about">ABOUT</a></li>
 			<li><a href="index.html#contact">CONTACT</a></li>
 		</ul>
 	</header>
 
 	<div class="project-detail-container">
-		
 		<div class="project-header">
-			<h1>Escape from Power Plant</h1>
-			<p class="subtitle">Half-Life 2 Custom Mod & Linear FPS Level Design</p>
+			<h1>Escape from the Power Plant</h1>
+			<p class="subtitle">Half-Life 2 Side Level and Electrical-Circuit Puzzle Design</p>
 		</div>
 
 		<div class="video-wrapper">
-			<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Project 4 Video Placeholder" allowfullscreen></iframe>
+			<iframe src="https://player.bilibili.com/player.html?isOutside=true&amp;aid=116911761266152&amp;bvid=BV1HXNy6VE2R&amp;cid=39908215364&amp;p=1" scrolling="no" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Escape from the Power Plant gameplay video"></iframe>
 		</div>
 
 		<div class="content-section">
-			<h2>Project Introduction</h2>
-			<p>Escape from Power Plant is a classic, narrative-driven linear FPS level built using the Source Engine's Hammer Editor. The goal of this project was to master the fundamentals of traditional level design pacing—specifically, the ebb and flow of tension, enemy encounters, and environmental puzzle-solving inherent to the Half-Life 2 formula.</p>
+			<h2>Project Overview</h2>
+			<p>This Half-Life 2 side level was created as an exercise in puzzle design: using environmental staging to imply solutions, establishing conveyance to guide the player, communicating information through the initial layout, and reusing limited resources across multiple puzzles. The core mechanic is similar to the Lightning Temple in The Legend of Zelda: the player connects circuits with conductive metal blocks and ultimately escapes the factory.</p>
+			<div class="fact-grid">
+				<div class="fact"><strong>50 Hours</strong><span>Design, Construction, and Iteration</span></div>
+				<div class="fact"><strong>About 15 Minutes</strong><span>Complete Level Flow</span></div>
+				<div class="fact"><strong>2 + 5</strong><span>2 Major Combat Areas and 5 Core Puzzle Sequences</span></div>
+			</div>
 		</div>
 
 		<div class="content-section">
-			<h2>My Contributions</h2>
-			<ul class="contribution-list">
-				<li><strong>Hammer Editor Greyboxing:</strong> Blocked out the entire power plant facility, ensuring player paths were intuitive yet challenging.</li>
-				<li><strong>Visual Scripting & Triggers:</strong> Set up complex I/O entities (Input/Output) to trigger explosive barrels, collapsing structures, and synchronized enemy ambushes.</li>
-				<li><strong>Combat Encounter Pacing:</strong> Placed Combine soldiers and zombies in strategic locations to create distinct arenas with varying tactical requirements.</li>
-				<li><strong>Lighting for Guidance:</strong> Utilized the Source Engine's lighting system to subtly guide the player's eye toward critical paths and health pickups.</li>
-			</ul>
+			<h2>Level Layout</h2>
+			<p>The layout follows the order in which the electrical-circuit mechanic is learned. Combat zones, puzzle rooms, upper and lower floors, and recoverable resources are arranged along one continuous progression. The player first observes the goal, then learns the rules, and finally carries resources used earlier into later puzzles.</p>
+			<div class="media-grid three">
+				<figure class="media-card"><a href="images/project4/image-002-fd08a50d45d6.png" target="_blank"><img class="contain" src="images/project4/image-002-fd08a50d45d6.png" alt="Escape from the Power Plant level overview"></a><figcaption>Level overview: combat areas, puzzle areas, and the main progression.</figcaption></figure>
+				<figure class="media-card"><a href="images/project4/image-003-35e50e1008bc.png" target="_blank"><img class="contain" src="images/project4/image-003-35e50e1008bc.png" alt="Escape from the Power Plant three-dimensional layout"></a><figcaption>Three-dimensional layout and the relationship between floors.</figcaption></figure>
+				<figure class="media-card"><a href="images/project4/image-004-b8eee871277d.png" target="_blank"><img class="contain" src="images/project4/image-004-b8eee871277d.png" alt="Escape from the Power Plant local layout"></a><figcaption>Local layout and route connections.</figcaption></figure>
+			</div>
 		</div>
 
 		<div class="content-section">
-			<h2>Design Analysis</h2>
-			<p>The layout follows a strict pacing curve: Build-up, Climax, and Resolution. I focused heavily on "Sightline Control"—ensuring that the player is never overwhelmed by enemies from 360 degrees, but rather faces "funneled" challenges that require them to use cover and physics objects effectively.</p>
-			<p>A key design moment is the central generator room, which acts as a "Valve" (a point of no return). Here, the player must defend against a multi-directional siege before escaping, utilizing the spatial awareness built up during the earlier, slower-paced exploration segments.</p>
+			<h2>Goal 1: Mechanic Design</h2>
+			<h3>Selecting a Strong Mechanic</h3>
+			<p><strong>Communication:</strong> As a Half-Life 2 derivative level, the mechanic must fit the existing world. Half-Life 2 includes extensive physics simulation, so the mechanic should connect to real-world physical phenomena and align with player intuition. Among several candidates, an electrical-circuit puzzle—although absent from the original game—fit this world best.</p>
+			<p><strong>Elegance:</strong> The basic action is simply connecting two sparking circuit endpoints. The action is easy to understand and establishes the rule quickly during the opening lesson.</p>
+			<p><strong>Emergence:</strong> The mechanic also needs enough potential to support additional play. Connecting two objects can develop into puzzles involving distance, conductive media, matching relationships, sequence, and timing.</p>
+
+			<h3>Exploring the Mechanic's Potential</h3>
+			<p><strong>Logic gates:</strong> If a puzzle currently uses an AND relationship, consider whether OR or NOT can also become part of the gameplay.</p>
+			<p><strong>Time and space:</strong> Limit available resources through distance or time so the same connection rule produces new solutions.</p>
+			<p><strong>Order and quantity:</strong> Explore what happens when multiple circuits appear at once, and how the number and order of connections change the outcome.</p>
+
+			<h3>Designing the Setting Around the Mechanic</h3>
+			<p><strong>Narrative:</strong> Why does the player use this mechanic in this location, and why must the task be completed?</p>
+			<p><strong>Player intuition:</strong> The environment must clearly distinguish objects that can be used from objects that are only part of the scenery.</p>
+			<p><strong>Atmosphere:</strong> Whether the mechanic creates tension or relaxation affects the arrangement of space and pacing.</p>
+			<p><strong>Environment art:</strong> The environment should support the mechanic and story, but above all it must not interfere with the puzzle or include objects that appear interactive but are not.</p>
+		</div>
+
+		<div class="content-section">
+			<h2>Goal 2: Puzzle Design</h2>
+			<h3>Puzzle Teaching Sequence and Level Planning</h3>
+			<p>I divided the learning sequence into four steps: A. the player conducts electricity directly with a cable; B. the player uses water as a conductor; C. the player uses water to connect different cables and learns the color-matching relationship; D. the player completes the level by connecting circuits in the correct order. The sequence of learn, reinforce, break through, and combine raises difficulty one layer at a time instead of presenting several rules simultaneously.</p>
+			<figure class="media-card"><a href="images/project4/image-005-4c2bf3e151fe.png" target="_blank"><img class="contain" loading="lazy" src="images/project4/image-005-4c2bf3e151fe.png" alt="Electrical-puzzle learning sequence and level plan"></a><figcaption>Learning sequence and level plan for the electrical puzzles.</figcaption></figure>
+
+			<h3>Foreseeable Goals and Environmental Communication</h3>
+			<p>At the beginning of the level, a cutscene presents the final goal: two sparking blocks are connected, a green light indicates a complete circuit, the factory gate remains open, and enemies patrol below. Before taking control, the player has already seen the relationship between the mechanic, feedback, goal, and danger.</p>
+			<div class="media-grid">
+				<figure class="media-card"><a href="images/project4/image-006-54b13a2eb962.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-006-54b13a2eb962.jpeg" alt="Opening sequence showing the final goal"></a><figcaption>The opening sequence shows the final goal and the connected circuit state.</figcaption></figure>
+				<figure class="media-card"><a href="images/project4/image-007-ac2c061150da.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-007-ac2c061150da.jpeg" alt="Opening sequence showing the factory gate and enemies"></a><figcaption>The gate remains open while enemies patrol below.</figcaption></figure>
+			</div>
+			<p>To communicate that water conducts electricity, I embedded the lesson in an environmental event. When the player approaches the first cable, a zombie charges forward and is electrocuted by the sparking water. The rule is demonstrated directly through action rather than explained with text.</p>
+			<figure class="media-card"><a href="images/project4/image-008-e6b7df021e0c.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-008-e6b7df021e0c.jpeg" alt="Teaching sequence in which electrified water kills a zombie"></a><figcaption>A zombie is killed by electrified water, communicating that water conducts electricity and causes damage.</figcaption></figure>
+			<p>A red light and a closed gate mark the current puzzle objective. Later puzzles preserve this visual language: whenever the player sees a red light, they know that the location still needs power.</p>
+			<figure class="media-card"><a href="images/project4/image-009-9b535621687c.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-009-9b535621687c.jpeg" alt="Red light and closed gate marking the puzzle objective"></a><figcaption>The red light and closed gate jointly mark the current objective.</figcaption></figure>
+
+			<h3>Mandatory Teaching</h3>
+			<p>If a basic interaction must be fully understood, it needs to become a requirement for progress. To teach that wooden crates can be moved, I block the route with a crate that the player must relocate. Similarly, the player must destroy wooden boards to move forward, naturally learning that boards are breakable.</p>
+			<div class="media-grid three">
+				<figure class="media-card"><a href="images/project4/image-010-df4bb1d2750c.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-010-df4bb1d2750c.jpeg" alt="Mandatory lesson with a crate blocking the route"></a><figcaption>A wooden crate blocks the route and must be moved.</figcaption></figure>
+				<figure class="media-card"><a href="images/project4/image-011-199d307b2d29.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-011-199d307b2d29.jpeg" alt="Breakable-board lesson one"></a><figcaption>Wooden boards block the way and establish the breakable-object rule.</figcaption></figure>
+				<figure class="media-card"><a href="images/project4/image-012-38d7dcd9f9cb.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-012-38d7dcd9f9cb.jpeg" alt="Breakable-board lesson two"></a><figcaption>The player must destroy the boards to continue.</figcaption></figure>
+			</div>
+
+			<h3>Consistent Conveyance</h3>
+			<p>I keep conveyance consistent throughout the level: green means that a circuit is powered, red means the location still needs power, and electrical sparks always indicate danger and damage. When later puzzles become more complex, the player does not need to reinterpret the basic visual language.</p>
+			<div class="media-grid">
+				<figure class="media-card"><a href="images/project4/image-013-6932dc15e4f0.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-013-6932dc15e4f0.jpeg" alt="Green light indicating a powered circuit"></a><figcaption>Green light: the circuit is powered.</figcaption></figure>
+				<figure class="media-card"><a href="images/project4/image-014-dc259d58b9cc.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-014-dc259d58b9cc.jpeg" alt="Red light indicating that power is needed"></a><figcaption>Red light: this location still needs power.</figcaption></figure>
+				<figure class="media-card"><a href="images/project4/image-015-e8d695836c55.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-015-e8d695836c55.jpeg" alt="Electrical sparks indicating damage one"></a><figcaption>Electrical sparks always indicate danger and damage.</figcaption></figure>
+				<figure class="media-card"><a href="images/project4/image-016-237e69a3d545.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-016-237e69a3d545.jpeg" alt="Electrical sparks indicating damage two"></a><figcaption>The same feedback remains consistent across different puzzles.</figcaption></figure>
+			</div>
+
+			<h3>Productive Misleading States</h3>
+			<p>The purpose of a misleading state is not to add arbitrary difficulty, but to prompt logical thought and communicate a deeper layer of the mechanic. I wanted the player to understand that blue cables must connect to blue cables and red cables to red cables before current can pass. I therefore show a red cable connected to a blue cable while the light remains red. The basic action appears complete, but the expected feedback is absent, leading the player to consider color correspondence.</p>
+			<figure class="media-card"><a href="images/project4/image-017-ee69b73275cc.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-017-ee69b73275cc.jpeg" alt="Misleading state with incorrectly matched red and blue cables"></a><figcaption>The red and blue cables are connected, but the light does not turn green, prompting the player to understand the color-matching rule.</figcaption></figure>
+			<p>The player has already learned that electrified water causes damage, but the level then requires crossing it. The solution depends on recalling another lesson: wooden crates can be moved and used as stepping stones to avoid the water. The new puzzle does not introduce an unrelated mechanic; it combines rules that have already been taught.</p>
+			<figure class="media-card"><a href="images/project4/image-018-5e04ccad8139.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-018-5e04ccad8139.jpeg" alt="Using a crate to cross electrified water"></a><figcaption>The puzzle combines two learned rules: electrified water damages the player, and wooden crates can be moved.</figcaption></figure>
+
+			<h3>Nested Lock-and-Key Structure and Resource Reuse</h3>
+			<p>Nested lock-and-key structures are common in puzzle levels. In a simple example, the player cannot solve the final puzzle directly. They have one Key A and two Lock A gates. Key A must first be used to obtain Key B; Key B opens Lock B, which releases Key A so it can open the second Lock A. The core idea is the gradual release of constrained resources.</p>
+			<p>In my level, the player needs to carry a crate across an electrified pool encountered earlier. However, opening the gate has electrified water that was previously safe. The player must first cut the power and close the gate, retrieve the crate, and then restore power to reopen the gate. Two previously separate puzzles become one complete level through a shared set of resources.</p>
+			<div class="media-grid">
+				<figure class="media-card"><a href="images/project4/image-019-d0d2a4ede12d.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-019-d0d2a4ede12d.jpeg" alt="First step of the nested lock-and-key structure"></a><figcaption>Cut the power and close the gate to release the crate currently in use.</figcaption></figure>
+				<figure class="media-card"><a href="images/project4/image-020-8319a61e5d4a.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-020-8319a61e5d4a.jpeg" alt="Second step of the nested lock-and-key structure"></a><figcaption>After retrieving the crate, restore power to open the gate, then use the crate to cross the water.</figcaption></figure>
+			</div>
+			<p>In the final puzzle, the player discovers that the red cable is always too short. I use the vertical relationship between spaces, a broken pipe in the first puzzle, and a leaking ceiling below to communicate that the power source linking the first and second puzzles is no longer needed. It can be recovered and used in the fourth puzzle. At this point, the puzzles are no longer isolated rooms; resource recovery connects them completely. Reusing existing resources to solve different problems reveals the mechanic's full potential.</p>
+			<div class="media-grid">
+				<figure class="media-card"><a href="images/project4/image-021-5a024a5d5f1a.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-021-5a024a5d5f1a.jpeg" alt="Vertical spatial clues indicating that a resource can be recovered"></a><figcaption>A broken pipe and the leaking ceiling below establish the relationship between floors.</figcaption></figure>
+				<figure class="media-card"><a href="images/project4/image-022-31d7a61b066b.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-022-31d7a61b066b.jpeg" alt="Recovering an earlier power source to solve the final puzzle"></a><figcaption>A power source no longer needed in an earlier puzzle is recovered for a later one.</figcaption></figure>
+			</div>
+
+			<h3>False Assumptions</h3>
+			<p>A false assumption can break established thinking and introduce a deeper layer of the mechanic. The first puzzle teaches that connecting two blocks completes a circuit. The second puzzle then limits cable length so the player cannot connect the blocks directly, no matter how they try. A pool in the center of the room encourages the player to reconsider what they know and realize that placing both blocks in the water allows the water to act as a conductive medium and extend the connection distance.</p>
+			<div class="media-grid">
+				<figure class="media-card"><a href="images/project4/image-023-b40405b19ad0.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-023-b40405b19ad0.jpeg" alt="Limited cable length creating a false assumption"></a><figcaption>The cable is too short, so a direct connection must fail.</figcaption></figure>
+				<figure class="media-card"><a href="images/project4/image-024-5e6fdefa1fce.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-024-5e6fdefa1fce.jpeg" alt="Using water to extend the conductive distance"></a><figcaption>Placing both blocks in the water extends the conductive distance.</figcaption></figure>
+			</div>
+		</div>
+
+		<div class="content-section">
+			<h2>Level Gallery</h2>
+			<p>Final in-game views are shown below. Click an image to view the full-size version.</p>
+			<div class="gallery-grid">
+				<a href="images/project4/image-025-29afcfaa5401.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-025-29afcfaa5401.jpeg" alt="Escape from the Power Plant screenshot 1"></a>
+				<a href="images/project4/image-026-baeea2443899.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-026-baeea2443899.jpeg" alt="Escape from the Power Plant screenshot 2"></a>
+				<a href="images/project4/image-027-0f82becc9209.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-027-0f82becc9209.jpeg" alt="Escape from the Power Plant screenshot 3"></a>
+				<a href="images/project4/image-028-e43ec35466e2.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-028-e43ec35466e2.jpeg" alt="Escape from the Power Plant screenshot 4"></a>
+				<a href="images/project4/image-029-5db4d7a9a8a5.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-029-5db4d7a9a8a5.jpeg" alt="Escape from the Power Plant screenshot 5"></a>
+				<a href="images/project4/image-030-626d908bf096.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-030-626d908bf096.jpeg" alt="Escape from the Power Plant screenshot 6"></a>
+				<a href="images/project4/image-031-546b72f4ed37.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-031-546b72f4ed37.jpeg" alt="Escape from the Power Plant screenshot 7"></a>
+				<a href="images/project4/image-032-d57e9bb364c5.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-032-d57e9bb364c5.jpeg" alt="Escape from the Power Plant screenshot 8"></a>
+				<a href="images/project4/image-033-3e91e83fd8ff.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-033-3e91e83fd8ff.jpeg" alt="Escape from the Power Plant screenshot 9"></a>
+				<a href="images/project4/image-034-458a7d39fe97.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-034-458a7d39fe97.jpeg" alt="Escape from the Power Plant screenshot 10"></a>
+				<a href="images/project4/image-035-a096dd24c641.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-035-a096dd24c641.jpeg" alt="Escape from the Power Plant screenshot 11"></a>
+				<a href="images/project4/image-036-84b8d2c2c8d4.jpeg" target="_blank"><img loading="lazy" src="images/project4/image-036-84b8d2c2c8d4.jpeg" alt="Escape from the Power Plant screenshot 12"></a>
+			</div>
 		</div>
 
 		<div class="back-btn-container">
 			<a href="index.html#work" class="back-btn"><i class="fa fa-arrow-left"></i> Back to Portfolio</a>
 		</div>
-
 	</div>
-	
+
 	<script src="js/jquery-2.2.3.min.js"></script>
 </body>
 </html>

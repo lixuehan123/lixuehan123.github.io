@@ -1,105 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<title>ContainmentBreach | Xuehan Li</title>
+	<title>Containment Breach | Xuehan Li</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	
-	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 	<link href="css/font-awesome.css" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Jura:300,400,500,600" rel="stylesheet">
-	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
 	<style>
-		body { 
-			margin: 0; 
-			padding: 0; 
-			font-family: 'Open Sans', sans-serif; 
-			background-color: #f7f7f9; 
-			color: #333; 
-		}
-
-		/* 导航栏样式 */
-		.my-clean-header { display: flex; justify-content: space-between; align-items: center; background: #0f0f1b; padding: 15px 5%; position: sticky; top: 0; z-index: 99999; box-shadow: 0 2px 10px rgba(0,0,0,0.5); width: 100%; box-sizing: border-box; }
-		.my-clean-logo { display: flex; flex-direction: column; }
-		.my-clean-logo a { color: #ffffff; text-decoration: none; font-size: 32px; font-weight: bold; letter-spacing: 1px; transition: color 0.3s ease; line-height: 1; }
-		.my-clean-logo a:hover { color: #ff9800; text-decoration: none; }
-		.job-title { color: #ff9800; font-size: 14px; font-weight: 600; letter-spacing: 2px; margin-top: 6px; text-transform: uppercase; }
-
-		.my-clean-nav { display: flex; list-style: none; margin: 0; padding: 0; align-items: center; flex-wrap: wrap; }
-		.my-clean-nav li { margin-left: 40px; position: relative; } 
-		.my-clean-nav a { color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 600; text-transform: uppercase; transition: color 0.3s ease; display: block; padding: 15px 0; }
-		.my-clean-nav a:hover { color: #ff9800; text-decoration: none; }
-
-		/* 下拉菜单样式 */
-		.dropdown-content { display: none; position: absolute; background-color: #1a1a24; min-width: 280px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5); z-index: 1; top: 100%; left: 0; border-radius: 4px; padding: 10px 0; }
-		.dropdown:hover .dropdown-content { display: block; }
-		.dropdown-content a { color: #fff; padding: 10px 20px; text-decoration: none; display: block; font-size: 13px; text-transform: none; font-weight: 400; transition: 0.2s; border-left: 3px solid transparent; }
-		.dropdown-content a:hover { background-color: #2a2a3d; color: #ff9800; border-left: 3px solid #ff9800; }
-		.dropdown-category-title { padding: 10px 20px 5px 20px; color: #777; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; border-bottom: 1px solid #333; margin-bottom: 5px; margin-top: 5px; pointer-events: none; }
-
-		/* 项目详情容器排版 (修复挤在左边的问题) */
-		.project-detail-container { 
-			max-width: 900px; 
-			margin: 60px auto; 
-			padding: 60px; 
-			background: #ffffff; 
-			box-shadow: 0 10px 40px rgba(0,0,0,0.08); 
-			border-radius: 12px; 
-			box-sizing: border-box; 
-		}
-
-		.project-header { text-align: center; margin-bottom: 40px; }
-		.project-header h1 { font-size: 42px; font-weight: 800; margin: 0 0 15px 0; color: #111; letter-spacing: 1px; text-transform: uppercase; }
-		.project-header p.subtitle { font-size: 18px; color: #777; margin: 0; font-weight: 500; }
-
-		/* 视频自适应 (修复视频太小的问题) */
-		.video-wrapper { 
-			position: relative; 
-			padding-bottom: 56.25%; 
-			height: 0; 
-			overflow: hidden; 
-			border-radius: 8px; 
-			background: #000; 
-			margin-bottom: 50px; 
-			box-shadow: 0 8px 25px rgba(0,0,0,0.15); 
-		}
-		.video-wrapper iframe, .video-wrapper video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-
-		/* 内容段落 */
-		.content-section { margin-bottom: 50px; }
-		.content-section h2 { font-size: 26px; font-weight: bold; color: #111; margin-bottom: 20px; padding-left: 15px; border-left: 5px solid #ff9800; line-height: 1.2; }
-		.content-section p { font-size: 16px; line-height: 1.8; color: #444; text-align: justify; margin-bottom: 15px; }
-		
-		/* 个人工作量列表样式 */
-		.contribution-list { font-size: 16px; line-height: 1.8; color: #444; margin-bottom: 15px; padding-left: 25px; }
-		.contribution-list li { margin-bottom: 12px; }
-		.contribution-list li strong { color: #111; font-weight: 700; }
-
-		/* 底部返回按钮 */
-		.back-btn-container { text-align: center; margin-top: 60px; border-top: 1px solid #eaeaea; padding-top: 40px; }
-		.back-btn { background-color: #0f0f1b; color: #fff; padding: 14px 40px; font-size: 16px; font-weight: 600; text-decoration: none; border-radius: 6px; transition: background-color 0.3s ease, transform 0.3s ease; display: inline-block; }
-		.back-btn:hover { background-color: #ff9800; color: #fff; text-decoration: none; transform: translateY(-3px); box-shadow: 0 6px 15px rgba(255,152,0,0.3); }
-
-		/* 响应式适配 */
-		@media (max-width: 1024px) { .project-detail-container { margin: 40px 20px; padding: 40px 30px; } }
-		@media (max-width: 768px) {
-			.my-clean-header { flex-direction: column; padding: 15px; }
-			.my-clean-logo { align-items: center; }
-			.my-clean-nav { margin-top: 15px; width: 100%; justify-content: center; }
-			.my-clean-nav li { margin: 5px 10px; }
-			.dropdown-content { position: static; display: none; box-shadow: none; background: #222; width: 100%; }
-			.dropdown:hover .dropdown-content { display: block; }
-			.project-detail-container { padding: 30px 20px; margin: 20px 10px; }
-			.project-header h1 { font-size: 32px; }
+		body { margin:0; padding:0; font-family:'Open Sans','Microsoft YaHei',sans-serif; background:#f7f7f9; color:#333; }
+		.my-clean-header { display:flex; justify-content:space-between; align-items:center; background:#0f0f1b; padding:15px 5%; position:sticky; top:0; z-index:99999; box-shadow:0 2px 10px rgba(0,0,0,.5); width:100%; box-sizing:border-box; }
+		.my-clean-logo { display:flex; flex-direction:column; }
+		.my-clean-logo a { color:#fff; text-decoration:none; font-size:32px; font-weight:bold; letter-spacing:1px; line-height:1; }
+		.my-clean-logo a:hover, .my-clean-nav a:hover { color:#ff9800; text-decoration:none; }
+		.job-title { color:#ff9800; font-size:14px; font-weight:600; letter-spacing:2px; margin-top:6px; text-transform:uppercase; }
+		.my-clean-nav { display:flex; list-style:none; margin:0; padding:0; align-items:center; flex-wrap:wrap; }
+		.my-clean-nav li { margin-left:40px; position:relative; }
+		.my-clean-nav a { color:#fff; text-decoration:none; font-size:15px; font-weight:600; text-transform:uppercase; display:block; padding:15px 0; }
+		.dropdown-content { display:none; position:absolute; background:#1a1a24; min-width:250px; box-shadow:0 8px 16px rgba(0,0,0,.5); z-index:1; top:100%; left:0; border-radius:4px; padding:10px 0; }
+		.dropdown:hover .dropdown-content, .dropdown:focus-within .dropdown-content { display:block; }
+		.dropdown-content a { color:#fff; padding:10px 20px; font-size:13px; text-transform:none; font-weight:400; border-left:3px solid transparent; }
+		.dropdown-content a:hover { background:#2a2a3d; color:#ff9800; border-left-color:#ff9800; }
+		.dropdown-category-title { padding:10px 20px 5px; color:#777; font-size:11px; text-transform:uppercase; letter-spacing:1px; font-weight:bold; border-bottom:1px solid #333; margin:5px 0; }
+		.project-detail-container { max-width:1080px; margin:60px auto; padding:60px; background:#fff; box-shadow:0 10px 40px rgba(0,0,0,.08); border-radius:12px; box-sizing:border-box; }
+		.project-header { text-align:center; margin-bottom:36px; }
+		.project-header h1 { font-family:'Jura',sans-serif; font-size:44px; font-weight:700; margin:0 0 12px; color:#111; letter-spacing:1px; text-transform:uppercase; }
+		.project-header .subtitle { font-size:18px; color:#777; margin:0; font-weight:500; }
+		.cover-image { width:100%; display:block; border-radius:8px; margin-bottom:28px; box-shadow:0 8px 25px rgba(0,0,0,.15); }
+		.video-placeholder { padding:34px; margin-bottom:50px; background:#0f0f1b; color:#fff; border-radius:8px; text-align:center; }
+		.video-placeholder strong { display:block; font-size:20px; margin-bottom:8px; color:#ff9800; }
+		.video-placeholder span { color:#c8c8ce; font-size:14px; line-height:1.7; }
+		.content-section { margin-bottom:52px; }
+		.content-section h2 { font-size:26px; font-weight:bold; color:#111; margin:0 0 20px; padding-left:15px; border-left:5px solid #ff9800; line-height:1.3; }
+		.content-section h3 { font-size:20px; font-weight:700; color:#222; margin:30px 0 12px; }
+		.content-section h4 { font-size:18px; font-weight:700; color:#d76d00; margin:28px 0 12px; }
+		.content-section p, .content-section li { font-size:16px; line-height:1.8; color:#444; }
+		.content-section p { margin:0 0 15px; text-align:justify; }
+		.logic-list { margin:0 0 20px; padding-left:22px; }
+		.logic-list li { margin-bottom:7px; }
+		.fact-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:24px; }
+		.fact { background:#fff6ea; border:1px solid #f3d2ad; border-radius:6px; padding:18px; }
+		.fact strong { display:block; color:#d76d00; font-size:20px; margin-bottom:4px; }
+		.fact span { font-size:13px; color:#6a5d50; }
+		.media-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; margin-top:22px; }
+		.media-grid.three { grid-template-columns:repeat(3,minmax(0,1fr)); }
+		.media-card { margin:20px 0 0; border:1px solid #e7e7e7; border-radius:7px; overflow:hidden; background:#fafafa; }
+		.media-grid .media-card { margin-top:0; }
+		.media-card a { display:block; background:#16161c; }
+		.media-card img { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; }
+		.media-card img.contain { object-fit:contain; background:#f3f3f3; }
+		.media-card figcaption { padding:11px 13px; font-size:13px; line-height:1.55; color:#666; }
+		.portrait-feature { display:grid; grid-template-columns:minmax(420px,1.15fr) minmax(300px,.85fr); gap:28px; align-items:start; margin:26px 0; padding:20px; border:1px solid #e7e7e7; border-radius:8px; background:#fafafa; }
+		.portrait-feature.reverse .portrait-media { order:2; }
+		.portrait-media a { display:block; text-align:center; }
+		.portrait-media img { width:100%; max-height:760px; object-fit:contain; display:block; background:#fff; border-radius:6px; }
+		.portrait-copy h3 { margin-top:0; }
+		.image-caption { margin:10px 2px 0 !important; color:#777 !important; font-size:13px !important; line-height:1.55 !important; text-align:left !important; }
+		.note { padding:18px 20px; margin:20px 0; border-left:4px solid #ff9800; background:#fff6ea; color:#555; line-height:1.75; }
+		.design-block { margin-top:26px; padding-top:2px; border-top:1px solid #ededed; }
+		.gallery-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+		.gallery-grid a { display:block; overflow:hidden; border-radius:6px; background:#111; }
+		.gallery-grid img { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; transition:transform .3s ease; }
+		.gallery-grid a:hover img { transform:scale(1.04); }
+		.back-btn-container { text-align:center; margin-top:60px; border-top:1px solid #eaeaea; padding-top:40px; }
+		.back-btn { background:#0f0f1b; color:#fff; padding:14px 40px; font-size:16px; font-weight:600; text-decoration:none; border-radius:6px; display:inline-block; }
+		.back-btn:hover { background:#ff9800; color:#fff; text-decoration:none; }
+		@media (max-width:1024px) { .project-detail-container { margin:40px 20px; padding:40px 30px; } .portrait-feature { grid-template-columns:minmax(360px,1.05fr) minmax(280px,.95fr); } }
+		@media (max-width:768px) {
+			.my-clean-header { flex-direction:column; padding:15px; position:relative; }
+			.my-clean-logo { align-items:center; }
+			.my-clean-nav { margin-top:15px; width:100%; justify-content:center; }
+			.my-clean-nav li { margin:5px 10px; }
+			.dropdown-content { position:absolute; left:50%; transform:translateX(-50%); }
+			.project-detail-container { padding:30px 20px; margin:20px 10px; }
+			.project-header h1 { font-size:32px; }
+			.fact-grid, .media-grid, .media-grid.three, .gallery-grid, .portrait-feature { grid-template-columns:1fr; }
+			.portrait-feature.reverse .portrait-media { order:0; }
+			.portrait-media img { max-height:none; }
 		}
 	</style>
 </head>
-
 <body>
-	
 	<header class="my-clean-header">
 		<div class="my-clean-logo">
 			<a href="index.html" title="Xuehan Li - Portfolio">XUEHAN LI</a>
@@ -107,73 +89,196 @@
 		</div>
 		<ul class="my-clean-nav">
 			<li><a href="index.html">HOME</a></li>
-			
 			<li class="dropdown">
 				<a href="index.html#work" class="dropbtn">PROJECTS <i class="fa fa-angle-down"></i></a>
 				<div class="dropdown-content">
-					<div class="dropdown-category-title">Personal & Thesis</div>
-					<a href="project1.html">ContainmentBreach (Starfield)</a>
-					<a href="project2.html">Thesis: Souls-like Topology</a>
-					<a href="project3.html">Invalidprescription (Starfield)</a>
-					<a href="project4.html">Escape from Power Plant (Half-Life 2)</a>
-					<a href="project5.html">Coldfront (Quake 3)</a>
-					<a href="project6.html">Beast Motos (Board Game)</a>
-
+					<div class="dropdown-category-title">Personal Projects</div>
+					<a href="project1.html">Containment Breach (Starfield)</a>
+					<a href="project3.html">Invalid Prescription (Starfield)</a>
+					<a href="project4.html">Escape from the Power Plant (Half-Life 2)</a>
 					<div class="dropdown-category-title">Team Projects</div>
 					<a href="project7.html">Petalnaut</a>
-					<a href="project8.html">HamsterBallin</a>
+					<a href="project8.html">Hamsterballin'</a>
 					<a href="project9.html">Unannounced Project</a>
-					
 					<div class="dropdown-category-title">Game Jams</div>
 					<a href="project10.html">GGJ 2024: Make me laugh</a>
-					<a href="project11.html">LD 54: Summon</a>
-					<a href="project12.html">GMTK 2024: Build to scale</a>
+					<a href="project11.html">LD 55: Summon</a>
+					<a href="project12.html">GMTK 2024: Built to Scale</a>
 				</div>
 			</li>
-			
 			<li><a href="index.html#about">ABOUT</a></li>
 			<li><a href="index.html#contact">CONTACT</a></li>
 		</ul>
 	</header>
 
 	<div class="project-detail-container">
-		
 		<div class="project-header">
-			<h1>ContainmentBreach</h1>
-			<p class="subtitle">Starfield Custom Level Mod & Survival Mechanics</p>
+			<h1>Containment Breach</h1>
+			<p class="subtitle">Starfield Creation Kit Survival Level Design</p>
 		</div>
 
-		<div class="video-wrapper">
-			<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="ContainmentBreach Video Placeholder" allowfullscreen></iframe>
-		</div>
-
-		<div class="content-section">
-			<h2>Project Introduction</h2>
-			<p>ContainmentBreach is a highly intense, combat-focused custom level developed using the Starfield Creation Kit. Inspired by classic wave-based survival modes, the level traps the player in a heavily fortified facility where they must manage resources, optimize movement, and survive against escalating waves of enemies.</p>
+		<img class="cover-image" src="images/project1-cover.png" alt="Containment Breach experimental facility control room">
+		<div class="video-placeholder">
+			<strong>Gameplay Video Coming Soon</strong>
+			<span>The Project 1 gameplay video is still in production and will be embedded here when complete.</span>
 		</div>
 
 		<div class="content-section">
-			<h2>My Contributions</h2>
-			<ul class="contribution-list">
-				<li><strong>Level Layout & Greyboxing:</strong> Designed the spatial flow of the facility to encourage circular movement and prevent player camping.</li>
-				<li><strong>Papyrus Scripting:</strong> Authored custom Papyrus scripts to handle iterative wave control logic and dynamic enemy spawning.</li>
-				<li><strong>Custom Upgrade Stations:</strong> Implemented interactive weapon tier upgrade mechanics to reward player progression during the survival loop.</li>
-				<li><strong>Combat Balancing:</strong> Adjusted enemy spawn rates, health scaling, and ammo distribution to ensure a challenging yet fair combat pacing.</li>
-			</ul>
+			<h2>Overview</h2>
+			<p>This level was built with the Starfield Creation Kit and draws on the core Call of Duty Zombies loop of exploration, power activation, area unlocking, weapon progression, and continuous survival. Before the power is restored, the player primarily faces small, narrow, constrained, and high-risk loops. Restoring power activates traps and safer circulation routes. Opening the route to the weapon-upgrade machine gives the player more room to move and more stable combat conditions. The level studies changes in loop structure, combinations of wide and narrow spaces, the effect of spatial scale on psychological pressure, environmental sightline guidance, and weapon and resource balance. Power, traps, area unlocks, and upgrades are implemented through scripting.</p>
+			<div class="fact-grid">
+				<div class="fact"><strong>300 Hours</strong><span>Total Development Time</span></div>
+				<div class="fact"><strong>About 1 Hour</strong><span>Complete Playthrough</span></div>
+				<div class="fact"><strong>4 Areas</strong><span>Distinct Combat Spaces</span></div>
+			</div>
 		</div>
 
 		<div class="content-section">
-			<h2>Design Analysis</h2>
-			<p>The core design philosophy of ContainmentBreach revolves around "Combat Loops and Spatial Tension." By strategically placing chokepoints and vertical transition areas, the player is constantly forced to evaluate their positioning.</p>
-			<p>I utilized the Creation Kit's NavMesh tools to ensure AI enemies flank the player effectively. The wave logic was iterated multiple times through Papyrus to create distinct "rest phases" versus "chaos phases," allowing for narrative pacing even within a pure survival setting.</p>
+			<h2>Level Layout</h2>
+			<div class="media-grid">
+				<figure class="media-card"><a href="images/project1/image-002-fba867314ed3.jpeg" target="_blank"><img class="contain" src="images/project1/image-002-fba867314ed3.jpeg" alt="Containment Breach ground-floor plan"></a><figcaption>Ground-Floor Plan</figcaption></figure>
+				<figure class="media-card"><a href="images/project1/image-003-ae509c07bbd2.jpeg" target="_blank"><img class="contain" src="images/project1/image-003-ae509c07bbd2.jpeg" alt="Containment Breach basement plan"></a><figcaption>Basement Plan</figcaption></figure>
+			</div>
+		</div>
+
+		<div class="content-section">
+			<h2>Goal 1: Designing a Map Structure That Drives Exploration</h2>
+			<h3>Defining the Zombies Experience and Core Loop</h3>
+			<div class="note">Kill enemies → Gain resources → Purchase weapons or unlock areas → Expand the movement space → Improve survivability → Face more intense waves</div>
+
+			<div class="portrait-feature">
+				<div class="portrait-media">
+					<a href="images/project1/image-004-e0061d45df4e.jpeg" target="_blank"><img loading="lazy" src="images/project1/image-004-e0061d45df4e.jpeg" alt="Stage 1 three-dimensional loop analysis"></a>
+					<p class="image-caption">The loop works structurally, but its narrow exits reduce route tolerance and prevent the player from using it reliably over time.</p>
+				</div>
+				<div class="portrait-copy">
+					<h3>Stage 1: Before Restoring Power</h3>
+					<p>Before the power switch is activated, I intentionally limit the player's ability to establish a stable loop. The starting area is composed mainly of small loops, one-way routes that push deeper into the facility, and high-risk circuits. Some routes technically form loops, but their narrow passages and blind corners allow growing enemy groups to intercept the player at entrances and turns. As enemy health increases, the weapons available in the early area also become less effective, pushing the player into new spaces in search of stronger weapons. This structure prevents the player from safely repeating the same circuit during the early game. Survival depends on reading enemy positions, judging when to retreat, and finding entrances to new areas, which creates motivation to locate the power switch and expand the map.</p>
+				</div>
+			</div>
+
+			<div class="portrait-feature reverse">
+				<div class="portrait-media">
+					<a href="images/project1/image-005-8e2f8f54859b.jpeg" target="_blank"><img loading="lazy" src="images/project1/image-005-8e2f8f54859b.jpeg" alt="Stage 2 three-dimensional loop analysis"></a>
+					<p class="image-caption">Restoring power adds a new loop that connects the two original circuits.</p>
+				</div>
+				<div class="portrait-copy">
+					<h3>Stage 2: After Restoring Power</h3>
+					<p>Once power is restored, the map changes from a restricted structure centered on exploration and survival into a combat space that supports enemy grouping and route management. New passages connect previously separated local spaces and form a primary loop that alternates between wide and narrow areas. The wider spaces give the player room to observe, gather enemies, and change direction, while the narrow spaces retain the risk of interception. At the same time, the trap system activates, allowing the player to plan enemy movement and connect spatial circulation with resource spending and crowd management. Perk machines also activate after power is restored, encouraging the player to visit different corners of the map to strengthen their character for later waves.</p>
+				</div>
+			</div>
+
+			<div class="portrait-feature">
+				<div class="portrait-media"><a href="images/project1/image-006-a00335a948f9.jpeg" target="_blank"><img loading="lazy" src="images/project1/image-006-a00335a948f9.jpeg" alt="Stage 3 three-dimensional loop analysis"></a></div>
+				<div class="portrait-copy">
+					<h3>Stage 3: After Opening the Weapon-Upgrade Route</h3>
+					<p>After repeatedly entering the dangerous, narrow basement laboratory, the player uses collected batteries to open the route to the weapon-upgrade machine. This progression grants more than an upgrade facility: it also unlocks a large loop connecting several areas. Compared with the localized early-game loops, this route has greater capacity and more choices, allowing it to accommodate the larger enemy groups of later waves. I placed weapon progression and spatial expansion at the same milestone so the player's combat power and movement capacity grow together. Higher damage is paired with the space needed to handle greater enemy density, keeping map growth aligned with numerical progression. At this point, all four loops become fully connected again, creating a three-dimensional circulation system that produces a tense, exhilarating escape when swarms flood the facility.</p>
+				</div>
+			</div>
+
+			<figure class="media-card"><a href="images/project1/image-007-d6c47d2f0632.png" target="_blank"><img class="contain" loading="lazy" src="images/project1/image-007-d6c47d2f0632.png" alt="Comparison of loop changes across three stages"></a><figcaption>Comparison of loop changes across the three progression stages.</figcaption></figure>
+		</div>
+
+		<div class="content-section">
+			<h2>Goal 2: Using Spatial Proportion to Create Different Psychological and Combat Experiences</h2>
+			<h3>Architectural Scale</h3>
+			<p>I introduced architectural spatial-proportion metrics and controlled the relationship between height and floor area. This creates distinct spatial types while producing different psychological experiences for the player.</p>
+			<figure class="media-card"><a href="images/project1/image-008-f131746f0598.png" target="_blank"><img class="contain" loading="lazy" src="images/project1/image-008-f131746f0598.png" alt="Architectural spatial-proportion analysis"></a><figcaption>Analysis of architectural scale and area distribution.</figcaption></figure>
+
+			<div class="media-grid">
+				<figure class="media-card"><a href="images/project1/image-009-d693c99d464d.jpeg" target="_blank"><img loading="lazy" src="images/project1/image-009-d693c99d464d.jpeg" alt="Single-story entrance area"></a><figcaption>Single-story entrance: The low ceiling and moderate floor area create a human-scale space that feels stable and controllable, making it suitable for the opening tutorial. As enemies flood in, however, the usable space shrinks and becomes increasingly cramped and oppressive.</figcaption></figure>
+				<figure class="media-card"><a href="images/project1/image-010-300be9f5a85e.jpeg" target="_blank"><img loading="lazy" src="images/project1/image-010-300be9f5a85e.jpeg" alt="Double-height area"></a><figcaption>Double-height area: Greater ceiling height and volume reduce overhead pressure, giving the player the first sense of spatial release and a wider range for observation and movement.</figcaption></figure>
+				<figure class="media-card"><a href="images/project1/image-011-0a8126386cbe.jpeg" target="_blank"><img loading="lazy" src="images/project1/image-011-0a8126386cbe.jpeg" alt="Triple-height area"></a><figcaption>Triple-height area: The greater height and area emphasize monumentality while making the player feel exposed and small. The volume also provides enough room to introduce landmarks and spark curiosity.</figcaption></figure>
+				<figure class="media-card"><a href="images/project1/image-012-ff11dd02391b.jpeg" target="_blank"><img loading="lazy" src="images/project1/image-012-ff11dd02391b.jpeg" alt="Grid-shaped basement laboratory"></a><figcaption>Grid-shaped basement laboratory: A low ceiling, narrow corridors, and walls that divide the plan reduce usable movement space, producing an oppressive, crowded combat experience where enemies can easily block the player.</figcaption></figure>
+			</div>
+
+			<h3>Experiment Chamber and Wormhole Areas</h3>
+			<p>The contrast between towering and compressed spaces creates a distorted sense of scale, making the environment feel both unknown and unstable.</p>
+			<div class="media-grid">
+				<figure class="media-card"><a href="images/project1/image-013-3ddae5bf29f5.jpeg" target="_blank"><img loading="lazy" src="images/project1/image-013-3ddae5bf29f5.jpeg" alt="Experiment chamber area"></a><figcaption>Experiment Chamber Area</figcaption></figure>
+				<figure class="media-card"><a href="images/project1/image-014-08eb60fe5395.jpeg" target="_blank"><img loading="lazy" src="images/project1/image-014-08eb60fe5395.jpeg" alt="Wormhole area"></a><figcaption>Wormhole Area</figcaption></figure>
+			</div>
+
+			<h3>Building Spatial Atmosphere</h3>
+			<div class="design-block">
+				<h4>Set Dressing</h4>
+				<ul class="logic-list">
+					<li>Place equipment, furniture, pipes, and experimental apparatus according to each area's function to establish a clear spatial identity.</li>
+					<li>Use dressing density to control psychological pressure: reduce occlusion in open areas, while adding equipment and obstacles to narrow laboratories so they feel more crowded and dangerous.</li>
+					<li>Use damage, contamination, and traces of experiments to extend the environmental narrative and imply that the facility gradually fell out of control.</li>
+				</ul>
+				<figure class="media-card"><a href="images/project1/image-015-6f5310cc95c9.jpeg" target="_blank"><img loading="lazy" src="images/project1/image-015-6f5310cc95c9.jpeg" alt="Set dressing and environmental storytelling"></a><figcaption>Equipment density, damage, and contamination establish each area's identity and changes in pressure.</figcaption></figure>
+			</div>
+
+			<div class="design-block">
+				<h4>Landmarks</h4>
+				<ul class="logic-list">
+					<li>Place landmarks with distinct silhouettes, scale, or color at important nodes to help the player identify their current location.</li>
+					<li>Make landmarks visible in advance from multiple paths so they provide directional goals during exploration.</li>
+					<li>Turn core functions such as the power switch, experiment chamber, and weapon-upgrade area into unique landmarks, combining functional recognition with route guidance.</li>
+				</ul>
+				<figure class="media-card"><a href="images/project1/image-016-70b0679fc722.jpeg" target="_blank"><img loading="lazy" src="images/project1/image-016-70b0679fc722.jpeg" alt="Level landmark design"></a><figcaption>Distinct silhouettes, scale, and color turn core functions into repeatedly recognizable landmarks.</figcaption></figure>
+			</div>
+
+			<div class="design-block">
+				<h4>Lighting</h4>
+				<ul class="logic-list">
+					<li>Use light-dark contrast to establish a visual hierarchy so important entrances, interactive devices, and the forward route attract attention first.</li>
+					<li>Use distinct lighting moods to communicate area states and danger levels.</li>
+					<li>Increase shadow and localized lighting in narrow areas to create uncertainty; expand visibility in primary combat spaces to keep enemy information readable.</li>
+					<li>Change the lighting before and after power restoration to provide clear feedback that the map state has changed.</li>
+				</ul>
+				<figure class="media-card"><a href="images/project1/image-017-e2da605d159a.jpeg" target="_blank"><img loading="lazy" src="images/project1/image-017-e2da605d159a.jpeg" alt="Lighting guidance in the level"></a><figcaption>Visual hierarchy, localized lighting, and state changes guide attention and distinguish danger levels.</figcaption></figure>
+			</div>
+		</div>
+
+		<div class="content-section">
+			<h2>Goal 3: Arranging Cover and Routes Within Rooms</h2>
+			<h3>Circulation Around Cover</h3>
+			<p>Cover acts as a spatial node at the center of a room, allowing the player to move around it instead of being forced to remain in one position.</p>
+			<p>The distance between cover and surrounding walls controls route width and creates space for circling, kiting, and emergency breakouts.</p>
+			<div class="media-grid">
+				<figure class="media-card"><a href="images/project1/image-018-3f1ef31b987b.jpeg" target="_blank"><img loading="lazy" src="images/project1/image-018-3f1ef31b987b.jpeg" alt="Movement space around central cover"></a><figcaption>Cover functions as a spatial node at the center of the room.</figcaption></figure>
+				<figure class="media-card"><a href="images/project1/image-019-df6cf0db6557.jpeg" target="_blank"><img loading="lazy" src="images/project1/image-019-df6cf0db6557.jpeg" alt="Circulation space between cover and walls"></a><figcaption>Space between cover and walls supports circling, kiting, and breaking through.</figcaption></figure>
+			</div>
+			<p class="note">Cover must not become an absolute safe point. It only blocks sightlines temporarily, so the player must keep moving.</p>
+
+			<h3>Crossroads and T-Junctions</h3>
+			<p>A T-junction presents two clear directions, making it useful for controlling pacing and guiding route choice with a landmark, weapon, or facility at the end of a sightline.</p>
+			<p>A crossroads increases both observation directions and route choices while raising the risk of being surrounded from multiple sides, creating greater information-processing pressure.</p>
+			<div class="media-grid">
+				<figure class="media-card"><a href="images/project1/image-020-dd55619e0ca5.jpeg" target="_blank"><img loading="lazy" src="images/project1/image-020-dd55619e0ca5.jpeg" alt="T-junction design"></a><figcaption>T-junction: A landmark, weapon, or facility at the endpoint guides route selection.</figcaption></figure>
+				<figure class="media-card"><a href="images/project1/image-021-f09bab0994ec.jpeg" target="_blank"><img loading="lazy" src="images/project1/image-021-f09bab0994ec.jpeg" alt="Crossroads design"></a><figcaption>Crossroads: More route choices are paired with a greater risk of being surrounded from multiple directions.</figcaption></figure>
+			</div>
+		</div>
+
+		<div class="content-section">
+			<h2>Goal 4: Balancing Weapon Values</h2>
+			<p>I used Excel to calculate TTK, STK, damage, price, and related values. This ensures that the player acquires stronger weapons while exploring and that weapon progression keeps pace with increasing enemy health.</p>
+			<figure class="media-card"><a href="images/project1/image-022-04e95986e937.png" target="_blank"><img class="contain" loading="lazy" src="images/project1/image-022-04e95986e937.png" alt="Weapon balance spreadsheet"></a><figcaption>Balance table for weapon damage, kill efficiency, price, and enemy health progression.</figcaption></figure>
+		</div>
+
+		<div class="content-section">
+			<h2>Gallery</h2>
+			<div class="gallery-grid">
+				<a href="images/project1/image-023-ac241dce76ee.jpeg" target="_blank"><img loading="lazy" src="images/project1/image-023-ac241dce76ee.jpeg" alt="Level screenshot 1"></a>
+				<a href="images/project1/image-024-6095db65fcc1.jpeg" target="_blank"><img loading="lazy" src="images/project1/image-024-6095db65fcc1.jpeg" alt="Level screenshot 2"></a>
+				<a href="images/project1/image-025-84f7ea66c303.jpeg" target="_blank"><img loading="lazy" src="images/project1/image-025-84f7ea66c303.jpeg" alt="Level screenshot 3"></a>
+				<a href="images/project1/image-026-d0264b510c85.jpeg" target="_blank"><img loading="lazy" src="images/project1/image-026-d0264b510c85.jpeg" alt="Level screenshot 4"></a>
+				<a href="images/project1/image-027-67697052d0b1.jpeg" target="_blank"><img loading="lazy" src="images/project1/image-027-67697052d0b1.jpeg" alt="Level screenshot 5"></a>
+				<a href="images/project1/image-028-14b17689397e.jpeg" target="_blank"><img loading="lazy" src="images/project1/image-028-14b17689397e.jpeg" alt="Level screenshot 6"></a>
+				<a href="images/project1/image-029-44e07c5df112.jpeg" target="_blank"><img loading="lazy" src="images/project1/image-029-44e07c5df112.jpeg" alt="Level screenshot 7"></a>
+				<a href="images/project1/image-030-844cdd6483a1.jpeg" target="_blank"><img loading="lazy" src="images/project1/image-030-844cdd6483a1.jpeg" alt="Level screenshot 8"></a>
+				<a href="images/project1/image-031-8df6f7f9b980.jpeg" target="_blank"><img loading="lazy" src="images/project1/image-031-8df6f7f9b980.jpeg" alt="Level screenshot 9"></a>
+				<a href="images/project1/image-032-4b79ca067ed1.jpeg" target="_blank"><img loading="lazy" src="images/project1/image-032-4b79ca067ed1.jpeg" alt="Level screenshot 10"></a>
+				<a href="images/project1/image-033-5a3e39350c10.jpeg" target="_blank"><img loading="lazy" src="images/project1/image-033-5a3e39350c10.jpeg" alt="Level screenshot 11"></a>
+				<a href="images/project1/image-034-d5f0803e244c.jpeg" target="_blank"><img loading="lazy" src="images/project1/image-034-d5f0803e244c.jpeg" alt="Level screenshot 12"></a>
+			</div>
 		</div>
 
 		<div class="back-btn-container">
 			<a href="index.html#work" class="back-btn"><i class="fa fa-arrow-left"></i> Back to Portfolio</a>
 		</div>
-
 	</div>
-	
-	<script src="js/jquery-2.2.3.min.js"></script>
 </body>
 </html>

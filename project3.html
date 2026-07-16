@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Invalidprescription | Xuehan Li</title>
+	<title>Invalid Prescription | Xuehan Li</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	
@@ -14,12 +14,12 @@
 
 	<style>
 		/* ========================================== */
-		/* 全局与背景设定 */
+		/* Global layout and background */
 		/* ========================================== */
 		body { margin: 0; padding: 0; font-family: 'Open Sans', sans-serif; background-color: #f7f7f9; color: #333; }
 
 		/* ========================================== */
-		/* 导航栏 (与 index.html 完全一致) */
+		/* Navigation shared with index.html */
 		/* ========================================== */
 		.my-clean-header { display: flex; justify-content: space-between; align-items: center; background: #0f0f1b; padding: 15px 5%; position: sticky; top: 0; z-index: 99999; box-shadow: 0 2px 10px rgba(0,0,0,0.5); width: 100%; box-sizing: border-box; }
 		.my-clean-logo { display: flex; flex-direction: column; }
@@ -32,7 +32,7 @@
 		.my-clean-nav a { color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 600; text-transform: uppercase; transition: color 0.3s ease; display: block; padding: 15px 0; }
 		.my-clean-nav a:hover { color: #ff9800; text-decoration: none; }
 
-		/* 下拉菜单 */
+		/* Dropdown menu */
 		.dropdown-content { display: none; position: absolute; background-color: #1a1a24; min-width: 250px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5); z-index: 1; top: 100%; left: 0; border-radius: 4px; padding: 10px 0; }
 		.dropdown:hover .dropdown-content { display: block; }
 		.dropdown-content a { color: #fff; padding: 10px 20px; text-decoration: none; display: block; font-size: 13px; text-transform: none; font-weight: 400; transition: 0.2s; border-left: 3px solid transparent; }
@@ -40,15 +40,15 @@
 		.dropdown-category-title { padding: 10px 20px 5px 20px; color: #777; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; border-bottom: 1px solid #333; margin-bottom: 5px; margin-top: 5px; pointer-events: none; }
 
 		/* ========================================== */
-		/* 项目详情页专属卡片排版 */
+		/* Project detail card layout */
 		/* ========================================== */
-		.project-detail-container { max-width: 900px; margin: 60px auto; padding: 60px; background: #ffffff; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border-radius: 12px; box-sizing: border-box; }
+		.project-detail-container { max-width: 1000px; margin: 60px auto; padding: 60px; background: #ffffff; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border-radius: 12px; box-sizing: border-box; }
 
 		.project-header { text-align: center; margin-bottom: 40px; }
 		.project-header h1 { font-size: 42px; font-weight: 800; margin: 0 0 15px 0; color: #111; letter-spacing: 1px; text-transform: uppercase; }
 		.project-header p.subtitle { font-size: 18px; color: #777; margin: 0; font-weight: 500; }
 
-		/* 视频包裹层 */
+		/* Video wrapper */
 		.video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; background: #000; margin-bottom: 50px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
 		.video-wrapper iframe, .video-wrapper video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
@@ -56,10 +56,27 @@
 		.content-section h2 { font-size: 26px; font-weight: bold; color: #111; margin-bottom: 20px; padding-left: 15px; border-left: 5px solid #ff9800; line-height: 1.2; }
 		.content-section p { font-size: 16px; line-height: 1.8; color: #444; text-align: justify; margin-bottom: 15px; }
 		
-		/* 工作量列表 */
+		/* Project facts */
 		.contribution-list { font-size: 16px; line-height: 1.8; color: #444; margin-bottom: 15px; padding-left: 25px; }
 		.contribution-list li { margin-bottom: 12px; }
 		.contribution-list li strong { color: #111; font-weight: 700; }
+		.content-section h3 { font-size: 20px; font-weight: 700; color: #222; margin: 30px 0 12px; }
+		.fact-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 24px; }
+		.fact { background:#fff6ea; border:1px solid #f3d2ad; border-radius:6px; padding:18px; }
+		.fact strong { display:block; color:#d76d00; font-size:20px; margin-bottom:4px; }
+		.fact span { font-size:13px; color:#6a5d50; }
+		.media-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; margin-top:22px; }
+		.media-grid.three { grid-template-columns:repeat(3,minmax(0,1fr)); }
+		.media-card { margin:0; border:1px solid #e7e7e7; border-radius:7px; overflow:hidden; background:#fafafa; }
+		.media-card a { display:block; background:#16161c; }
+		.media-card img { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; }
+		.media-card img.contain { object-fit:contain; background:#f3f3f3; }
+		.media-card figcaption { padding:11px 13px; font-size:13px; line-height:1.55; color:#666; }
+		.note { padding:18px 20px; margin:20px 0; border-left:4px solid #ff9800; background:#fff6ea; color:#555; line-height:1.75; }
+		.gallery-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+		.gallery-grid a { display:block; overflow:hidden; border-radius:6px; background:#111; }
+		.gallery-grid img { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; transition:transform .3s ease; }
+		.gallery-grid a:hover img { transform:scale(1.04); }
 
 		.back-btn-container { text-align: center; margin-top: 60px; border-top: 1px solid #eaeaea; padding-top: 40px; }
 		.back-btn { background-color: #0f0f1b; color: #fff; padding: 14px 40px; font-size: 16px; font-weight: 600; text-decoration: none; border-radius: 6px; transition: background-color 0.3s ease, transform 0.3s ease; display: inline-block; }
@@ -75,6 +92,7 @@
 			.dropdown:hover .dropdown-content { display: block; }
 			.project-detail-container { padding: 30px 20px; margin: 20px 10px; }
 			.project-header h1 { font-size: 32px; }
+			.fact-grid, .media-grid, .media-grid.three, .gallery-grid { grid-template-columns: 1fr; }
 		}
 	</style>
 </head>
@@ -92,23 +110,20 @@
 			<li class="dropdown">
 				<a href="index.html#work" class="dropbtn">PROJECTS <i class="fa fa-angle-down"></i></a>
 				<div class="dropdown-content">
-					<div class="dropdown-category-title">Personal & Thesis</div>
-					<a href="project1.html">ContainmentBreach (Starfield)</a>
-					<a href="project2.html">Thesis: Souls-like Topology</a>
-					<a href="project3.html">Invalidprescription (Starfield)</a>
-					<a href="project4.html">Escape from Power Plant (Half-Life 2)</a>
-					<a href="project5.html">Coldfront (Quake 3)</a>
-					<a href="project6.html">Beast Motos (Board Game)</a>
+					<div class="dropdown-category-title">Personal Projects</div>
+					<a href="project1.html">Containment Breach (Starfield)</a>
+					<a href="project3.html">Invalid Prescription (Starfield)</a>
+					<a href="project4.html">Escape from the Power Plant (Half-Life 2)</a>
 
 					<div class="dropdown-category-title">Team Projects</div>
 					<a href="project7.html">Petalnaut</a>
-					<a href="project8.html">HamsterBallin</a>
+					<a href="project8.html">Hamsterballin'</a>
 					<a href="project9.html">Unannounced Project</a>
 					
 					<div class="dropdown-category-title">Game Jams</div>
 					<a href="project10.html">GGJ 2024: Make me laugh</a>
-					<a href="project11.html">LD 54: Summon</a>
-					<a href="project12.html">GMTK 2024: Build to scale</a>
+					<a href="project11.html">LD 55: Summon</a>
+					<a href="project12.html">GMTK 2024: Built to Scale</a>
 				</div>
 			</li>
 			
@@ -118,43 +133,206 @@
 	</header>
 
 	<div class="project-detail-container">
-		
 		<div class="project-header">
-			<h1>Invalidprescription</h1>
-			<p class="subtitle">Starfield Custom Quest & Narrative Environment</p>
+			<h1>Invalid Prescription</h1>
+			<p class="subtitle">Starfield Side Quest: Guidance, Puzzles, Combat, and Spatial Storytelling</p>
 		</div>
 
 		<div class="video-wrapper">
-			<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Invalidprescription Video Placeholder" allowfullscreen></iframe>
+			<iframe src="https://player.bilibili.com/player.html?isOutside=true&amp;aid=116911559941052&amp;bvid=BV1cvN16yEaB&amp;cid=39906641110&amp;p=1" scrolling="no" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Invalid Prescription gameplay video"></iframe>
 		</div>
 
 		<div class="content-section">
-			<h2>Project Introduction</h2>
-			<p>Invalidprescription is a custom narrative-driven level built within the Starfield Creation Kit. Unlike pure combat arenas, this project focuses heavily on environmental storytelling, pacing, and guiding the player through a sequence of mysterious events inside an abandoned medical facility.</p>
+			<h2>Project Overview</h2>
+			<p>This level is a Starfield side quest that combines puzzles, sniping, stealth, and persuasion. The player arrives on a rocky, barren planet to help local villagers investigate the source of an illness and the disappearance of their doctor, then faces a difficult choice at the end of the story.</p>
+			<div class="fact-grid">
+				<div class="fact"><strong>500 Hours</strong><span>Design, Construction, Quest Work, and Iteration</span></div>
+				<div class="fact"><strong>About 15 Minutes</strong><span>Complete Quest Flow</span></div>
+				<div class="fact"><strong>4 + 3</strong><span>4 Major Combat Areas and 3 Core Puzzle Sequences</span></div>
+			</div>
 		</div>
 
 		<div class="content-section">
-			<h2>My Contributions</h2>
-			<ul class="contribution-list">
-				<li><strong>Environmental Storytelling:</strong> Placed props, lighting, and decals strategically to communicate the history of the facility without explicit text dumps.</li>
-				<li><strong>Quest Logic Implementation:</strong> Scripted a multi-stage custom quest objective system that updates dynamically based on player exploration.</li>
-				<li><strong>Pacing Control:</strong> Balanced moments of eerie silence with sudden encounters to manipulate player tension.</li>
-				<li><strong>Asset Utilization:</strong> Repurposed vanilla Starfield assets to create unique, unrecognizable sub-areas that fit the specific tone of the narrative.</li>
-			</ul>
+			<h2>Level Layout</h2>
+			<p>The level consists of an outdoor settlement and a two-story interior. The exterior establishes primary and secondary landmarks, quest direction, and danger zones. The first and second interior floors support puzzles, stealth, combat, and narrative information. As the player progresses, the same spaces are repeatedly viewed from different elevations, so the layout simultaneously supports guidance, advance information, and combat reuse.</p>
+			<div class="media-grid three">
+				<figure class="media-card"><a href="images/project3/image-002-731d147a044a.jpeg" target="_blank"><img class="contain" src="images/project3/image-002-731d147a044a.jpeg" alt="Invalid Prescription exterior layout"></a><figcaption>Exterior Layout</figcaption></figure>
+				<figure class="media-card"><a href="images/project3/image-003-1d55c47f195b.jpeg" target="_blank"><img class="contain" src="images/project3/image-003-1d55c47f195b.jpeg" alt="Invalid Prescription second-floor interior layout"></a><figcaption>Second-Floor Interior Layout</figcaption></figure>
+				<figure class="media-card"><a href="images/project3/image-004-9a4b3319908e.png" target="_blank"><img class="contain" src="images/project3/image-004-9a4b3319908e.png" alt="Invalid Prescription first-floor interior layout"></a><figcaption>First-Floor Interior Layout</figcaption></figure>
+			</div>
 		</div>
 
 		<div class="content-section">
-			<h2>Design Analysis</h2>
-			<p>The design of Invalidprescription relies on the "Breadcrumb Trail" methodology. By using contrasting light sources and subtle environmental clues (such as blood trails or overturned equipment), the player is naturally funneled toward critical objectives without feeling railroaded.</p>
-			<p>I also integrated minor puzzle elements involving terminal hacking and keycard hunting to break up the exploration loop, ensuring the player remains intellectually engaged with the space.</p>
+			<h2>Goal 1: Guiding the Player</h2>
+			<h3>Primary Landmarks, Secondary Landmarks, and Occlusion</h3>
+			<p>I arrange primary landmarks, secondary landmarks, and occluding elements so the player receives different levels of information from different positions. The final destination is not permanently exposed. Instead, changes in player position and building orientation reveal, conceal, or reframe it, allowing the current objective to command attention.</p>
+			<figure class="media-card"><a href="images/project3/image-005-d0fc398739b3.png" target="_blank"><img class="contain" loading="lazy" src="images/project3/image-005-d0fc398739b3.png" alt="Analysis of player position, orientation, and sightlines"></a><figcaption>Changes in player position, orientation, primary landmarks, and sightlines.</figcaption></figure>
+			<p>After landing on the planet, the player begins at Position 1 and moves in the direction of Arrow 1. From here, the final exterior destination is visible: a massive concrete arch paired with a weathered stone arch. Buildings on both sides restrict the view and prevent the player from receiving too much irrelevant information at once.</p>
+			<figure class="media-card"><a href="images/project3/image-006-80ba7a313da2.png" target="_blank"><img class="contain" loading="lazy" src="images/project3/image-006-80ba7a313da2.png" alt="Final destination and restricted sightlines at Position 1"></a><figcaption>Position 1: The final destination is visible while buildings on both sides limit the view.</figcaption></figure>
+			<p>When the player reaches Positions 2 and 3, the orientation of the buildings changes and redirects the player's view. Secondary landmarks that were previously difficult to notice enter the frame, using bright yellow to attract attention.</p>
+			<figure class="media-card"><a href="images/project3/image-007-52a94eaefa30.png" target="_blank"><img class="contain" loading="lazy" src="images/project3/image-007-52a94eaefa30.png" alt="Secondary landmark guidance at Positions 2 and 3"></a><figcaption>Positions 2 and 3: Building orientation redirects sightlines, while bright yellow emphasizes secondary landmarks.</figcaption></figure>
+			<p>At Position 3, the arch marking the final destination is temporarily occluded. The red outline in the diagram shows the hidden target. This occlusion refocuses the player's attention on the current task and prevents a distant objective from interfering with an immediate decision.</p>
+			<figure class="media-card"><a href="images/project3/image-008-f2021845d744.png" target="_blank"><img class="contain" loading="lazy" src="images/project3/image-008-f2021845d744.png" alt="Occlusion of the final destination at Position 3"></a><figcaption>Position 3: The final destination is temporarily concealed so the player can focus on the current objective.</figcaption></figure>
+			<p>At Position 4, I use a large vehicle to restrict the view. Its silhouette also creates a leading line that clarifies the next objective.</p>
+			<figure class="media-card"><a href="images/project3/image-009-e67a6c76f39d.png" target="_blank"><img class="contain" loading="lazy" src="images/project3/image-009-e67a6c76f39d.png" alt="Large vehicle restricting the view and creating a leading line"></a><figcaption>Position 4: The vehicle both limits the view and guides the composition.</figcaption></figure>
+
+			<h3>Communicating Traversability Through Conveyance</h3>
+			<p>Enemy placement and scripted behavior allow the player to judge whether an area is dangerous before entering it. Two heavily armored guards stand in the danger zone, soldiers practice shooting behind them, and another enemy patrols in the distance. Together, these activities communicate that the space ahead is not an ordinary passage, but a combat zone that requires observation and preparation.</p>
+			<figure class="media-card"><a href="images/project3/image-010-6ca71c2c3083.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-010-6ca71c2c3083.jpeg" alt="Enemy placement and staging communicate danger"></a><figcaption>Heavy guards, target practice, and patrols collectively communicate the danger ahead.</figcaption></figure>
+			<p>When friendly NPCs occupy an area, the player understands that it is temporarily safe and can be used for conversation or recovery. Safe spaces and combat spaces use different character states and levels of activity, allowing the player to read a change in pacing without relying on text.</p>
+			<div class="media-grid">
+				<figure class="media-card"><a href="images/project3/image-011-8b903888ca80.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-011-8b903888ca80.jpeg" alt="NPC presence communicates a safe area"></a><figcaption>The presence of NPCs communicates that the player can pause, talk, and recover here.</figcaption></figure>
+				<figure class="media-card"><a href="images/project3/image-012-e185991deef8.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-012-e185991deef8.jpeg" alt="Character states communicate a second safe area"></a><figcaption>Character behavior in the safe space contrasts with the combat zone.</figcaption></figure>
+			</div>
+			<p>Windows and other elements that do not fully block sightlines give the player information in advance. Before entering the combat space, the player can observe enemy positions and prepare either for combat or stealth.</p>
+			<div class="media-grid">
+				<figure class="media-card"><a href="images/project3/image-013-e13f6f9bafdc.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-013-e13f6f9bafdc.jpeg" alt="Windows provide combat information in advance"></a><figcaption>Windows allow the player to observe enemies and space before entering.</figcaption></figure>
+				<figure class="media-card"><a href="images/project3/image-014-706246abb0a4.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-014-706246abb0a4.jpeg" alt="Open partitions support advance planning"></a><figcaption>Partitions that preserve sightlines help the player plan ahead.</figcaption></figure>
+			</div>
+
+			<h3>Using Color to Attract Attention and Build Spatial Memory</h3>
+			<p>Areas the player must visit use colors that contrast with their surroundings. In the example below, the destination is white, making it stand out from the environment.</p>
+			<figure class="media-card"><a href="images/project3/image-015-3a0baf326f0a.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-015-3a0baf326f0a.jpeg" alt="White destination standing out from the environment"></a><figcaption>The white destination contrasts with its surroundings.</figcaption></figure>
+			<p>Danger zones use colors associated with danger as a warning. The area surrounded by red shipping containers is very open and has little cover, leaving the player vulnerable to being surrounded. Red therefore communicates both a visual warning and the nature of the space. Interior rooms also use different dominant colors so each leaves a distinct impression and helps the player understand the overall layout.</p>
+			<figure class="media-card"><a href="images/project3/image-016-fd6a876a157f.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-016-fd6a876a157f.jpeg" alt="Red danger zone and interior color coding"></a><figcaption>Red warns of an open, low-cover danger zone, while distinct colors keep interior spaces recognizable.</figcaption></figure>
+		</div>
+
+		<div class="content-section">
+			<h2>Goal 2: Puzzle Design</h2>
+			<h3>Teaching the Core Mechanic</h3>
+			<p>Early in the quest, the player must complete a basic puzzle before progressing. This gate ensures the rule is genuinely understood. The lesson is reinforced immediately and then expanded step by step. In the exterior section, three exercises teach the player to use batteries to open security doors, deepening memory through repeated practice.</p>
+			<figure class="media-card"><a href="images/project3/image-017-36e81b876582.png" target="_blank"><img class="contain" loading="lazy" src="images/project3/image-017-36e81b876582.png" alt="Three battery and security-door lessons"></a><figcaption>Three battery and security-door exercises: immediate repetition after teaching, followed by gradual expansion.</figcaption></figure>
+
+			<h3>Reusing Consistent Conveyance</h3>
+			<p>Wherever a puzzle appears, I use the same red-and-green lighting language. A red light always indicates a locked security door that still needs power; green indicates that the circuit is connected. Repeating the same feedback allows the player to associate color directly with the mechanic's state.</p>
+			<div class="media-grid three">
+				<figure class="media-card"><a href="images/project3/image-018-a6eda75fefc8.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-018-a6eda75fefc8.jpeg" alt="Red-and-green puzzle conveyance example one"></a><figcaption>Red indicates that the security door still lacks power.</figcaption></figure>
+				<figure class="media-card"><a href="images/project3/image-019-5c67755b7198.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-019-5c67755b7198.jpeg" alt="Red-and-green puzzle conveyance example two"></a><figcaption>The same color retains the same meaning in different locations.</figcaption></figure>
+				<figure class="media-card"><a href="images/project3/image-020-23519ff1c56d.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-020-23519ff1c56d.jpeg" alt="Red-and-green puzzle conveyance example three"></a><figcaption>Green provides immediate feedback when the circuit is connected.</figcaption></figure>
+			</div>
+			<p>Lights and cables further clarify puzzle information. Lights display the current state, while cables visually connect the power source to its target so the player can trace cause and effect.</p>
+			<div class="media-grid three">
+				<figure class="media-card"><a href="images/project3/image-021-3e9aafe60e0d.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-021-3e9aafe60e0d.jpeg" alt="Lights and cables clarify puzzle communication one"></a><figcaption>Lighting communicates the current puzzle state.</figcaption></figure>
+				<figure class="media-card"><a href="images/project3/image-022-6897729a3e89.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-022-6897729a3e89.jpeg" alt="Lights and cables clarify puzzle communication two"></a><figcaption>Cables connect the power source to the target.</figcaption></figure>
+				<figure class="media-card"><a href="images/project3/image-023-4253bb0e6619.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-023-4253bb0e6619.jpeg" alt="Lights and cables clarify puzzle communication three"></a><figcaption>Visual feedback helps the player understand cause and effect.</figcaption></figure>
+			</div>
+
+			<h3>Setting Puzzle Sightlines</h3>
+			<p>When the player exits a room or first enters a new area, the initial facing direction always points toward a battery or puzzle. The battery room may be temporarily inaccessible, but showing it early establishes a spatial memory. When the route opens later, the player already knows where to return.</p>
+			<div class="media-grid three">
+				<figure class="media-card"><a href="images/project3/image-024-ec53fe997de5.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-024-ec53fe997de5.jpeg" alt="Initial player orientation faces puzzle information one"></a><figcaption>Upon arrival, the player's initial orientation directly faces puzzle information.</figcaption></figure>
+				<figure class="media-card"><a href="images/project3/image-025-cfdb3146f281.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-025-cfdb3146f281.jpeg" alt="Initial player orientation faces puzzle information two"></a><figcaption>A temporarily inaccessible battery is shown early to establish positional memory.</figcaption></figure>
+				<figure class="media-card"><a href="images/project3/image-026-dd01319d06b6.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-026-dd01319d06b6.jpeg" alt="Initial player orientation faces puzzle information three"></a><figcaption>After the route opens, the player can use the spatial memory established earlier.</figcaption></figure>
+			</div>
+		</div>
+
+		<div class="content-section">
+			<h2>Goal 3: Creating More Varied Combat</h2>
+			<h3>Beginning Each Encounter with a Warm-Up</h3>
+			<p>At the start of each encounter, I place an enemy with their back turned to the player. This gives the player an easy first kill and a chance to learn the current weapon and space before engaging a more complex enemy combination.</p>
+			<div class="media-grid three">
+				<figure class="media-card"><a href="images/project3/image-027-4dd787bd88d9.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-027-4dd787bd88d9.jpeg" alt="Warm-up enemy facing away from the player one"></a><figcaption>A warm-up enemy at the start of an encounter.</figcaption></figure>
+				<figure class="media-card"><a href="images/project3/image-028-9b5b28e61b98.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-028-9b5b28e61b98.jpeg" alt="Warm-up enemy facing away from the player two"></a><figcaption>The player can secure a low-pressure first kill.</figcaption></figure>
+				<figure class="media-card"><a href="images/project3/image-029-961d0611e921.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-029-961d0611e921.jpeg" alt="Warm-up enemy facing away from the player three"></a><figcaption>The complete encounter follows after the warm-up.</figcaption></figure>
+			</div>
+
+			<h3>Mixing Enemy Types</h3>
+			<p>Enemy combinations change the player's movement and target priorities. When melee and long-range enemies appear together, the player must create distance while responding to distant lines of fire. When melee and mid-range enemies are combined, the player must switch between cover and targets more frequently within a constrained space.</p>
+			<div class="media-grid">
+				<figure class="media-card"><a href="images/project3/image-030-06f56f2e75fc.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-030-06f56f2e75fc.jpeg" alt="Melee enemies combined with long-range enemies"></a><figcaption>Melee enemies combined with long-range enemies.</figcaption></figure>
+				<figure class="media-card"><a href="images/project3/image-031-8781e43399d5.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-031-8781e43399d5.jpeg" alt="Melee enemies combined with mid-range enemies"></a><figcaption>Melee enemies combined with mid-range enemies.</figcaption></figure>
+			</div>
+
+			<h3>Using Enemy Position to Encourage Weapon Switching</h3>
+			<p>I place some enemies in positions that are difficult to attack with the current weapon, encouraging active weapon switching. Elevated enemies reduce the effectiveness of mid-range weapons. From a high, distant position, a sniper rifle is appropriate; at medium range, the player switches to a rifle; and in close corridor combat, a shotgun becomes the best option. Distance, sightlines, and spatial scale jointly drive each weapon change.</p>
+			<div class="media-grid">
+				<figure class="media-card"><a href="images/project3/image-032-55da0930c663.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-032-55da0930c663.jpeg" alt="Elevated enemy reducing the value of mid-range weapons"></a><figcaption>An elevated enemy reduces the effectiveness of mid-range weapons.</figcaption></figure>
+				<figure class="media-card"><a href="images/project3/image-033-abe30c1884eb.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-033-abe30c1884eb.jpeg" alt="Sniper rifle used at long range"></a><figcaption>High elevation and long range: use the sniper rifle.</figcaption></figure>
+				<figure class="media-card"><a href="images/project3/image-034-29ff27854232.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-034-29ff27854232.jpeg" alt="Rifle used at medium range"></a><figcaption>Medium range: use the rifle.</figcaption></figure>
+				<figure class="media-card"><a href="images/project3/image-035-157df76399c1.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-035-157df76399c1.jpeg" alt="Shotgun used at close range in a corridor"></a><figcaption>Close-range corridor combat: use the shotgun.</figcaption></figure>
+			</div>
+
+			<h3>Reusing Different Elevations Within the Same Space</h3>
+			<p>When the player occupies different elevations, enemies spawn above or below them. This reuses the same space while giving the player different combat experiences and information structures within one room.</p>
+			<div class="media-grid three">
+				<figure class="media-card"><a href="images/project3/image-036-1b98773e001d.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-036-1b98773e001d.jpeg" alt="Player positioned above the space"></a><figcaption>The player is above the space (Room 1).</figcaption></figure>
+				<figure class="media-card"><a href="images/project3/image-037-9da36cc2ca8e.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-037-9da36cc2ca8e.jpeg" alt="Player positioned at the middle level"></a><figcaption>The player is at the middle level of the space.</figcaption></figure>
+				<figure class="media-card"><a href="images/project3/image-038-a907a9a0236c.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-038-a907a9a0236c.jpeg" alt="Player positioned below the space"></a><figcaption>The player is below the space.</figcaption></figure>
+			</div>
+
+			<h3>Providing Actionable Information for Stealth</h3>
+			<p>I create enemy patrol routes and reveal that information in advance. This allows the player to observe patrol patterns, choose when to wait, and plan a stealth route instead of reacting only after entering the area.</p>
+			<figure class="media-card"><a href="images/project3/image-039-c16f34cf5b7c.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-039-c16f34cf5b7c.jpeg" alt="Observing enemy patrol routes in advance"></a><figcaption>The player can see enemy patrol routes in advance and plan a stealth approach.</figcaption></figure>
+
+			<h3>Designing Cover for Specific Enemy Types</h3>
+			<p>Against melee enemies, I use central cover so the player can circle it while fighting. Against elevated ranged enemies, taller cover blocks lines of fire from above. Against larger enemy groups, medium-height cover preserves information while allowing the player to avoid fire temporarily.</p>
+			<div class="media-grid">
+				<figure class="media-card"><a href="images/project3/image-040-3029ef0f1268.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-040-3029ef0f1268.jpeg" alt="Central cover designed for melee enemies"></a><figcaption>Central cover: circle the cover while fighting melee enemies.</figcaption></figure>
+				<figure class="media-card"><a href="images/project3/image-041-62ac057a547d.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-041-62ac057a547d.jpeg" alt="Tall cover designed for elevated ranged enemies"></a><figcaption>Tall cover: avoid lines of fire from elevated ranged enemies.</figcaption></figure>
+				<figure class="media-card"><a href="images/project3/image-042-a0922188c2f5.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-042-a0922188c2f5.jpeg" alt="Medium-height cover designed for large enemy groups one"></a><figcaption>Medium-height cover: preserve visibility while facing a large enemy group.</figcaption></figure>
+				<figure class="media-card"><a href="images/project3/image-043-1d7023505d40.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-043-1d7023505d40.jpeg" alt="Medium-height cover designed for large enemy groups two"></a><figcaption>Medium-height cover supports reloading, evasion, and information gathering.</figcaption></figure>
+			</div>
+		</div>
+
+		<div class="content-section">
+			<h2>Goal 4: Spatial Storytelling</h2>
+			<h3>Object Placement and Environmental Style</h3>
+			<p>The exterior uses weathered rock as its visual foundation, paired with deteriorated homes that reflect both the barren planet and local living conditions. Inside the residences, worn sofas and common mining tools suggest the villagers' daily lives. The mercenary lounge instead contains sofas, playing cards, beer, and other personal objects, using concrete traces of life to distinguish different groups.</p>
+			<div class="media-grid three">
+				<figure class="media-card"><a href="images/project3/image-044-6bedb66533d2.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-044-6bedb66533d2.jpeg" alt="Weathered exterior rock environment"></a><figcaption>Weathered rock establishes the exterior's visual foundation.</figcaption></figure>
+				<figure class="media-card"><a href="images/project3/image-045-fd57fc4e7390.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-045-fd57fc4e7390.jpeg" alt="Worn furniture and mining tools inside a residence"></a><figcaption>Residence: a worn sofa and mining tools.</figcaption></figure>
+				<figure class="media-card"><a href="images/project3/image-046-d22c0f4d5749.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-046-d22c0f4d5749.jpeg" alt="Personal objects in the mercenary lounge"></a><figcaption>Mercenary lounge: sofas, playing cards, and beer.</figcaption></figure>
+			</div>
+
+			<h3>Furniture That Supports Both Combat and Storytelling</h3>
+			<p>The doctor's laboratory contains two melee enemies, so I placed two long tables as cover. They give the player enough room to maneuver around the enemies while remaining appropriate to the laboratory's function.</p>
+			<figure class="media-card"><a href="images/project3/image-047-3753292b6931.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-047-3753292b6931.jpeg" alt="Long-table cover in the doctor's laboratory"></a><figcaption>Doctor's laboratory: two long tables support both spatial storytelling and movement around melee enemies.</figcaption></figure>
+			<p>Inside the factory, numerous conveyor belts function as medium-height cover. The player can crouch behind them to reload and avoid bullets, or jump across them. The conveyors fit the factory's purpose while also creating movement choices during combat.</p>
+			<figure class="media-card"><a href="images/project3/image-048-b3e3558e3bac.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-048-b3e3558e3bac.jpeg" alt="Factory conveyor belts used as medium-height cover"></a><figcaption>Factory interior: conveyor belts serve as traversable, medium-height cover.</figcaption></figure>
+			<p>Enemies occupy elevated watchtowers in the mercenary camp, so tall cover at ground level allows the player to block lines of fire from above. The form of the cover is determined jointly by enemy position and narrative function.</p>
+			<figure class="media-card"><a href="images/project3/image-049-4e042b39e7cd.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-049-4e042b39e7cd.jpeg" alt="Tall cover in the mercenary camp"></a><figcaption>Mercenary camp: tall cover blocks lines of fire from watchtower enemies.</figcaption></figure>
+
+			<h3>Using Lighting, Post-Processing, and Volumetric Fog to Shape Atmosphere</h3>
+			<p>Volumetric fog and lighting create an oppressive, murky working environment in the mine. After completing the level, the player leaves beneath a rising sun. The image suggests that the town may be entering a new beginning—or that nothing has changed—echoing the difficult choice at the end of the story.</p>
+			<div class="media-grid">
+				<figure class="media-card"><a href="images/project3/image-050-797de7b41907.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-050-797de7b41907.jpeg" alt="Volumetric fog and lighting in the mine"></a><figcaption>Volumetric fog and lighting in the mine.</figcaption></figure>
+				<figure class="media-card"><a href="images/project3/image-051-81bac073b345.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-051-81bac073b345.jpeg" alt="Sunrise at the end of the level"></a><figcaption>The sunrise after the level: a new beginning, or everything continuing as before.</figcaption></figure>
+			</div>
+		</div>
+
+		<div class="content-section">
+			<h2>Goal 5: Resource Management and Pacing</h2>
+			<p>Both the interior and exterior alternate breathing spaces with combat spaces, using spatial type to control encounter pacing. Red represents combat space in the diagrams below, while green represents breathing space. After a high-intensity encounter, the player has an opportunity to observe, converse, recover, and replan before entering the next fight.</p>
+			<div class="media-grid">
+				<figure class="media-card"><a href="images/project3/image-052-75599ceb4484.png" target="_blank"><img class="contain" loading="lazy" src="images/project3/image-052-75599ceb4484.png" alt="Distribution of exterior combat and breathing spaces"></a><figcaption>Exterior: red marks combat spaces and green marks breathing spaces.</figcaption></figure>
+				<figure class="media-card"><a href="images/project3/image-053-7a1cd0f47d4f.png" target="_blank"><img class="contain" loading="lazy" src="images/project3/image-053-7a1cd0f47d4f.png" alt="Distribution of interior combat and breathing spaces"></a><figcaption>Interior: breathing spaces are placed between consecutive combat encounters.</figcaption></figure>
+			</div>
+		</div>
+
+		<div class="content-section">
+			<h2>Level Gallery</h2>
+			<p>Final in-game views are shown below. Click an image to view the full-size version.</p>
+			<div class="gallery-grid">
+				<a href="images/project3/image-054-0d7e5f90d074.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-054-0d7e5f90d074.jpeg" alt="Invalid Prescription level screenshot 1"></a>
+				<a href="images/project3/image-055-9afa595c7805.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-055-9afa595c7805.jpeg" alt="Invalid Prescription level screenshot 2"></a>
+				<a href="images/project3/image-056-f76c4451ace0.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-056-f76c4451ace0.jpeg" alt="Invalid Prescription level screenshot 3"></a>
+				<a href="images/project3/image-057-519687723de6.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-057-519687723de6.jpeg" alt="Invalid Prescription level screenshot 4"></a>
+				<a href="images/project3/image-058-f4a5014aabc1.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-058-f4a5014aabc1.jpeg" alt="Invalid Prescription level screenshot 5"></a>
+				<a href="images/project3/image-059-2ee400007cb7.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-059-2ee400007cb7.jpeg" alt="Invalid Prescription level screenshot 6"></a>
+				<a href="images/project3/image-060-1e392898e4af.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-060-1e392898e4af.jpeg" alt="Invalid Prescription level screenshot 7"></a>
+				<a href="images/project3/image-061-613bb35af9d2.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-061-613bb35af9d2.jpeg" alt="Invalid Prescription level screenshot 8"></a>
+				<a href="images/project3/image-062-f2aa03925dad.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-062-f2aa03925dad.jpeg" alt="Invalid Prescription level screenshot 9"></a>
+				<a href="images/project3/image-063-399b995ec6cb.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-063-399b995ec6cb.jpeg" alt="Invalid Prescription level screenshot 10"></a>
+				<a href="images/project3/image-064-273e45f514b4.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-064-273e45f514b4.jpeg" alt="Invalid Prescription level screenshot 11"></a>
+				<a href="images/project3/image-065-49999d3a538d.jpeg" target="_blank"><img loading="lazy" src="images/project3/image-065-49999d3a538d.jpeg" alt="Invalid Prescription level screenshot 12"></a>
+			</div>
 		</div>
 
 		<div class="back-btn-container">
 			<a href="index.html#work" class="back-btn"><i class="fa fa-arrow-left"></i> Back to Portfolio</a>
 		</div>
-
 	</div>
-	
+
 	<script src="js/jquery-2.2.3.min.js"></script>
 </body>
 </html>
