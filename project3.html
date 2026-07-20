@@ -95,6 +95,7 @@
 			.fact-grid, .media-grid, .media-grid.three, .gallery-grid { grid-template-columns: 1fr; }
 		}
 	</style>
+	<link href="css/portfolio-improvements.css" rel="stylesheet">
 </head>
 
 <body>
@@ -114,6 +115,7 @@
 					<a href="project1.html">Containment Breach (Starfield)</a>
 					<a href="project3.html">Invalid Prescription (Starfield)</a>
 					<a href="project4.html">Escape from the Power Plant (Half-Life 2)</a>
+					<a href="project2.html">Cold Front (Multiplayer CTF Map)</a>
 
 					<div class="dropdown-category-title">Team Projects</div>
 					<a href="project7.html">Petalnaut</a>
@@ -121,13 +123,14 @@
 					<a href="project9.html">Unannounced Project</a>
 					
 					<div class="dropdown-category-title">Game Jams</div>
-					<a href="project10.html">GGJ 2024: Make me laugh</a>
+					<a href="project10.html">GGJ 2024: Health Not High</a>
 					<a href="project11.html">LD 55: Summon</a>
-					<a href="project12.html">GMTK 2024: Built to Scale</a>
+					<a href="project12.html">GMTK 2024: Terrarium</a>
 				</div>
 			</li>
 			
 			<li><a href="index.html#about">ABOUT</a></li>
+			<li><a class="resume-nav-link" href="resume.html">RESUME</a></li>
 			<li><a href="index.html#contact">CONTACT</a></li>
 		</ul>
 	</header>
@@ -138,15 +141,38 @@
 			<p class="subtitle">Starfield Side Quest: Guidance, Puzzles, Combat, and Spatial Storytelling</p>
 		</div>
 
-		<div class="video-wrapper">
-			<iframe src="https://player.bilibili.com/player.html?isOutside=true&amp;aid=116911559941052&amp;bvid=BV1cvN16yEaB&amp;cid=39906641110&amp;p=1" scrolling="no" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Invalid Prescription gameplay video"></iframe>
-		</div>
+		<section class="project-scan-summary" aria-label="Project at a glance">
+			<div class="project-scan-media">
+				<div class="video-wrapper click-video" data-video-src="https://player.bilibili.com/player.html?isOutside=true&amp;aid=116911559941052&amp;bvid=BV1cvN16yEaB&amp;cid=39906641110&amp;p=1" data-video-title="Invalid Prescription project demo">
+					<button class="video-poster" type="button" aria-label="Load and play the Invalid Prescription project demo">
+						<img src="images/project3-cover.jpeg" alt="Invalid Prescription project demo cover">
+						<span class="video-play-button"><i class="fa fa-play" aria-hidden="true"></i></span>
+						<span class="video-poster-label">Click to Load and Play Project Demo</span>
+					</button>
+				</div>
+			</div>
+			<div class="project-scan-panel">
+				<p class="scan-eyebrow">Project at a Glance</p>
+				<div class="scan-facts">
+					<div class="scan-fact"><strong>Project</strong><span>Individual Side Quest</span></div>
+					<div class="scan-fact"><strong>Tool</strong><span>Starfield Creation Kit</span></div>
+					<div class="scan-fact"><strong>Playtime</strong><span>About 15 Minutes</span></div>
+					<div class="scan-fact"><strong>Scope</strong><span>Quest / Level / Scripting</span></div>
+				</div>
+				<h2>My Core Work</h2>
+				<ul class="scan-contributions">
+					<li>Integrated guidance, puzzles, stealth, combat, and a narrative choice.</li>
+					<li>Controlled information pacing through landmarks, occlusion, lighting, and spatial reuse.</li>
+					<li>Independently completed quest logic, level construction, testing, and iteration.</li>
+				</ul>
+			</div>
+		</section>
 
 		<div class="content-section">
 			<h2>Project Overview</h2>
 			<p>This level is a Starfield side quest that combines puzzles, sniping, stealth, and persuasion. The player arrives on a rocky, barren planet to help local villagers investigate the source of an illness and the disappearance of their doctor, then faces a difficult choice at the end of the story.</p>
 			<div class="fact-grid">
-				<div class="fact"><strong>500 Hours</strong><span>Design, Construction, Quest Work, and Iteration</span></div>
+				<div class="fact"><strong>300 Hours</strong><span>Design, Construction, Quest Work, and Iteration</span></div>
 				<div class="fact"><strong>About 15 Minutes</strong><span>Complete Quest Flow</span></div>
 				<div class="fact"><strong>4 + 3</strong><span>4 Major Combat Areas and 3 Core Puzzle Sequences</span></div>
 			</div>
@@ -334,5 +360,6 @@
 	</div>
 
 	<script src="js/jquery-2.2.3.min.js"></script>
+	<script src="js/click-to-play.js"></script>
 </body>
 </html>

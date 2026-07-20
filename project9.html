@@ -1,143 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Unannounced Project | Xuehan Li</title>
+	<title>Unannounced Project | Roguelike Build System Design | Xuehan Li</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	
-	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="description" content="A Roguelike build-system design centered on player actions, risk and reward, and cross-system synergies.">
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 	<link href="css/font-awesome.css" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Jura:300,400,500,600" rel="stylesheet">
-	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-
+	<link href="https://fonts.googleapis.com/css?family=Jura:400,500,600,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
 	<style>
-		body { margin: 0; padding: 0; font-family: 'Open Sans', sans-serif; background-color: #f7f7f9; color: #333; }
-		.my-clean-header { display: flex; justify-content: space-between; align-items: center; background: #0f0f1b; padding: 15px 5%; position: sticky; top: 0; z-index: 99999; box-shadow: 0 2px 10px rgba(0,0,0,0.5); width: 100%; box-sizing: border-box; }
-		.my-clean-logo { display: flex; flex-direction: column; }
-		.my-clean-logo a { color: #ffffff; text-decoration: none; font-size: 32px; font-weight: bold; letter-spacing: 1px; transition: color 0.3s ease; line-height: 1; }
-		.my-clean-logo a:hover { color: #ff9800; text-decoration: none; }
-		.job-title { color: #ff9800; font-size: 14px; font-weight: 600; letter-spacing: 2px; margin-top: 6px; text-transform: uppercase; }
-		.my-clean-nav { display: flex; list-style: none; margin: 0; padding: 0; align-items: center; flex-wrap: wrap; }
-		.my-clean-nav li { margin-left: 40px; position: relative; } 
-		.my-clean-nav a { color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 600; text-transform: uppercase; transition: color 0.3s ease; display: block; padding: 15px 0; }
-		.my-clean-nav a:hover { color: #ff9800; text-decoration: none; }
-		.dropdown-content { display: none; position: absolute; background-color: #1a1a24; min-width: 250px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5); z-index: 1; top: 100%; left: 0; border-radius: 4px; padding: 10px 0; }
-		.dropdown:hover .dropdown-content { display: block; }
-		.dropdown-content a { color: #fff; padding: 10px 20px; text-decoration: none; display: block; font-size: 13px; text-transform: none; font-weight: 400; transition: 0.2s; border-left: 3px solid transparent; }
-		.dropdown-content a:hover { background-color: #2a2a3d; color: #ff9800; border-left: 3px solid #ff9800; }
-		.dropdown-category-title { padding: 10px 20px 5px 20px; color: #777; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; border-bottom: 1px solid #333; margin-bottom: 5px; margin-top: 5px; pointer-events: none; }
-		.project-detail-container { max-width: 900px; margin: 60px auto; padding: 60px; background: #ffffff; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border-radius: 12px; box-sizing: border-box; }
-		.project-header { text-align: center; margin-bottom: 40px; }
-		.project-header h1 { font-size: 42px; font-weight: 800; margin: 0 0 15px 0; color: #111; letter-spacing: 1px; text-transform: uppercase; }
-		.project-header p.subtitle { font-size: 18px; color: #777; margin: 0; font-weight: 500; }
-		.video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; background: #000; margin-bottom: 50px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-		.video-wrapper iframe, .video-wrapper video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-		.content-section { margin-bottom: 50px; }
-		.content-section h2 { font-size: 26px; font-weight: bold; color: #111; margin-bottom: 20px; padding-left: 15px; border-left: 5px solid #ff9800; line-height: 1.2; }
-		.content-section p { font-size: 16px; line-height: 1.8; color: #444; text-align: justify; margin-bottom: 15px; }
-		.contribution-list { font-size: 16px; line-height: 1.8; color: #444; margin-bottom: 15px; padding-left: 25px; }
-		.contribution-list li { margin-bottom: 12px; }
-		.contribution-list li strong { color: #111; font-weight: 700; }
-		.back-btn-container { text-align: center; margin-top: 60px; border-top: 1px solid #eaeaea; padding-top: 40px; }
-		.back-btn { background-color: #0f0f1b; color: #fff; padding: 14px 40px; font-size: 16px; font-weight: 600; text-decoration: none; border-radius: 6px; transition: background-color 0.3s ease, transform 0.3s ease; display: inline-block; }
-		.back-btn:hover { background-color: #ff9800; color: #fff; text-decoration: none; transform: translateY(-3px); box-shadow: 0 6px 15px rgba(255,152,0,0.3); }
+		body { margin:0; padding:0; font-family:'Open Sans','Microsoft YaHei','PingFang SC',sans-serif; background:#f7f7f9; color:#333; }
+		.my-clean-header { display:flex; justify-content:space-between; align-items:center; background:#0f0f1b; padding:15px 5%; position:sticky; top:0; z-index:99999; box-shadow:0 2px 10px rgba(0,0,0,.5); width:100%; box-sizing:border-box; }
+		.my-clean-logo { display:flex; flex-direction:column; }
+		.my-clean-logo a { color:#fff; text-decoration:none; font-size:32px; font-weight:bold; letter-spacing:1px; line-height:1; }
+		.my-clean-logo a:hover, .my-clean-nav a:hover { color:#ff9800; text-decoration:none; }
+		.job-title { color:#ff9800; font-family:'Microsoft YaHei','PingFang SC',sans-serif; font-size:14px; font-weight:600; letter-spacing:2px; margin-top:6px; }
+		.my-clean-nav { display:flex; list-style:none; margin:0; padding:0; align-items:center; flex-wrap:wrap; }
+		.my-clean-nav li { margin-left:40px; position:relative; }
+		.my-clean-nav a { color:#fff; text-decoration:none; font-size:15px; font-weight:600; text-transform:uppercase; display:block; padding:15px 0; }
+		.dropdown-content { display:none; position:absolute; background:#1a1a24; min-width:270px; box-shadow:0 8px 16px rgba(0,0,0,.5); z-index:1; top:100%; left:0; border-radius:4px; padding:10px 0; }
+		.dropdown:hover .dropdown-content, .dropdown:focus-within .dropdown-content { display:block; }
+		.dropdown-content a { color:#fff; padding:10px 20px; font-size:13px; text-transform:none; font-weight:400; border-left:3px solid transparent; }
+		.dropdown-content a:hover { background:#2a2a3d; color:#ff9800; border-left-color:#ff9800; }
+		.dropdown-category-title { padding:10px 20px 5px; color:#777; font-size:11px; text-transform:uppercase; letter-spacing:1px; font-weight:bold; border-bottom:1px solid #333; margin:5px 0; }
 
-		@media (max-width: 1024px) { .project-detail-container { margin: 40px 20px; padding: 40px 30px; } }
-		@media (max-width: 768px) {
-			.my-clean-header { flex-direction: column; padding: 15px; }
-			.my-clean-logo { align-items: center; }
-			.my-clean-nav { margin-top: 15px; width: 100%; justify-content: center; }
-			.my-clean-nav li { margin: 5px 10px; }
-			.dropdown-content { position: static; display: none; box-shadow: none; background: #222; width: 100%; }
-			.dropdown:hover .dropdown-content { display: block; }
-			.project-detail-container { padding: 30px 20px; margin: 20px 10px; }
-			.project-header h1 { font-size: 32px; }
+		.project-detail-container { max-width:1120px; margin:60px auto; padding:60px; background:#fff; box-shadow:0 10px 40px rgba(0,0,0,.08); border-radius:12px; box-sizing:border-box; }
+		.project-header { text-align:center; margin-bottom:32px; }
+		.project-header h1 { font-family:'Jura','Microsoft YaHei',sans-serif; font-size:44px; font-weight:700; margin:0 0 12px; color:#111; letter-spacing:1px; }
+		.project-header .subtitle { font-size:20px; color:#555; margin:0 0 8px; font-weight:700; }
+		.project-meta { color:#888; font-size:14px; margin:0; }
+		.notice { border-left:5px solid #ff9800; background:#fff6e8; padding:18px 22px; border-radius:0 7px 7px 0; color:#5b4b37; font-size:15px; line-height:1.75; margin-bottom:48px; }
+		.content-section { margin-bottom:58px; }
+		.content-section h2 { font-size:27px; font-weight:800; color:#111; margin:0 0 22px; padding-left:15px; border-left:5px solid #ff9800; line-height:1.3; }
+		.content-section h3 { font-size:20px; font-weight:750; color:#222; margin:24px 0 11px; }
+		.content-section p, .content-section li { font-size:16px; line-height:1.85; color:#444; }
+		.content-section p { margin:0 0 15px; text-align:justify; }
+		.fact-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:15px; margin-top:25px; }
+		.fact { text-align:center; background:#15151e; border-radius:8px; padding:23px 15px; color:#fff; }
+		.fact strong { display:block; color:#ffab2e; font-size:29px; line-height:1.1; margin-bottom:7px; }
+		.fact span { display:block; color:#d3d3da; font-size:13px; line-height:1.5; }
+		.thesis { position:relative; background:#15151e; color:#fff; border-radius:10px; padding:34px 38px; font-size:20px; font-weight:700; line-height:1.8; margin:28px 0 0; }
+		.thesis::before { content:'“'; position:absolute; top:-16px; left:14px; color:#ff9800; font-family:Georgia,serif; font-size:72px; opacity:.55; }
+		.process-flow { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:12px; margin-top:25px; }
+		.process-step { position:relative; background:#fff7ec; border:1px solid #f1d6b5; border-radius:8px; padding:20px 14px; text-align:center; }
+		.process-step:not(:last-child)::after { content:'›'; position:absolute; right:-12px; top:50%; transform:translateY(-50%); color:#ff9800; font-size:27px; font-weight:800; z-index:2; }
+		.process-step strong { display:block; color:#d76d00; font-size:16px; margin-bottom:6px; }
+		.process-step span { color:#6d6257; font-size:13px; line-height:1.55; }
+		.principle-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+		.principle-card { border:1px solid #e5e5e5; border-radius:9px; padding:24px; background:#fafafa; }
+		.principle-number { display:inline-flex; width:34px; height:34px; align-items:center; justify-content:center; border-radius:50%; background:#ff9800; color:#fff; font-weight:800; margin-bottom:12px; }
+		.principle-card h3 { margin:0 0 9px; }
+		.principle-card p { margin:0; text-align:left; font-size:15px; line-height:1.78; }
+		.layer-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:17px; }
+		.layer-card { padding:24px; border-radius:9px; color:#fff; min-height:230px; }
+		.layer-card:nth-child(1) { background:#315f55; }
+		.layer-card:nth-child(2) { background:#344d78; }
+		.layer-card:nth-child(3) { background:#734055; }
+		.layer-label { font-size:12px; opacity:.75; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; }
+		.layer-card h3 { color:#fff; margin:8px 0 10px; }
+		.layer-card p { color:#f2f2f4; margin:0; text-align:left; font-size:15px; line-height:1.75; }
+		.table-wrap { overflow-x:auto; border:1px solid #e1e1e1; border-radius:8px; }
+		.design-table { width:100%; border-collapse:collapse; min-width:820px; }
+		.design-table th { background:#171720; color:#fff; padding:15px 14px; font-size:14px; text-align:left; }
+		.design-table td { padding:15px 14px; border-top:1px solid #e7e7e7; vertical-align:top; font-size:14px; line-height:1.65; color:#444; }
+		.design-table tbody tr:nth-child(even) { background:#fafafa; }
+		.design-table td:first-child { font-weight:800; color:#d76d00; white-space:nowrap; }
+		.case-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+		.case-card { border:1px solid #e3e3e3; border-top:5px solid #ff9800; border-radius:8px; padding:24px; background:#fff; }
+		.case-stat { color:#d76d00; font-size:13px; font-weight:800; margin-bottom:9px; }
+		.case-card h3 { margin:0 0 10px; }
+		.case-card p { font-size:15px; line-height:1.75; text-align:left; }
+		.tag-list { display:flex; flex-wrap:wrap; gap:7px; margin-top:15px; }
+		.tag { background:#f2f2f4; border:1px solid #e2e2e5; border-radius:4px; color:#555; padding:5px 8px; font-size:12px; font-weight:700; }
+		.module-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+		.module-card { border-radius:7px; padding:17px; background:#f7f7f9; border:1px solid #e4e4e7; }
+		.module-card strong { display:block; color:#222; margin-bottom:6px; font-size:15px; }
+		.module-card span { display:block; color:#666; font-size:12px; line-height:1.55; }
+		.feedback-loop { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:13px; margin:24px 0; }
+		.feedback-node { padding:19px 14px; text-align:center; border:1px solid #e4e4e4; border-radius:8px; background:#fafafa; font-size:14px; font-weight:750; color:#333; }
+		.example-list { margin:12px 0 0; padding-left:22px; }
+		.example-list li { margin-bottom:9px; }
+		.map-card { border:1px solid #e1e1e1; border-radius:9px; overflow:hidden; background:#fff; }
+		.map-card img { display:block; width:100%; height:auto; user-select:none; -webkit-user-drag:none; }
+		.map-card figcaption { padding:13px 16px; background:#fafafa; color:#666; font-size:13px; line-height:1.6; }
+		.source-note { margin-top:18px; padding:16px 18px; border-radius:7px; background:#f3f3f5; color:#62626a; font-size:13px; line-height:1.65; }
+		.back-btn-container { text-align:center; margin-top:60px; border-top:1px solid #eaeaea; padding-top:40px; }
+		.back-btn { background:#0f0f1b; color:#fff; padding:14px 40px; font-size:16px; font-weight:600; text-decoration:none; border-radius:6px; display:inline-block; }
+		.back-btn:hover { background:#ff9800; color:#fff; text-decoration:none; }
+		@media (max-width:1000px) { .project-detail-container { margin:40px 20px; padding:42px 30px; } .module-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } .process-flow { grid-template-columns:1fr; } .process-step:not(:last-child)::after { content:'↓'; right:auto; left:50%; top:auto; bottom:-20px; transform:translateX(-50%); } }
+		@media (max-width:768px) {
+			.my-clean-header { flex-direction:column; padding:15px; position:relative; }
+			.my-clean-logo { align-items:center; }
+			.my-clean-nav { margin-top:15px; width:100%; justify-content:center; }
+			.my-clean-nav li { margin:5px 10px; }
+			.dropdown-content { left:50%; transform:translateX(-50%); }
+			.project-detail-container { padding:30px 20px; margin:20px 10px; }
+			.project-header h1 { font-size:34px; }
+			.fact-grid, .principle-grid, .layer-grid, .case-grid, .feedback-loop { grid-template-columns:1fr; }
+			.module-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
 		}
+		@media (max-width:480px) { .module-grid { grid-template-columns:1fr; } .thesis { padding:28px 22px; font-size:18px; } }
 	</style>
+	<link href="css/portfolio-improvements.css" rel="stylesheet">
 </head>
 <body>
-	
-	<!-- Top navigation -->
 	<header class="my-clean-header">
 		<div class="my-clean-logo">
-			<a href="index.html" title="Xuehan Li - Portfolio">XUEHAN LI</a>
+			<a href="index.html" title="Xuehan Li - Level Design Portfolio">XUEHAN LI</a>
 			<span class="job-title">Level Designer</span>
 		</div>
 		<ul class="my-clean-nav">
 			<li><a href="index.html">HOME</a></li>
-			
 			<li class="dropdown">
 				<a href="index.html#work" class="dropbtn">PROJECTS <i class="fa fa-angle-down"></i></a>
 				<div class="dropdown-content">
-					<!-- Personal Projects -->
 					<div class="dropdown-category-title">Personal Projects</div>
 					<a href="project1.html">Containment Breach (Starfield)</a>
 					<a href="project3.html">Invalid Prescription (Starfield)</a>
 					<a href="project4.html">Escape from the Power Plant (Half-Life 2)</a>
-
-					<!-- Team Projects -->
+					<a href="project2.html">Cold Front (Multiplayer CTF Map)</a>
 					<div class="dropdown-category-title">Team Projects</div>
 					<a href="project7.html">Petalnaut</a>
 					<a href="project8.html">Hamsterballin'</a>
 					<a href="project9.html">Unannounced Project</a>
-					
-					<!-- Game Jams -->
-					<div class="dropdown-category-title">Game Jams</div>
-					<a href="project10.html">GGJ 2024: Make me laugh</a>
+					<div class="dropdown-category-title">Game Jam</div>
+					<a href="project10.html">GGJ 2024: Health Not High</a>
 					<a href="project11.html">LD 55: Summon</a>
-					<a href="project12.html">GMTK 2024: Built to Scale</a>
+					<a href="project12.html">GMTK 2024: Terrarium</a>
 				</div>
 			</li>
-			
 			<li><a href="index.html#about">ABOUT</a></li>
+			<li><a class="resume-nav-link" href="resume.html">RESUME</a></li>
 			<li><a href="index.html#contact">CONTACT</a></li>
 		</ul>
 	</header>
 
-	<!-- Main project container -->
-	<div class="project-detail-container">
-		
+	<main class="project-detail-container bd-project">
 		<div class="project-header">
 			<h1>Unannounced Project</h1>
-			<p class="subtitle">NDA Protected Team Development & Modular Prototyping</p>
+			<p class="subtitle">Roguelike Build System Design</p>
+			<p class="project-meta">Dota 2 Arcade · Hades-Like Team Project</p>
 		</div>
 
-		<!-- 1. Video window (for confidential work, use a redacted graybox or related technical prototype) -->
-		<div class="video-wrapper">
-			<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Project 9 Video Placeholder" allowfullscreen></iframe>
-		</div>
+		<section class="project-scan-summary" aria-label="Project at a glance">
+			<div class="project-scan-media bd-map-preview">
+				<a href="images/project9/bd-system-map-overview.png" target="_blank" rel="noopener noreferrer" aria-label="Open the earlier Roguelike build network in a new window">
+					<img class="scan-image scan-contain" src="images/project9/bd-system-map-overview.png" alt="Overview of the earlier Roguelike build network">
+				</a>
+				<p class="bd-map-caption">Earlier Build Network Overview · Click to View the Original</p>
+			</div>
+			<div class="project-scan-panel">
+				<p class="scan-eyebrow">Project at a Glance</p>
+				<div class="scan-facts">
+					<div class="scan-fact"><strong>Project</strong><span>Team Roguelike Project</span></div>
+					<div class="scan-fact"><strong>Platform</strong><span>Dota 2 Arcade</span></div>
+					<div class="scan-fact"><strong>Role</strong><span>Build System Designer</span></div>
+					<div class="scan-fact"><strong>Status</strong><span>Earlier Design Study</span></div>
+				</div>
+				<h2>My Core Work</h2>
+				<ul class="scan-contributions">
+					<li>Organized actions, conditions, benefits, and costs into a combinable build network.</li>
+					<li>Supported both beginner-friendly single-system loops and advanced cross-system ceilings.</li>
+					<li>Used build paths to test hero skills and their entry points into the system.</li>
+				</ul>
+			</div>
+		</section>
 
-		<!-- 2. Project overview -->
-		<div class="content-section">
-			<h2>Project Introduction</h2>
-			<p>This is a professional/academic team project currently under a Non-Disclosure Agreement (NDA). While specific narrative details and IP elements cannot be shared, my role centered on establishing the modular level design pipeline, rapid whiteboxing, and coordinating with the engineering team to ensure our spatial designs met the strict technical constraints of the engine.</p>
-		</div>
+		<div class="notice"><strong>Note:</strong> This build system is not the final version. Because the project is unannounced, this page only demonstrates design thinking and methodology; the final implementation may differ.</div>
 
-		<!-- 3. Individual contributions -->
-		<div class="content-section">
-			<h2>My Contributions</h2>
-			<ul class="contribution-list">
-				<li><strong>Modular Blockout Toolkit:</strong> Developed a standardized grid-snapping library of whitebox assets to speed up iteration times across the entire level design team.</li>
-				<li><strong>Technical Constraints Management:</strong> Monitored draw calls and polycounts during the greybox phase, implementing occlusion culling strategies early in development.</li>
-				<li><strong>Systems Integration:</strong> Placed and tested early gameplay system hooks (e.g., enemy spawn volumes, quest triggers) before final art was locked.</li>
-				<li><strong>Documentation:</strong> Wrote comprehensive Level Design Documents (LDDs) outlining intended player flow, encounter setups, and specific asset requests for the environment art team.</li>
+		<section class="content-section">
+			<h2>Project Overview</h2>
+			<p>This is a Hades-like Roguelike team project developed for the Dota 2 Arcade. This page presents my design thinking for an earlier version of the build system. I began with how players actually operate each hero, then broke blessings into trigger conditions, benefits, costs, and cross-system interfaces so a hero's control pattern could strengthen its affinity with particular builds. The system supports beginners who focus on one blessing family while preserving cross-system combinations, deliberate risk-taking, and higher ceilings for experienced players.</p>
+			<div class="fact-grid">
+				<div class="fact"><strong>About 886</strong><span>Topics in the Earlier Mind Map</span></div>
+				<div class="fact"><strong>269</strong><span>Explicit Build Connections</span></div>
+				<div class="fact"><strong>16</strong><span>Primary Blessing and Hero Modules</span></div>
+			</div>
+			<div class="thesis">My goal was not a collection of isolated numerical upgrades, but a build network that could serve different heroes, control styles, and levels of player understanding. Every blessing acts as an entry condition, benefit multiplier, weakness compensator, or cost. Beginners can form clear but capped internal loops within one system; experienced players can connect conditions across systems and exchange higher execution demands, risk, or assembly difficulty for a higher ceiling. These build paths also test whether hero skills provide meaningful entry points.</div>
+		</section>
+
+		<section class="content-section">
+			<h2>Design Process</h2>
+			<div class="process-flow">
+				<div class="process-step"><strong>Player Actions</strong><span>Basic attacks, skills, dashes, continuous movement, standing still, taking damage, or summoning</span></div>
+				<div class="process-step"><strong>Build Needs</strong><span>Critical chance, movement speed, attack speed, survival, status effects, resources, or cooldown</span></div>
+				<div class="process-step"><strong>Conditions and Costs</strong><span>Self-inflicted status, low health, long cooldowns, standing still, or intentional health loss</span></div>
+				<div class="process-step"><strong>Cross-System Combination</strong><span>Find starters, multipliers, and stabilizers across blessing families</span></div>
+				<div class="process-step"><strong>Feed Back into Heroes</strong><span>Add skill entry points so specific actions can initiate more builds</span></div>
+			</div>
+		</section>
+
+		<section class="content-section">
+			<h2>Four Core Principles</h2>
+			<div class="principle-grid">
+				<article class="principle-card"><span class="principle-number">1</span><h3>Define Action Entry Points and Hero Affinity First</h3><p>A hero's attack rhythm, movement frequency, defensive behavior, and skill links determine its natural build tendencies. I first identify which actions players can execute reliably, how often they occur, and which systems they can connect to, then design the corresponding benefits and values.</p></article>
+				<article class="principle-card"><span class="principle-number">2</span><h3>Create Curved Growth Through Conditions</h3><p>If players need movement speed, I do not necessarily grant a flat speed bonus. They might first enter a lightning status, then use other blessings to convert that condition into speed, damage, or survivability. Players search for an activation condition instead of only comparing numbers.</p></article>
+				<article class="principle-card"><span class="principle-number">3</span><h3>Match the Ceiling to Risk, Execution, and Assembly Difficulty</h3><p>Builds that are harder to execute, harder to assemble, or require intentional health loss should offer higher potential returns. Low-risk builds emphasize stability and should not also have the highest ceiling.</p></article>
+				<article class="principle-card"><span class="principle-number">4</span><h3>Preserve Single-System Loops for Beginners</h3><p>Beginners often keep selecting one blessing family. Each major system therefore contains a usable internal build, but its strength remains below advanced combinations that require recognizing keywords and connecting multiple systems.</p></article>
+			</div>
+		</section>
+
+		<section class="content-section">
+			<h2>Three Player Layers</h2>
+			<div class="layer-grid">
+				<article class="layer-card"><span class="layer-label">Accessible</span><h3>Beginner: Single-System Completion</h3><p>Repeatedly selecting one god or blessing family still produces a basic loop of triggers, enhancement, and survival. The build remains functional without deep system knowledge, but its ceiling is controlled.</p></article>
+				<article class="layer-card"><span class="layer-label">Combinational</span><h3>Advanced: Cross-System Assembly</h3><p>Players follow keywords such as critical chance, movement speed, status effects, summons, or cooldowns to find starters, multipliers, and stabilizers across several systems, creating a clearer gameplay identity.</p></article>
+				<article class="layer-card"><span class="layer-label">Mastery</span><h3>Expert: High Risk, High Ceiling</h3><p>Players deliberately accept low health, self-damage, long cooldowns, stationary play, or high execution demands, using a more complex assembly path to gain stronger damage and combat rhythm.</p></article>
+			</div>
+		</section>
+
+		<section class="content-section">
+			<h2>How Actions Become Builds</h2>
+			<div class="table-wrap">
+				<table class="design-table">
+					<thead><tr><th>Action Entry</th><th>Condition or Cost</th><th>Benefit and Conversion</th><th>Potential Build</th></tr></thead>
+					<tbody>
+						<tr><td>Frequent Dashing</td><td>Consumes charges, is cooldown-limited, and requires active repositioning</td><td>Post-dash damage, guaranteed criticals, knockback, bleed, or dash refresh on kill</td><td>Dash, Critical, Knockback, or Bleed Build</td></tr>
+						<tr><td>Standing Still</td><td>Gives up mobility and accepts greater positional risk</td><td>Damage while stationary, movement-speed reduction traded for mitigation, stronger close defense</td><td>Stationary, Hold-Ground, or Counterattack Build</td></tr>
+						<tr><td>Long Skill Cooldowns</td><td>Greatly increases cooldowns and reduces active-skill frequency</td><td>Improves basic attacks, total damage, mitigation, and speed while all skills are cooling down</td><td>Long-Cooldown Basic Attack or Intermittent Burst Build</td></tr>
+						<tr><td>Low Health / Self-Damage</td><td>Reduces maximum health, spends health intentionally, or takes damage</td><td>Higher damage at lower health, stabilized by healing, mitigation, and revives</td><td>Low-Health, Self-Damage, or On-Hit Build</td></tr>
+						<tr><td>Elemental Status</td><td>Actively maintains lightning, electric, ice, fire, or other effects on self or enemies</td><td>Converts status into elemental damage, speed, mitigation, lifesteal, or additional triggers</td><td>Status-Trigger, Mixed-Element, or Spirit-Element Build</td></tr>
+						<tr><td>Criticals and Rhythm</td><td>Charge timing, attack counts, post-dash windows, or skill proc chance</td><td>Guaranteed criticals, critical multiplier, critical-to-true-damage, or armor-break-to-critical conversion</td><td>Critical, True-Damage, or Rhythm-Attack Build</td></tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section class="content-section">
+			<h2>Representative Build Cases</h2>
+			<div class="case-grid">
+				<article class="case-card"><div class="case-stat">14 Connections · 4 Systems</div><h3>Critical Build</h3><p>Players can seek direct critical chance, guaranteed criticals after dashing, a guaranteed critical every few attacks, armor-break conversion, critical multipliers, or critical-to-true-damage conversion. The goal is not to stack one number, but to improve both trigger reliability and the value of each trigger.</p><div class="tag-list"><span class="tag">Phantom Assassin</span><span class="tag">Damage</span><span class="tag">Curse</span><span class="tag">Defense</span></div></article>
+				<article class="case-card"><div class="case-stat">12 Connections · 6 Systems</div><h3>Low-Health / Damage-Taken Build</h3><p>Reduced maximum health, continuous health loss, and on-damage triggers provide strong returns, while healing, mitigation, revive counts, and per-hit damage caps manage the risk. The build must solve both how to enter danger and how to remain there without dying immediately.</p><div class="tag-list"><span class="tag">Damage</span><span class="tag">Fate</span><span class="tag">Paladin</span><span class="tag">Healing</span><span class="tag">Charges</span><span class="tag">Curse</span></div></article>
+				<article class="case-card"><div class="case-stat">8 Connections · 4 Systems</div><h3>Dash Build</h3><p>Dashing becomes more than movement; it starts the damage loop through shorter cooldowns, more charges, post-dash damage, guaranteed criticals, knockback, bleed, and refreshes on kill. The action itself becomes a build resource.</p><div class="tag-list"><span class="tag">Speed / Evasion</span><span class="tag">Charges</span><span class="tag">Movement / Knockback</span><span class="tag">Phantom Assassin</span></div></article>
+			</div>
+		</section>
+
+		<section class="content-section">
+			<h2>Earlier System Modules</h2>
+			<p>The earlier mind map separated blessings, hero traits, and build keywords into connectable modules. The list below preserves only the design role of each module; the unedited full node set and original connections are not published.</p>
+			<div class="module-grid">
+				<div class="module-card"><strong>Zeus / Lightning</strong><span>Attacks, attack speed, area damage, elemental status, and fast charging.</span></div>
+				<div class="module-card"><strong>Freeze Control</strong><span>Slow, control, and mitigation, with criticals, attack speed, and movement speed supplying damage.</span></div>
+				<div class="module-card"><strong>Burning</strong><span>Element spread, lifesteal, attack speed, true damage, self-damage, and spirit systems.</span></div>
+				<div class="module-card"><strong>Defense / Refraction</strong><span>Stacks defensive layers and converts damage taken or defensive actions into burst opportunities.</span></div>
+				<div class="module-card"><strong>Movement / Knockback</strong><span>Dashes, pulls, knockback, ranged distance, and health-based collisions.</span></div>
+				<div class="module-card"><strong>Phantom Assassin</strong><span>Critical chance, guaranteed criticals, critical multiplier, and true-damage conversion.</span></div>
+				<div class="module-card"><strong>Speed / Evasion</strong><span>Continuous movement, dash cooldown, speed-to-damage conversion, and evasion ceiling.</span></div>
+				<div class="module-card"><strong>Charges / Core</strong><span>Skill charges, chance not to consume, cooldown resets, and revive counts.</span></div>
+				<div class="module-card"><strong>Healing</strong><span>Health recovery, maximum health, healing orbs, and stabilization of dangerous states.</span></div>
+				<div class="module-card"><strong>Damage</strong><span>General damage, health thresholds, true damage, execution, and rhythm triggers.</span></div>
+				<div class="module-card"><strong>Curse</strong><span>Trades visible negative effects for high returns and supports high-risk builds.</span></div>
+				<div class="module-card"><strong>Fate / Economy</strong><span>Rerolls, gold, planning, resource exchange, and staged investment.</span></div>
+				<div class="module-card"><strong>Paladin</strong><span>Shields, grouping enemies, explosions, damage taken, counters, and hold-ground combat.</span></div>
+				<div class="module-card"><strong>Druid</strong><span>Summon sacrifice, maintenance, concealment, spirit elements, and duplication.</span></div>
+				<div class="module-card"><strong>Shaman</strong><span>Buffs, support, undead spread, summon death, and team protection.</span></div>
+				<div class="module-card"><strong>Ranged Throw / Bleed</strong><span>Projectile splitting, mark stacks, status duration, and repeated triggers.</span></div>
+			</div>
+		</section>
+
+		<section class="content-section">
+			<h2>How Builds Feed Back into Hero Skills</h2>
+			<p>After establishing the build network, I check whether each hero has sufficiently clear starting points. If a build works only after a lucky blessing drop, the hero's skills need a stable but incomplete base condition. This lets players identify a direction early while still requiring later choices to amplify it.</p>
+			<div class="feedback-loop">
+				<div class="feedback-node">Hero Control Traits</div>
+				<div class="feedback-node">Create Build Needs</div>
+				<div class="feedback-node">Identify Missing Conditions</div>
+				<div class="feedback-node">Adjust Hero Skill Entry Points</div>
+			</div>
+			<ul class="example-list">
+				<li><strong>Timing-Based Criticals:</strong> A correctly timed charged basic attack always crits, making execution precision a stable entry point for critical builds.</li>
+				<li><strong>Continuous Movement:</strong> The hero gradually gains temporary movement speed while moving and loses it when stopping, making movement behavior part of the build loop.</li>
+				<li><strong>Lightning Summon:</strong> The hero can summon a lightning creature, creating a natural interface between lightning and summon systems.</li>
 			</ul>
-		</div>
+		</section>
 
-		<!-- 4. Design analysis -->
-		<div class="content-section">
-			<h2>Design Analysis</h2>
-			<p>Working under strict creative and technical constraints required a highly organized approach to level structure. The core design philosophy I championed was "Form Follows Function." Before any aesthetic decisions were made, every metric—from the height of cover objects to the width of main thoroughfares—was mathematically verified to support the core combat loop.</p>
-			<p>Because the project details are confidential, I emphasize the *process*. The ability to rapidly tear down and rebuild a section of the map based on weekly milestone feedback without breaking the underlying technical logic was the key achievement in this endeavor.</p>
-		</div>
+		<section class="content-section">
+			<h2>Complete Earlier Design Map</h2>
+			<figure class="map-card">
+				<img src="images/project9/bd-system-map-overview.png" alt="Complete earlier XMind network preview for the Roguelike build system" draggable="false">
+				<figcaption>The complete earlier network is shown only to communicate system scale; because it contains many nodes, the page extracts representative design logic instead.</figcaption>
+			</figure>
+			<div class="source-note">To protect the unannounced project's system details, this page does not provide the original XMind file or complete editable relationship data.</div>
+		</section>
 
-		<div class="back-btn-container">
-			<a href="index.html#work" class="back-btn"><i class="fa fa-arrow-left"></i> Back to Portfolio</a>
-		</div>
-
-	</div>
-	
-	<script src="js/jquery-2.2.3.min.js"></script>
+		<div class="back-btn-container"><a href="index.html#work" class="back-btn">Back to Portfolio</a></div>
+	</main>
 </body>
 </html>

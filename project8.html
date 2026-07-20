@@ -9,11 +9,12 @@
 	<link href="https://fonts.googleapis.com/css?family=Jura:300,400,500,600" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
 	<link href="css/project-detail.css" rel="stylesheet">
+	<link href="css/portfolio-improvements.css" rel="stylesheet">
 </head>
 <body>
 	<header class="my-clean-header">
 		<div class="my-clean-logo">
-			<a href="index.html" title="Xuehan Li - Portfolio">XUEHAN LI</a>
+			<a href="index.html" title="Xuehan Li - Level Design Portfolio">XUEHAN LI</a>
 			<span class="job-title">Level Designer</span>
 		</div>
 		<ul class="my-clean-nav">
@@ -25,17 +26,19 @@
 					<a href="project1.html">Containment Breach (Starfield)</a>
 					<a href="project3.html">Invalid Prescription (Starfield)</a>
 					<a href="project4.html">Escape from the Power Plant (Half-Life 2)</a>
+					<a href="project2.html">Cold Front (Multiplayer CTF Map)</a>
 					<div class="dropdown-category-title">Team Projects</div>
 					<a href="project7.html">Petalnaut</a>
 					<a href="project8.html">Hamsterballin'</a>
 					<a href="project9.html">Unannounced Project</a>
-					<div class="dropdown-category-title">Game Jams</div>
-					<a href="project10.html">GGJ 2024: Make Me Laugh</a>
+					<div class="dropdown-category-title">Game Jam</div>
+					<a href="project10.html">GGJ 2024: Health Not High</a>
 					<a href="project11.html">LD 55: Summon</a>
-					<a href="project12.html">GMTK 2024: Built to Scale</a>
+					<a href="project12.html">GMTK 2024: Terrarium</a>
 				</div>
 			</li>
 			<li><a href="index.html#about">ABOUT</a></li>
+			<li><a class="resume-nav-link" href="resume.html">RESUME</a></li>
 			<li><a href="index.html#contact">CONTACT</a></li>
 		</ul>
 	</header>
@@ -43,34 +46,67 @@
 	<main class="project-detail-container">
 		<div class="project-header">
 			<h1>Hamsterballin'</h1>
-			<p class="subtitle">Track 1 Level Design &amp; Item Blueprint Scripting</p>
+			<p class="subtitle">Track 1 Level Design and Item Blueprint Scripting</p>
 		</div>
 
-		<img class="hero-image" src="images/project8/hamsterballin-cover.jpg" alt="Official Hamsterballin cover art">
+		<section class="project-scan-summary" aria-label="Project at a glance">
+			<div class="project-scan-media">
+				<img class="scan-image" src="images/project8/hamsterballin-cover.jpg" alt="Official Hamsterballin cover">
+			</div>
+			<div class="project-scan-panel">
+				<p class="scan-eyebrow">Project at a Glance</p>
+				<div class="scan-facts">
+					<div class="scan-fact"><strong>Project</strong><span>SMU Guildhall Team Project</span></div>
+					<div class="scan-fact"><strong>Role</strong><span>Track 1 Level Designer</span></div>
+					<div class="scan-fact"><strong>Technology</strong><span>UE5 Blueprint</span></div>
+					<div class="scan-fact"><strong>Genre</strong><span>Multiplayer Arcade Racing</span></div>
+				</div>
+				<h2>My Core Contributions</h2>
+				<ul class="scan-contributions">
+					<li>Designed Track 1 routes, elevation changes, slopes, and racing rhythm.</li>
+					<li>Rapidly prototyped traps in UE5 Blueprint to test readability and fun.</li>
+					<li>Implemented item logic, including items that entered the final game.</li>
+				</ul>
+			</div>
+		</section>
 		<div class="project-links">
 			<a class="external-btn" href="https://store.steampowered.com/app/4319370/Hamsterballin/" target="_blank" rel="noopener noreferrer"><i class="fa fa-steam"></i> View on Steam</a>
 		</div>
 
-		<div class="fact-grid">
-			<div class="fact-card"><strong>Project Type</strong><span>SMU Guildhall Team Project</span></div>
-			<div class="fact-card"><strong>My Role</strong><span>Track 1 Level Design</span></div>
-			<div class="fact-card"><strong>Technical Work</strong><span>Blueprint Scripting for Selected Items</span></div>
-			<div class="fact-card"><strong>Genre</strong><span>Competitive Multiplayer Arcade Racing</span></div>
-		</div>
-
 		<section class="content-section">
 			<h2>Project Overview</h2>
-			<p><em>Hamsterballin'</em> is a competitive arcade racing game. Players control characters inside hamster balls, rolling, bouncing, and racing across themed tracks while using route choices, shortcuts, and items to interfere with opponents. Unlike a traditional kart racer, the physical movement of the hamster ball is itself a central part of route judgment and input rhythm.</p>
+			<p><em>Hamsterballin'</em> is a competitive arcade racing game. Players control characters inside hamster balls, rolling, bouncing, and racing across themed tracks while using routes, shortcuts, and items to disrupt opponents. Unlike a traditional kart racer, the physical motion of the ball is central to route judgment and control rhythm.</p>
 		</section>
 
 		<section class="content-section">
-			<h2>My Contributions</h2>
+			<h2>My Work</h2>
 			<ul class="contribution-list">
-				<li><strong>Track 1 Level Design:</strong> I designed Track 1, organizing its routes and racing rhythm around the hamster ball's rolling and bouncing movement.</li>
-				<li><strong>Item Blueprints:</strong> I implemented Blueprint logic for selected gameplay items.</li>
-				<li><strong>Final Implementation:</strong> Some of the items I helped script were included in the final release.</li>
+				<li><strong>Track 1 Level Design:</strong> Designed Track 1 around the hamster ball's rolling and bouncing movement, organizing routes and racing rhythm.</li>
+				<li><strong>Item Blueprints:</strong> Implemented Blueprint logic for selected items.</li>
+				<li><strong>Final Implementation:</strong> Some items I worked on entered the final game.</li>
 			</ul>
-			<div class="role-highlight">This page distinguishes the team's final product from my individual contributions. Public screenshots present the game's overall visuals and gameplay; my documented scope was Track 1 level design and Blueprint work for selected items.</div>
+		</section>
+
+		<section class="content-section">
+			<h2>Development-Stage Validation</h2>
+			<div class="prototype-notice"><strong>Version Note:</strong> The following GIFs document development-stage prototypes and are not the final shipped implementation. They will be updated after the game launches.</div>
+			<h3>Track 1 Segments</h3>
+			<p>These four clips show development-stage runs through Track 1. I used them to evaluate route readability at speed, slope transitions, landing-point judgment, and overall racing rhythm.</p>
+			<div class="gif-showcase">
+				<figure class="gif-card"><img loading="lazy" src="images/project8/trackpart1.gif" alt="Track 1 development segment 1"><figcaption>Track 1 segment 1: slopes, turns, and high-speed route transitions.</figcaption></figure>
+				<figure class="gif-card"><img loading="lazy" src="images/project8/trackpart2.gif" alt="Track 1 development segment 2"><figcaption>Track 1 segment 2: obstacle anticipation and speed maintenance.</figcaption></figure>
+				<figure class="gif-card"><img loading="lazy" src="images/project8/trackpart3.gif" alt="Track 1 development segment 3"><figcaption>Track 1 segment 3: narrow-route traversal and risk judgment.</figcaption></figure>
+				<figure class="gif-card"><img loading="lazy" src="images/project8/trackpart4.gif" alt="Track 1 development segment 4"><figcaption>Track 1 segment 4: elevation, turns, and continuous route changes.</figcaption></figure>
+			</div>
+
+			<h3>UE5 Blueprint Trap Prototypes</h3>
+			<p>Early in development, I built these four trap prototypes directly in UE5 Blueprint. The goal was to test quickly and inexpensively whether traps could create clear, readable, and enjoyable interactions within rolling races before committing to further iteration.</p>
+			<div class="gif-showcase">
+				<figure class="gif-card"><img loading="lazy" src="images/project8/trap1.gif" alt="UE5 Blueprint trap prototype 1"><figcaption>Trap prototype 1: collision, avoidance, and route disruption.</figcaption></figure>
+				<figure class="gif-card"><img loading="lazy" src="images/project8/trap2.gif" alt="UE5 Blueprint trap prototype 2"><figcaption>Trap prototype 2: reaction windows for a moving obstacle.</figcaption></figure>
+				<figure class="gif-card"><img loading="lazy" src="images/project8/trap3.gif" alt="UE5 Blueprint trap prototype 3"><figcaption>Trap prototype 3: floor mechanism and collision feedback.</figcaption></figure>
+				<figure class="gif-card"><img loading="lazy" src="images/project8/trap4.gif" alt="UE5 Blueprint trap prototype 4"><figcaption>Trap prototype 4: high-speed readability of a large road obstacle.</figcaption></figure>
+			</div>
 		</section>
 
 		<section class="content-section">
@@ -78,11 +114,11 @@
 			<div class="analysis-grid">
 				<div class="analysis-card">
 					<h3>Track Design and Ball Physics</h3>
-					<p>The hamster ball rolls continuously and bounces from slopes and collisions. The track must therefore let players read turns, edges, landing points, and speed changes in advance instead of relying only on conventional vehicle-steering experience.</p>
+					<p>The hamster ball rolls continuously and bounces from slopes and collisions. The track must let players anticipate turns, edges, landing points, and speed changes rather than rely on traditional vehicle steering.</p>
 				</div>
 				<div class="analysis-card">
 					<h3>Readability in Multiplayer Racing</h3>
-					<p>Multiple players and item effects are present at the same time. Routes, obstacles, and shortcuts must remain clear so players can quickly judge the way forward while moving at high speed and interfering with one another.</p>
+					<p>Multiple players and item effects share the track. Routes, obstacles, and shortcuts must remain legible so players can identify the way forward while moving quickly and disrupting one another.</p>
 				</div>
 			</div>
 		</section>
@@ -90,12 +126,12 @@
 		<section class="content-section">
 			<h2>Game Screenshots</h2>
 			<div class="media-grid">
-				<figure class="media-card"><a href="images/project8/hamster-01.jpg" target="_blank"><img src="images/project8/hamster-01.jpg" alt="Hamsterballin track racing"></a><figcaption>Ball movement, slopes, and turns combine to create a high-speed racing rhythm.</figcaption></figure>
-				<figure class="media-card"><a href="images/project8/hamster-02.jpg" target="_blank"><img loading="lazy" src="images/project8/hamster-02.jpg" alt="Hamsterballin multiplayer racing"></a><figcaption>Route judgment and competition during multiplayer racing.</figcaption></figure>
+				<figure class="media-card"><a href="images/project8/hamster-01.jpg" target="_blank"><img src="images/project8/hamster-01.jpg" alt="Hamsterballin track racing"></a><figcaption>Ball rolling, slopes, and turns create the high-speed racing rhythm.</figcaption></figure>
+				<figure class="media-card"><a href="images/project8/hamster-02.jpg" target="_blank"><img loading="lazy" src="images/project8/hamster-02.jpg" alt="Hamsterballin multiplayer race"></a><figcaption>Route judgment and competition in a multiplayer race.</figcaption></figure>
 				<figure class="media-card"><a href="images/project8/hamster-03.jpg" target="_blank"><img loading="lazy" src="images/project8/hamster-03.jpg" alt="Hamsterballin character selection"></a><figcaption>Hamster character and outfit selection.</figcaption></figure>
 				<figure class="media-card"><a href="images/project8/hamster-04.jpg" target="_blank"><img loading="lazy" src="images/project8/hamster-04.jpg" alt="Hamsterballin four-player race"></a><figcaption>Track information and player-position feedback in a four-player race.</figcaption></figure>
 			</div>
-			<p class="source-note">The images above are from the game's public Steam page. Track 1 plans, iteration diagrams, or Blueprint screenshots can be added later to provide a more detailed breakdown of my individual design work.</p>
+			<p class="source-note">The still images above come from the public Steam page. The Track 1 and trap GIFs are my development-stage records and document my individual design and prototype-validation work.</p>
 		</section>
 
 		<div class="back-btn-container">

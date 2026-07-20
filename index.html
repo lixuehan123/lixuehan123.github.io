@@ -53,11 +53,12 @@
 		.portfolio-section { padding: 40px 0; }
 		.section-heading { font-size: 32px; font-weight: bold; color: #111; margin-bottom: 30px; border-bottom: 3px solid #ff9800; display: inline-block; padding-bottom: 10px; }
 		.portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-bottom: 40px; }
+		.personal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 		.portfolio-card { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.06); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; }
 		.portfolio-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
-		.card-img-wrapper { height: 200px; width: 100%; overflow: hidden; background: #222; }
+		.card-img-wrapper { width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #222; }
 		.card-img-wrapper a { display: block; height: 100%; text-decoration: none; }
-		.card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+		.card-img-wrapper img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.5s ease; }
 		.portfolio-card:hover .card-img-wrapper img { transform: scale(1.05); }
 		.card-content { padding: 25px 20px; flex-grow: 1; display: flex; flex-direction: column; }
 		.card-title { font-size: 20px; font-weight: 800; margin: 0 0 10px 0; color: #111; }
@@ -156,11 +157,13 @@
 			.my-clean-nav li { margin: 5px 10px; }
 			.dropdown-content { position: static; display: none; box-shadow: none; background: #222; width: 100%; }
 			.dropdown:hover .dropdown-content { display: block; }
+			.personal-grid { grid-template-columns: 1fr; }
 			.contact-grid { grid-template-columns: 1fr; }
 			.game-hours-card { padding: 20px; }
 			.about-hook-container { padding: 0 20px; }
 		}
 	</style>
+	<link href="css/portfolio-improvements.css" rel="stylesheet">
 </head>
 
 <body>
@@ -183,6 +186,7 @@
 					<a href="project1.html">Containment Breach (Starfield)</a>
 					<a href="project3.html">Invalid Prescription (Starfield)</a>
 					<a href="project4.html">Escape from the Power Plant (Half-Life 2)</a>
+					<a href="project2.html">Cold Front (Multiplayer CTF Map)</a>
 
 					<div class="dropdown-category-title">Team Projects</div>
 					<a href="project7.html">Petalnaut</a>
@@ -190,13 +194,14 @@
 					<a href="project9.html">Unannounced Project</a>
 					
 					<div class="dropdown-category-title">Game Jams</div>
-					<a href="project10.html">GGJ 2024：Make Me Laugh</a>
-					<a href="project11.html">LD 55：Summon</a>
-					<a href="project12.html">GMTK 2024：Build to Scale</a>
+					<a href="project10.html">GGJ 2024: Health Not High</a>
+					<a href="project11.html">LD 55: Summon</a>
+					<a href="project12.html">GMTK 2024: Terrarium</a>
 				</div>
 			</li>
 			
 			<li><a href="#about" class="scroll">ABOUT</a></li>
+			<li><a class="resume-nav-link" href="resume.html">RESUME</a></li>
 			<li><a href="#contact" class="scroll">CONTACT</a></li>
 		</ul>
 	</header>
@@ -207,12 +212,12 @@
 	<div id="work" class="container portfolio-section">
 		
 		<h2 class="section-heading">Personal Projects</h2>
-		<div class="portfolio-grid">
+		<div class="portfolio-grid personal-grid">
 			<div class="portfolio-card">
 				<div class="card-img-wrapper"><a href="project1.html"><img src="images/project1-cover.png" alt="Containment Breach (Starfield)"></a></div>
 				<div class="card-content">
 					<h3 class="card-title">Containment Breach (Starfield)</h3>
-					<p class="card-desc">Built with the Creation Kit, this project uses extensive scripting to recreate the Call of Duty Zombies loop. It focuses on player and enemy routes across different spatial types, environmental atmosphere, and numerical balance.</p>
+					<p class="card-desc">Multi-stage dynamic loop design across a large map, supported by extensive scripting.</p>
 					<a href="project1.html" class="card-btn">View Project</a>
 				</div>
 			</div>
@@ -232,15 +237,23 @@
 					<a href="project4.html" class="card-btn">View Project</a>
 				</div>
 			</div>
+			<div class="portfolio-card">
+				<div class="card-img-wrapper"><a href="project2.html"><img src="images/project2/shot0028.png" alt="Cold Front multiplayer competitive shooter map"></a></div>
+				<div class="card-content">
+					<h3 class="card-title">Cold Front</h3>
+					<p class="card-desc">A 5v5 Capture the Flag map built around three continuously interchangeable routes, three vertical combat layers, and tradeoffs among safety, time, information, resources, and space control.</p>
+					<a href="project2.html" class="card-btn">View Project</a>
+				</div>
+			</div>
 		</div>
 
 		<h2 class="section-heading">Team Projects</h2>
 		<div class="portfolio-grid">
 			<div class="portfolio-card">
-				<div class="card-img-wrapper"><a href="project7.html"><img src="images/g1.jpg" alt="Petalnaut"></a></div>
+				<div class="card-img-wrapper"><a href="project7.html"><img src="images/petalnaut-index-cover.png" alt="Petalnaut"></a></div>
 				<div class="card-content">
 					<h3 class="card-title">Petalnaut</h3>
-					<p class="card-desc">A 2D Zelda-like level built in Unity. As level designer, I built the tutorial level and the final level.</p>
+					<p class="card-desc">A top-down shooter-puzzle team project built in Unity. I designed Level 1 and the final level, created combinable puzzle blocks from character abilities, and reused existing systems to build new enemies and traps.</p>
 					<a href="project7.html" class="card-btn">View Project</a>
 				</div>
 			</div>
@@ -256,7 +269,7 @@
 				<div class="card-img-wrapper"><a href="project9.html"><img src="images/g3.jpg" alt="Unannounced Project"></a></div>
 				<div class="card-content">
 					<h3 class="card-title">Unannounced Project</h3>
-					<p class="card-desc">A Hades-like project for the Dota 2 Arcade, focused on building a rich variety of character builds.</p>
+					<p class="card-desc">A Hades-like Dota 2 Arcade team project. This page presents an earlier build-system design that connects player actions, risk and reward, and cross-system synergies, then feeds those paths back into hero skill design.</p>
 					<a href="project9.html" class="card-btn">View Project</a>
 				</div>
 			</div>
@@ -265,9 +278,9 @@
 		<h2 class="section-heading">Game Jams</h2>
 		<div class="portfolio-grid">
 			<div class="portfolio-card">
-				<div class="card-img-wrapper"><a href="project10.html"><img src="images/project10/ggj-index-cover.png" alt="Laugh-health not high title screen"></a></div>
+				<div class="card-img-wrapper"><a href="project10.html"><img src="images/project10/ggj-index-cover.png" alt="GGJ 2024 Health Not High title screen"></a></div>
 				<div class="card-content">
-					<h3 class="card-title">Laugh-health not high</h3>
+					<h3 class="card-title">GGJ 2024 · Health Not High</h3>
 					<p class="card-desc">A Global Game Jam 2024 entry. I worked as designer and programmer, handling scene transitions, character actions, UI, animation, and seamless backgrounds.</p>
 					<a href="project10.html" class="card-btn">View Project</a>
 				</div>
@@ -275,7 +288,7 @@
 			<div class="portfolio-card">
 				<div class="card-img-wrapper"><a href="project11.html"><img src="images/project11/ld55-index-cover.png" alt="Ludum Dare 55 Summon title screen"></a></div>
 				<div class="card-content">
-					<h3 class="card-title">Summon</h3>
+					<h3 class="card-title">LD 55 · Summon</h3>
 					<p class="card-desc">A solo Ludum Dare 55 entry that adds a summoning system to the Vampire Survivors formula, balancing companion firepower against survival risk.</p>
 					<a href="project11.html" class="card-btn">View Project</a>
 				</div>
@@ -283,7 +296,7 @@
 			<div class="portfolio-card">
 				<div class="card-img-wrapper"><a href="project12.html"><img src="images/project12/terrarium-02.png" alt="Terrarium"></a></div>
 				<div class="card-content">
-					<h3 class="card-title">Terrarium</h3>
+					<h3 class="card-title">GMTK 2024 · Terrarium</h3>
 					<p class="card-desc">A GMTK 2024 entry. I created the level Tilemap, painted the foreground, midground, and background, and animated some enemies and hand movements.</p>
 					<a href="project12.html" class="card-btn">View Project</a>
 				</div>
@@ -406,10 +419,14 @@
 					</div>
 
 					<div class="skill-category">
-						<h4>Level Design Fundamentals</h4>
+						<h4>Level Design Skills</h4>
 						<div class="tags">
-							<span class="tag">Topology Analysis</span> <span class="tag">Cognitive Load Management</span> 
-							<span class="tag">Spatial Storytelling</span> <span class="tag">Encounter Pacing</span> <span class="tag">Greyboxing</span>
+							<span class="tag">Player Guidance</span> <span class="tag">Combat Space Design</span>
+							<span class="tag">Player Circulation Design</span> <span class="tag">Puzzle Design</span>
+							<span class="tag">Architecture Theory in Level Design</span> <span class="tag">Data Analysis</span>
+							<span class="tag">Architectural Design</span> <span class="tag">Architectural History</span>
+							<span class="tag">Architectural Psychology</span> <span class="tag">Structural Design</span>
+							<span class="tag">Architectural Atmosphere</span> <span class="tag">Topological Analysis</span>
 						</div>
 					</div>
 					

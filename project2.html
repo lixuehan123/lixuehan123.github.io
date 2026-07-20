@@ -1,160 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<title>Thesis: Souls-like Topology | Xuehan Li</title>
+	<title>Cold Front | Xuehan Li</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	
-	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="description" content="Cold Front: a 5v5 Capture the Flag competitive multiplayer map.">
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 	<link href="css/font-awesome.css" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Jura:300,400,500,600" rel="stylesheet">
-	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-
+	<link href="https://fonts.googleapis.com/css?family=Jura:300,400,500,600,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
 	<style>
-		/* ========================================== */
-		/* 全局与背景设定 */
-		/* ========================================== */
-		body { margin: 0; padding: 0; font-family: 'Open Sans', sans-serif; background-color: #f7f7f9; color: #333; }
+		body { margin:0; padding:0; font-family:'Open Sans','Microsoft YaHei','PingFang SC',sans-serif; background:#f7f7f9; color:#333; }
+		.my-clean-header { display:flex; justify-content:space-between; align-items:center; background:#0f0f1b; padding:15px 5%; position:sticky; top:0; z-index:99999; box-shadow:0 2px 10px rgba(0,0,0,.5); width:100%; box-sizing:border-box; }
+		.my-clean-logo { display:flex; flex-direction:column; }
+		.my-clean-logo a { color:#fff; text-decoration:none; font-size:32px; font-weight:bold; letter-spacing:1px; line-height:1; }
+		.my-clean-logo a:hover, .my-clean-nav a:hover { color:#ff9800; text-decoration:none; }
+		.job-title { color:#ff9800; font-size:14px; font-weight:600; letter-spacing:2px; margin-top:6px; text-transform:uppercase; }
+		.my-clean-nav { display:flex; list-style:none; margin:0; padding:0; align-items:center; flex-wrap:wrap; }
+		.my-clean-nav li { margin-left:40px; position:relative; }
+		.my-clean-nav a { color:#fff; text-decoration:none; font-size:15px; font-weight:600; text-transform:uppercase; display:block; padding:15px 0; }
+		.dropdown-content { display:none; position:absolute; background:#1a1a24; min-width:270px; box-shadow:0 8px 16px rgba(0,0,0,.5); z-index:1; top:100%; left:0; border-radius:4px; padding:10px 0; }
+		.dropdown:hover .dropdown-content, .dropdown:focus-within .dropdown-content { display:block; }
+		.dropdown-content a { color:#fff; padding:10px 20px; font-size:13px; text-transform:none; font-weight:400; border-left:3px solid transparent; }
+		.dropdown-content a:hover { background:#2a2a3d; color:#ff9800; border-left-color:#ff9800; }
+		.dropdown-category-title { padding:10px 20px 5px; color:#777; font-size:11px; text-transform:uppercase; letter-spacing:1px; font-weight:bold; border-bottom:1px solid #333; margin:5px 0; }
 
-		/* ========================================== */
-		/* 导航栏 (与 index.html 完全一致) */
-		/* ========================================== */
-		.my-clean-header { display: flex; justify-content: space-between; align-items: center; background: #0f0f1b; padding: 15px 5%; position: sticky; top: 0; z-index: 99999; box-shadow: 0 2px 10px rgba(0,0,0,0.5); width: 100%; box-sizing: border-box; }
-		.my-clean-logo { display: flex; flex-direction: column; }
-		.my-clean-logo a { color: #ffffff; text-decoration: none; font-size: 32px; font-weight: bold; letter-spacing: 1px; transition: color 0.3s ease; line-height: 1; }
-		.my-clean-logo a:hover { color: #ff9800; text-decoration: none; }
-		.job-title { color: #ff9800; font-size: 14px; font-weight: 600; letter-spacing: 2px; margin-top: 6px; text-transform: uppercase; }
-
-		.my-clean-nav { display: flex; list-style: none; margin: 0; padding: 0; align-items: center; flex-wrap: wrap; }
-		.my-clean-nav li { margin-left: 40px; position: relative; } 
-		.my-clean-nav a { color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 600; text-transform: uppercase; transition: color 0.3s ease; display: block; padding: 15px 0; }
-		.my-clean-nav a:hover { color: #ff9800; text-decoration: none; }
-
-		/* 下拉菜单 */
-		.dropdown-content { display: none; position: absolute; background-color: #1a1a24; min-width: 250px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5); z-index: 1; top: 100%; left: 0; border-radius: 4px; padding: 10px 0; }
-		.dropdown:hover .dropdown-content { display: block; }
-		.dropdown-content a { color: #fff; padding: 10px 20px; text-decoration: none; display: block; font-size: 13px; text-transform: none; font-weight: 400; transition: 0.2s; border-left: 3px solid transparent; }
-		.dropdown-content a:hover { background-color: #2a2a3d; color: #ff9800; border-left: 3px solid #ff9800; }
-		.dropdown-category-title { padding: 10px 20px 5px 20px; color: #777; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; border-bottom: 1px solid #333; margin-bottom: 5px; margin-top: 5px; pointer-events: none; }
-
-		/* ========================================== */
-		/* 项目详情页专属卡片排版 */
-		/* ========================================== */
-		.project-detail-container { max-width: 900px; margin: 60px auto; padding: 60px; background: #ffffff; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border-radius: 12px; box-sizing: border-box; }
-
-		.project-header { text-align: center; margin-bottom: 40px; }
-		.project-header h1 { font-size: 42px; font-weight: 800; margin: 0 0 15px 0; color: #111; letter-spacing: 1px; text-transform: uppercase; }
-		.project-header p.subtitle { font-size: 18px; color: #777; margin: 0; font-weight: 500; }
-
-		/* 视频包裹层 */
-		.video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; background: #000; margin-bottom: 50px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-		.video-wrapper iframe, .video-wrapper video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-
-		.content-section { margin-bottom: 50px; }
-		.content-section h2 { font-size: 26px; font-weight: bold; color: #111; margin-bottom: 20px; padding-left: 15px; border-left: 5px solid #ff9800; line-height: 1.2; }
-		.content-section p { font-size: 16px; line-height: 1.8; color: #444; text-align: justify; margin-bottom: 15px; }
-		
-		/* 工作量列表 */
-		.contribution-list { font-size: 16px; line-height: 1.8; color: #444; margin-bottom: 15px; padding-left: 25px; }
-		.contribution-list li { margin-bottom: 12px; }
-		.contribution-list li strong { color: #111; font-weight: 700; }
-
-		.back-btn-container { text-align: center; margin-top: 60px; border-top: 1px solid #eaeaea; padding-top: 40px; }
-		.back-btn { background-color: #0f0f1b; color: #fff; padding: 14px 40px; font-size: 16px; font-weight: 600; text-decoration: none; border-radius: 6px; transition: background-color 0.3s ease, transform 0.3s ease; display: inline-block; }
-		.back-btn:hover { background-color: #ff9800; color: #fff; text-decoration: none; transform: translateY(-3px); box-shadow: 0 6px 15px rgba(255,152,0,0.3); }
-
-		@media (max-width: 1024px) { .project-detail-container { margin: 40px 20px; padding: 40px 30px; } }
-		@media (max-width: 768px) {
-			.my-clean-header { flex-direction: column; padding: 15px; }
-			.my-clean-logo { align-items: center; }
-			.my-clean-nav { margin-top: 15px; width: 100%; justify-content: center; }
-			.my-clean-nav li { margin: 5px 10px; }
-			.dropdown-content { position: static; display: none; box-shadow: none; background: #222; width: 100%; }
-			.dropdown:hover .dropdown-content { display: block; }
-			.project-detail-container { padding: 30px 20px; margin: 20px 10px; }
-			.project-header h1 { font-size: 32px; }
+		.project-detail-container { max-width:1080px; margin:60px auto; padding:60px; background:#fff; box-shadow:0 10px 40px rgba(0,0,0,.08); border-radius:12px; box-sizing:border-box; }
+		.project-header { text-align:center; margin-bottom:36px; }
+		.project-header h1 { font-family:'Jura',sans-serif; font-size:48px; font-weight:700; margin:0 0 12px; color:#111; letter-spacing:1px; text-transform:uppercase; }
+		.project-header .subtitle { font-size:18px; color:#777; margin:0; font-weight:500; }
+		.video-wrapper { position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:8px; background:#000; margin-bottom:50px; box-shadow:0 8px 25px rgba(0,0,0,.15); }
+		.video-wrapper iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:0; }
+		.content-section { margin-bottom:54px; }
+		.content-section h2 { font-size:26px; font-weight:bold; color:#111; margin:0 0 20px; padding-left:15px; border-left:5px solid #ff9800; line-height:1.3; }
+		.content-section h3 { font-size:20px; font-weight:700; color:#222; margin:30px 0 12px; }
+		.content-section p, .content-section li { font-size:16px; line-height:1.85; color:#444; }
+		.content-section p { margin:0 0 15px; text-align:justify; }
+		.fact-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; margin-top:24px; }
+		.fact { background:#fff6ea; border:1px solid #f3d2ad; border-radius:7px; padding:18px 15px; text-align:center; }
+		.fact strong { display:block; color:#d76d00; font-size:20px; margin-bottom:4px; }
+		.fact span { font-size:13px; color:#6a5d50; line-height:1.5; }
+		.principle { padding:22px 24px; margin:22px 0; border-left:4px solid #ff9800; background:#fff6ea; color:#493f36; font-size:18px; font-weight:700; line-height:1.75; }
+		.logic-list { margin:0; padding-left:24px; }
+		.logic-list li { margin-bottom:10px; }
+		.tradeoff-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin-top:24px; }
+		.tradeoff-card { padding:22px; border:1px solid #e6e6e6; border-radius:8px; background:#fafafa; }
+		.tradeoff-card h3 { margin:0 0 10px; color:#d76d00; font-size:19px; }
+		.tradeoff-card p { margin:0; text-align:left; font-size:15px; line-height:1.75; }
+		.design-board { margin:24px 0 0; border:1px solid #e6e6e6; border-radius:8px; overflow:hidden; background:#fff; }
+		.design-board a { display:block; }
+		.design-board img { width:100%; height:auto; display:block; }
+		.design-board figcaption, .gallery-card figcaption { padding:12px 14px; font-size:13px; line-height:1.55; color:#666; background:#fafafa; }
+		.visual-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; margin-top:22px; }
+		.visual-card { padding:22px; border-radius:8px; background:#15151e; color:#eee; }
+		.visual-card h3 { color:#ffb23e; margin:0 0 12px; }
+		.visual-card p { color:#ddd; text-align:left; margin:0; font-size:15px; }
+		.gallery-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+		.gallery-card { margin:0; border:1px solid #e6e6e6; border-radius:7px; overflow:hidden; background:#fafafa; }
+		.gallery-card a { display:block; overflow:hidden; background:#111; }
+		.gallery-card img { width:100%; aspect-ratio:5/4; object-fit:cover; display:block; transition:transform .3s ease, filter .3s ease; }
+		.gallery-card a:hover img { transform:scale(1.035); filter:brightness(1.06); }
+		.back-btn-container { text-align:center; margin-top:60px; border-top:1px solid #eaeaea; padding-top:40px; }
+		.back-btn { background:#0f0f1b; color:#fff; padding:14px 40px; font-size:16px; font-weight:600; text-decoration:none; border-radius:6px; display:inline-block; }
+		.back-btn:hover { background:#ff9800; color:#fff; text-decoration:none; }
+		@media (max-width:900px) { .fact-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .tradeoff-grid { grid-template-columns:1fr; } }
+		@media (max-width:768px) {
+			.my-clean-header { flex-direction:column; padding:15px; position:relative; }
+			.my-clean-logo { align-items:center; }
+			.my-clean-nav { margin-top:15px; width:100%; justify-content:center; }
+			.my-clean-nav li { margin:5px 10px; }
+			.dropdown-content { position:absolute; left:50%; transform:translateX(-50%); }
+			.project-detail-container { padding:30px 20px; margin:20px 10px; }
+			.project-header h1 { font-size:36px; }
+			.visual-grid, .gallery-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
 		}
+		@media (max-width:540px) { .fact-grid, .visual-grid, .gallery-grid { grid-template-columns:1fr; } }
 	</style>
+	<link href="css/portfolio-improvements.css" rel="stylesheet">
 </head>
-
 <body>
-	
 	<header class="my-clean-header">
 		<div class="my-clean-logo">
-			<a href="index.html" title="Xuehan Li - Portfolio">XUEHAN LI</a>
+			<a href="index.html" title="Xuehan Li - Level Design Portfolio">XUEHAN LI</a>
 			<span class="job-title">Level Designer</span>
 		</div>
 		<ul class="my-clean-nav">
 			<li><a href="index.html">HOME</a></li>
-			
 			<li class="dropdown">
 				<a href="index.html#work" class="dropbtn">PROJECTS <i class="fa fa-angle-down"></i></a>
 				<div class="dropdown-content">
-					<div class="dropdown-category-title">Personal & Thesis</div>
-					<a href="project1.html">ContainmentBreach (Starfield)</a>
-					<a href="project2.html">Thesis: Souls-like Topology</a>
-					<a href="project3.html">Invalidprescription (Starfield)</a>
-					<a href="project4.html">Escape from Power Plant (Half-Life 2)</a>
-					<a href="project5.html">Coldfront (Quake 3)</a>
-					<a href="project6.html">Beast Motos (Board Game)</a>
-
+					<div class="dropdown-category-title">Personal Projects</div>
+					<a href="project1.html">Containment Breach (Starfield)</a>
+					<a href="project3.html">Invalid Prescription (Starfield)</a>
+					<a href="project4.html">Escape from the Power Plant (Half-Life 2)</a>
+					<a href="project2.html">Cold Front (Multiplayer CTF Map)</a>
 					<div class="dropdown-category-title">Team Projects</div>
 					<a href="project7.html">Petalnaut</a>
-					<a href="project8.html">HamsterBallin</a>
+					<a href="project8.html">Hamsterballin'</a>
 					<a href="project9.html">Unannounced Project</a>
-					
-					<div class="dropdown-category-title">Game Jams</div>
-					<a href="project10.html">GGJ 2024: Make me laugh</a>
-					<a href="project11.html">LD 54: Summon</a>
-					<a href="project12.html">GMTK 2024: Build to scale</a>
+					<div class="dropdown-category-title">Game Jam</div>
+					<a href="project10.html">GGJ 2024: Health Not High</a>
+					<a href="project11.html">LD 55: Summon</a>
+					<a href="project12.html">GMTK 2024: Terrarium</a>
 				</div>
 			</li>
-			
 			<li><a href="index.html#about">ABOUT</a></li>
+			<li><a class="resume-nav-link" href="resume.html">RESUME</a></li>
 			<li><a href="index.html#contact">CONTACT</a></li>
 		</ul>
 	</header>
 
-	<div class="project-detail-container">
-		
+	<main class="project-detail-container">
 		<div class="project-header">
-			<h1>Thesis: Souls-like Topology</h1>
-			<p class="subtitle">Quantitative Research on Level Shortcuts & Diorama Pacing</p>
+			<h1>Cold Front</h1>
+			<p class="subtitle">5v5 Capture the Flag Competitive Multiplayer Map</p>
 		</div>
 
-		<div class="video-wrapper">
-			<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Thesis Video Placeholder" allowfullscreen></iframe>
-		</div>
+		<section class="project-scan-summary" aria-label="Project at a glance">
+			<div class="project-scan-media">
+				<div class="video-wrapper click-video" data-video-src="https://player.bilibili.com/player.html?isOutside=true&amp;aid=116951036860031&amp;bvid=BV138KU6zE7h&amp;cid=40124221336&amp;p=1" data-video-title="Cold Front multiplayer map demo">
+					<button class="video-poster" type="button" aria-label="Load and play the Cold Front project demo">
+						<img src="images/project2/shot0016.png" alt="Cold Front project demo cover">
+						<span class="video-play-button"><i class="fa fa-play" aria-hidden="true"></i></span>
+						<span class="video-poster-label">Click to Load and Play Project Demo</span>
+					</button>
+				</div>
+			</div>
+			<div class="project-scan-panel">
+				<p class="scan-eyebrow">Project at a Glance</p>
+				<div class="scan-facts">
+					<div class="scan-fact"><strong>Project</strong><span>Individual Multiplayer Map</span></div>
+					<div class="scan-fact"><strong>Mode</strong><span>5v5 Capture the Flag</span></div>
+					<div class="scan-fact"><strong>Structure</strong><span>Three Routes / Three Levels</span></div>
+					<div class="scan-fact"><strong>Scope</strong><span>Full Map Design and Construction</span></div>
+				</div>
+				<h2>My Core Work</h2>
+				<ul class="scan-contributions">
+					<li>Designed route tradeoffs around safety, time, information, and space control.</li>
+					<li>Organized three vertical combat layers and three routes that support continuous switching.</li>
+					<li>Preserved counterplay against the advantaged team through resources, travel time, and exposure risk.</li>
+				</ul>
+			</div>
+		</section>
 
-		<div class="content-section">
-			<h2>Project Introduction</h2>
-			<p>This master's thesis focuses on establishing a "Golden Benchmark" for non-linear 3D level design, heavily inspired by the intricate map structures found in Souls-like games. It aims to decode the magic behind interconnectivity, verticality, and reward-driven exploration through the lens of graph theory.</p>
-		</div>
+		<section class="content-section">
+			<h2>Project Overview</h2>
+			<p>Cold Front is a 5v5 Capture the Flag competitive shooter map. Three continuously interchangeable routes and three vertical combat layers force players to trade among safety, travel time, information, resources, space control, and combat advantage. The goal is not to provide one route that is always superior, but to make every choice carry both a benefit and a cost while preserving counterplay and rotation options after either team gains an advantage.</p>
+			<div class="fact-grid">
+				<div class="fact"><strong>5v5</strong><span>Player Count</span></div>
+				<div class="fact"><strong>CTF</strong><span>Game Mode</span></div>
+				<div class="fact"><strong>30 Minutes</strong><span>Time Limit</span></div>
+				<div class="fact"><strong>8 Captures</strong><span>First Team to Reach the Goal Wins</span></div>
+			</div>
+		</section>
 
-		<div class="content-section">
-			<h2>My Contributions</h2>
-			<ul class="contribution-list">
-				<li><strong>Research & Methodology:</strong> Formulated mathematical models integrating directed edges and cognitive load to quantify spatial complexity.</li>
-				<li><strong>Engine Implementation:</strong> Utilized the Dying Light Engine to build diorama test maps, validating theoretical topological structures in a playable 3D space.</li>
-				<li><strong>Architectural Integration:</strong> Applied real-world architectural principles (spatial syntax, courtyard layering, scenic borrowing) to control sightlines and navigation.</li>
-				<li><strong>Data Analysis:</strong> Documented the correlation between loop rates, shortcut unlock pacing, and player satisfaction.</li>
+		<section class="content-section">
+			<h2>Core Principle of the Multiplayer Map</h2>
+			<div class="principle">Players continuously exchange safety and time for information, resources, space control, and combat advantage.</div>
+			<ul class="logic-list">
+				<li>Positions reached quickly are usually less safe, but provide information and space control sooner.</li>
+				<li>Safer routes take longer, temporarily surrender space control, and provide less information.</li>
+				<li>The same exchange constrains the advantaged team: resources, safety, and travel time force players to keep adjusting rather than hold one position indefinitely.</li>
 			</ul>
-		</div>
+		</section>
 
-		<div class="content-section">
-			<h2>Design Analysis</h2>
-			<p>A key finding in this project is the "Extended Stability Factor," which addresses the limitations of 2D abstraction when designing vertically stacked 3D environments. By mapping out nodes (checkpoints) and edges (paths/shortcuts), I calculated the optimal topological depth required before a player experiences cognitive fatigue.</p>
-			<p>The practical application of this research allows for the systematic generation of levels that feel highly organic yet are meticulously structured to guide player movement and combat pacing naturally.</p>
-		</div>
+		<section class="content-section">
+			<h2>Layout and Spatial Structure</h2>
+			<p>The map consists of three floors and three primary routes. Players can switch continually among them, while bridges, high ground, tunnels, and the central platform create a connected vertical combat space. Route connections let teams respond quickly to enemy positions, teammate status, and objective pressure without allowing any single path to detach from the overall battle.</p>
+			<figure class="design-board">
+				<a href="images/project2/cold-front-design-board.png" target="_blank"><img src="images/project2/cold-front-design-board.png" alt="Cold Front three-floor plans, axonometric views, item placement, and visual-direction board"></a>
+				<figcaption>Three floor plans, axonometric views, weapon and resource distribution, callouts, and art and lighting direction. Click to view the original.</figcaption>
+			</figure>
+		</section>
+
+		<section class="content-section">
+			<h2>Benefits and Costs of the Three Route Types</h2>
+			<div class="tradeoff-grid">
+				<article class="tradeoff-card">
+					<h3>High Ground and Advantage Positions</h3>
+					<p>High ground takes longer to reach. It provides better sightlines and stronger combat positions, but also increases exposure and vulnerability to focus fire or flanking routes.</p>
+				</article>
+				<article class="tradeoff-card">
+					<h3>Central Platform</h3>
+					<p>Players reach the center quickly, but collect fewer resources and gain a weaker positional advantage along the way. In exchange, the central area provides more battlefield information and faster access to the other two routes.</p>
+				</article>
+				<article class="tradeoff-card">
+					<h3>Flanking and Base-Infiltration Route</h3>
+					<p>This longer route is comparatively safe, but delays support for teammates and provides less information. During the rotation, the player gives up most positional advantage and space control.</p>
+				</article>
+			</div>
+		</section>
+
+		<section class="content-section">
+			<h2>Visual and Lighting Direction</h2>
+			<div class="visual-grid">
+				<article class="visual-card">
+					<h3>Architecture and Art Style</h3>
+					<p>The level uses massive Brutalist concrete and stone structures, tall walls, cantilevered platforms, and heavy embedded columns to evoke a fortress. Gothic and science-fiction elements combine with torches, reliefs, red and blue team banners, metal piping, and riveted surfaces to place medieval imagery beside industrial technology.</p>
+				</article>
+				<article class="visual-card">
+					<h3>Lighting and Orientation</h3>
+					<p>The central platform remains brightly lit while most architecture stays in lower light. Shadows emphasize concrete edges and material texture while drawing attention toward brighter areas. Above the plaza, enclosed architecture frames a pale yellow dusk sky that helps players identify the center.</p>
+				</article>
+			</div>
+		</section>
+
+		<section class="content-section">
+			<h2>Gameplay Gallery</h2>
+			<div class="gallery-grid">
+				<figure class="gallery-card"><a href="images/project2/shot0016.png" target="_blank"><img loading="lazy" src="images/project2/shot0016.png" alt="Cold Front central space and elevated route"></a><figcaption>Central space and elevated route.</figcaption></figure>
+				<figure class="gallery-card"><a href="images/project2/shot0019.png" target="_blank"><img loading="lazy" src="images/project2/shot0019.png" alt="Cold Front torch-lit corridor"></a><figcaption>Torches establish orientation through the corridor.</figcaption></figure>
+				<figure class="gallery-card"><a href="images/project2/shot0018.png" target="_blank"><img loading="lazy" src="images/project2/shot0018.png" alt="Cold Front multilayer corridor sightline"></a><figcaption>Multilevel corridors and long sightlines.</figcaption></figure>
+				<figure class="gallery-card"><a href="images/project2/shot0021.png" target="_blank"><img loading="lazy" src="images/project2/shot0021.png" alt="Cold Front lower route and environmental hazard"></a><figcaption>Lower route and environmental hazard.</figcaption></figure>
+				<figure class="gallery-card"><a href="images/project2/shot0023.png" target="_blank"><img loading="lazy" src="images/project2/shot0023.png" alt="Cold Front upper bridge and cross-map sightline"></a><figcaption>The upper bridge supports observation and cross-map rotation.</figcaption></figure>
+				<figure class="gallery-card"><a href="images/project2/shot0024.png" target="_blank"><img loading="lazy" src="images/project2/shot0024.png" alt="Cold Front bridge connection in the central area"></a><figcaption>Bridges connect the central area with the flanks.</figcaption></figure>
+				<figure class="gallery-card"><a href="images/project2/shot0025.png" target="_blank"><img loading="lazy" src="images/project2/shot0025.png" alt="Cold Front central platform and team signage"></a><figcaption>Central platform and red-team visual identity.</figcaption></figure>
+				<figure class="gallery-card"><a href="images/project2/shot0027.png" target="_blank"><img loading="lazy" src="images/project2/shot0027.png" alt="Cold Front flank overlooking the center"></a><figcaption>A high flank position overlooks the central area.</figcaption></figure>
+				<figure class="gallery-card"><a href="images/project2/shot0028.png" target="_blank"><img loading="lazy" src="images/project2/shot0028.png" alt="Cold Front high ground and central battlefield"></a><figcaption>The central battlefield and route intersection from high ground.</figcaption></figure>
+				<figure class="gallery-card"><a href="images/project2/shot0030.png" target="_blank"><img loading="lazy" src="images/project2/shot0030.png" alt="Cold Front central platform and vertical space"></a><figcaption>The central platform and surrounding vertical combat spaces.</figcaption></figure>
+				<figure class="gallery-card"><a href="images/project2/shot0032.png" target="_blank"><img loading="lazy" src="images/project2/shot0032.png" alt="Cold Front blue-team arches and passages"></a><figcaption>Arches, passages, and connecting routes in the blue-team area.</figcaption></figure>
+				<figure class="gallery-card"><a href="images/project2/shot0031.png" target="_blank"><img loading="lazy" src="images/project2/shot0031.png" alt="Cold Front blue-team fortress facade"></a><figcaption>Blue-team fortress facade and team recognition.</figcaption></figure>
+			</div>
+		</section>
 
 		<div class="back-btn-container">
-			<a href="index.html#work" class="back-btn"><i class="fa fa-arrow-left"></i> Back to Portfolio</a>
+			<a href="index.html#work" class="back-btn">Back to Portfolio</a>
 		</div>
-
-	</div>
-	
-	<script src="js/jquery-2.2.3.min.js"></script>
+	</main>
+	<script src="js/click-to-play.js"></script>
 </body>
 </html>

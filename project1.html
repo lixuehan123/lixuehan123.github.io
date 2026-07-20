@@ -80,6 +80,7 @@
 			.portrait-media img { max-height:none; }
 		}
 	</style>
+	<link href="css/portfolio-improvements.css" rel="stylesheet">
 </head>
 <body>
 	<header class="my-clean-header">
@@ -96,17 +97,19 @@
 					<a href="project1.html">Containment Breach (Starfield)</a>
 					<a href="project3.html">Invalid Prescription (Starfield)</a>
 					<a href="project4.html">Escape from the Power Plant (Half-Life 2)</a>
+					<a href="project2.html">Cold Front (Multiplayer CTF Map)</a>
 					<div class="dropdown-category-title">Team Projects</div>
 					<a href="project7.html">Petalnaut</a>
 					<a href="project8.html">Hamsterballin'</a>
 					<a href="project9.html">Unannounced Project</a>
 					<div class="dropdown-category-title">Game Jams</div>
-					<a href="project10.html">GGJ 2024: Make me laugh</a>
+					<a href="project10.html">GGJ 2024: Health Not High</a>
 					<a href="project11.html">LD 55: Summon</a>
-					<a href="project12.html">GMTK 2024: Built to Scale</a>
+					<a href="project12.html">GMTK 2024: Terrarium</a>
 				</div>
 			</li>
 			<li><a href="index.html#about">ABOUT</a></li>
+			<li><a class="resume-nav-link" href="resume.html">RESUME</a></li>
 			<li><a href="index.html#contact">CONTACT</a></li>
 		</ul>
 	</header>
@@ -114,14 +117,35 @@
 	<div class="project-detail-container">
 		<div class="project-header">
 			<h1>Containment Breach</h1>
-			<p class="subtitle">Starfield Creation Kit Survival Level Design</p>
+			<p class="subtitle">Multi-Stage Dynamic Loop Design and Scripting</p>
 		</div>
 
-		<img class="cover-image" src="images/project1-cover.png" alt="Containment Breach experimental facility control room">
-		<div class="video-placeholder">
-			<strong>Gameplay Video Coming Soon</strong>
-			<span>The Project 1 gameplay video is still in production and will be embedded here when complete.</span>
-		</div>
+		<section class="project-scan-summary" aria-label="Project at a glance">
+			<div class="project-scan-media">
+				<div class="video-wrapper click-video" data-video-src="https://player.bilibili.com/player.html?isOutside=true&amp;aid=116937665290082&amp;bvid=BV1RgNf6MERA&amp;cid=40054623755&amp;p=1" data-video-title="Containment Breach project demo">
+					<button class="video-poster" type="button" aria-label="Load and play the Containment Breach project demo">
+						<img src="images/project1-cover.png" alt="Containment Breach project demo cover">
+						<span class="video-play-button"><i class="fa fa-play" aria-hidden="true"></i></span>
+						<span class="video-poster-label">Click to Load and Play Project Demo</span>
+					</button>
+				</div>
+			</div>
+			<div class="project-scan-panel">
+				<p class="scan-eyebrow">Project at a Glance</p>
+				<div class="scan-facts">
+					<div class="scan-fact"><strong>Project</strong><span>Individual Level Project</span></div>
+					<div class="scan-fact"><strong>Tool</strong><span>Starfield Creation Kit</span></div>
+					<div class="scan-fact"><strong>Genre</strong><span>Wave-Based Survival Level</span></div>
+					<div class="scan-fact"><strong>Scope</strong><span>Level / Scripting / Balance</span></div>
+				</div>
+				<h2>My Core Work</h2>
+				<ul class="scan-contributions">
+					<li>Designed expanding three-dimensional loops and combat pacing before and after power activation.</li>
+					<li>Scripted power, traps, area unlocks, and weapon upgrades.</li>
+					<li>Balanced weapons, resources, and enemy pressure for an approximately one-hour run.</li>
+				</ul>
+			</div>
+		</section>
 
 		<div class="content-section">
 			<h2>Overview</h2>
@@ -280,5 +304,7 @@
 			<a href="index.html#work" class="back-btn"><i class="fa fa-arrow-left"></i> Back to Portfolio</a>
 		</div>
 	</div>
+	<script src="js/jquery-2.2.3.min.js"></script>
+	<script src="js/click-to-play.js"></script>
 </body>
 </html>

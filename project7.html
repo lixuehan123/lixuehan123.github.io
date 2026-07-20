@@ -12,7 +12,7 @@
 	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 
 	<style>
-		body { margin: 0; padding: 0; font-family: 'Open Sans', sans-serif; background-color: #f7f7f9; color: #333; }
+		body { margin: 0; padding: 0; font-family: 'Open Sans', 'Microsoft YaHei', 'PingFang SC', sans-serif; background-color: #f7f7f9; color: #333; }
 		.my-clean-header { display: flex; justify-content: space-between; align-items: center; background: #0f0f1b; padding: 15px 5%; position: sticky; top: 0; z-index: 99999; box-shadow: 0 2px 10px rgba(0,0,0,0.5); width: 100%; box-sizing: border-box; }
 		.my-clean-logo { display: flex; flex-direction: column; }
 		.my-clean-logo a { color: #ffffff; text-decoration: none; font-size: 32px; font-weight: bold; letter-spacing: 1px; transition: color 0.3s ease; line-height: 1; }
@@ -55,81 +55,121 @@
 			.project-header h1 { font-size: 32px; }
 		}
 	</style>
+	<link href="css/portfolio-improvements.css" rel="stylesheet">
 </head>
 <body>
 	
-	<!-- Top navigation -->
+	<!-- Site navigation -->
 	<header class="my-clean-header">
 		<div class="my-clean-logo">
-			<a href="index.html" title="Xuehan Li - Portfolio">XUEHAN LI</a>
+			<a href="index.html" title="Xuehan Li - Level Design Portfolio">XUEHAN LI</a>
 			<span class="job-title">Level Designer</span>
 		</div>
 		<ul class="my-clean-nav">
 			<li><a href="index.html">HOME</a></li>
-			
 			<li class="dropdown">
 				<a href="index.html#work" class="dropbtn">PROJECTS <i class="fa fa-angle-down"></i></a>
 				<div class="dropdown-content">
-					<!-- Personal Projects -->
 					<div class="dropdown-category-title">Personal Projects</div>
 					<a href="project1.html">Containment Breach (Starfield)</a>
 					<a href="project3.html">Invalid Prescription (Starfield)</a>
 					<a href="project4.html">Escape from the Power Plant (Half-Life 2)</a>
-
-					<!-- Team Projects -->
+					<a href="project2.html">Cold Front (Multiplayer CTF Map)</a>
 					<div class="dropdown-category-title">Team Projects</div>
 					<a href="project7.html">Petalnaut</a>
 					<a href="project8.html">Hamsterballin'</a>
 					<a href="project9.html">Unannounced Project</a>
-					
-					<!-- Game Jams -->
-					<div class="dropdown-category-title">Game Jams</div>
-					<a href="project10.html">GGJ 2024: Make me laugh</a>
+					<div class="dropdown-category-title">Game Jam</div>
+					<a href="project10.html">GGJ 2024: Health Not High</a>
 					<a href="project11.html">LD 55: Summon</a>
-					<a href="project12.html">GMTK 2024: Built to Scale</a>
+					<a href="project12.html">GMTK 2024: Terrarium</a>
 				</div>
 			</li>
-			
 			<li><a href="index.html#about">ABOUT</a></li>
+			<li><a class="resume-nav-link" href="resume.html">RESUME</a></li>
 			<li><a href="index.html#contact">CONTACT</a></li>
 		</ul>
 	</header>
 
-	<!-- Main project container -->
+	<!-- Project content -->
 	<div class="project-detail-container">
 		
 		<div class="project-header">
 			<h1>Petalnaut</h1>
-			<p class="subtitle">Collaborative Level Design & Environmental Storytelling</p>
+			<p class="subtitle">Team Top-Down Shooter-Puzzle · Level 1 and Final Level Design</p>
 		</div>
 
-		<!-- 1. Video window -->
-		<div class="video-wrapper">
-			<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Project 7 Video Placeholder" allowfullscreen></iframe>
-		</div>
+		<section class="project-scan-summary" aria-label="Project at a glance">
+			<div class="project-scan-media">
+				<div class="video-wrapper click-video" data-video-src="https://player.bilibili.com/player.html?isOutside=true&amp;aid=116936054674637&amp;bvid=BV1JnNZ6kEVj&amp;cid=40049446907&amp;p=1" data-video-title="Petalnaut project demo">
+					<button class="video-poster" type="button" aria-label="Load and play the Petalnaut project demo">
+						<img src="images/petalnaut-index-cover.png" alt="Petalnaut project demo cover">
+						<span class="video-play-button"><i class="fa fa-play" aria-hidden="true"></i></span>
+						<span class="video-poster-label">Click to Load and Play Project Demo</span>
+					</button>
+				</div>
+			</div>
+			<div class="project-scan-panel">
+				<p class="scan-eyebrow">Project at a Glance</p>
+				<div class="scan-facts">
+					<div class="scan-fact"><strong>Project</strong><span>Academic Team Project</span></div>
+					<div class="scan-fact"><strong>Role</strong><span>Level Designer</span></div>
+					<div class="scan-fact"><strong>Scope</strong><span>Level 1 / Final Level</span></div>
+					<div class="scan-fact"><strong>Genre</strong><span>Top-Down Shooter-Puzzle</span></div>
+				</div>
+				<h2>My Core Contributions</h2>
+				<ul class="scan-contributions">
+					<li>Designed Level 1 and the final level, from mechanic teaching to a combined mastery test.</li>
+					<li>Built reusable puzzle blocks around the character's abilities.</li>
+					<li>Recombined existing mechanics and code to create new enemies and traps.</li>
+				</ul>
+			</div>
+		</section>
 
-		<!-- 2. Project overview -->
+		<!-- Project introduction -->
 		<div class="content-section">
 			<h2>Project Introduction</h2>
-			<p>Petalnaut is a team-based development project where I served as the primary Level Designer. The game features a unique aesthetic blending botanical themes with exploration mechanics. My primary goal was to construct environments that naturally communicated the lore of the world while seamlessly accommodating the player's traversal abilities.</p>
+			<p>Petalnaut is an academic team-developed top-down shooter-puzzle that combines room-based puzzles inspired by classic 2D Zelda with the top-down shooting of Enter the Gungeon. As level designer, I built Level 1 and the final level. Level 1 gradually establishes the rules for character abilities, enemies, and environmental hazards; the final level asks players to combine those mechanics and make more complex spatial decisions under combat pressure.</p>
+			<p>My process begins by breaking the character's abilities into reusable puzzle blocks. I then recombine enemy placement, hazard zones, ability order, and room structure to create new puzzles and combat rhythms. This preserves consistent rules while producing new decisions from familiar systems.</p>
 		</div>
 
-		<!-- 3. Individual contributions -->
+		<!-- Individual work -->
 		<div class="content-section">
-			<h2>My Contributions</h2>
+			<h2>My Work</h2>
 			<ul class="contribution-list">
-				<li><strong>Cross-Disciplinary Collaboration:</strong> Worked closely with Environment Artists to transition functional whiteboxes into fully realized, aesthetically cohesive levels.</li>
-				<li><strong>Whiteboxing & Metrics:</strong> Established core metrics for jump distances, character bounds, and camera constraints to ensure smooth traversal.</li>
-				<li><strong>Asset Implementation:</strong> Managed the placement of set-dressing assets and collision volumes to optimize performance and prevent sequence breaking.</li>
-				<li><strong>Version Control (Perforce/Git):</strong> Maintained a clean repository structure, avoiding map conflicts during concurrent team development.</li>
+				<li><strong>Level 1:</strong> Introduced the core mechanics so players could understand character abilities, enemy attacks, and room objectives in a low-pressure environment.</li>
+				<li><strong>Final Level:</strong> Recombined previously learned mechanics into one sequence of combat, puzzles, and ability switching.</li>
+				<li><strong>Puzzle Blocks:</strong> Designed independent puzzle modules for different protagonist abilities, then expanded solutions through arrangement, overlap, and sequencing.</li>
+				<li><strong>Low-Cost Content Expansion:</strong> Reused completed mechanics and code to assemble new enemies and traps, reducing additional programming needs.</li>
 			</ul>
 		</div>
 
-		<!-- 4. Design analysis -->
+		<!-- Design analysis -->
 		<div class="content-section">
 			<h2>Design Analysis</h2>
-			<p>The design philosophy for Petalnaut relied heavily on "Landmark Navigation." In a visually rich and colorful world, it's easy for players to suffer from sensory overload. I designed the macro-layout around massive, distinct botanical structures that served as clear points of reference, acting as a compass for the player.</p>
-			<p>During the iteration phase, playtesting revealed that players often got lost in denser sections. To solve this, I collaborated with the lighting artists to implement a "light-guiding" system—using subtle atmospheric lighting and saturated flora to draw the player's eye toward critical path exits naturally.</p>
+			<h3>Building Puzzle Blocks from One Ability</h3>
+			<p>Each puzzle block begins with one clear ability and one fundamental problem: crossing a hazard, changing position, handling a ranged threat, or reaching a goal under constraints. A module emphasizes only a few rules so players understand why an action succeeds or fails.</p>
+			<h3>Moving from Teaching to Combined Use</h3>
+			<p>Level 1 introduces abilities, enemies, and environmental rules one at a time. The final level stops repeating isolated lessons and places several puzzle blocks in the same room or sequence. Players must determine the order of operations and switch abilities while managing projectile pressure, area attacks, and terrain hazards.</p>
+			<h3>Expanding Level Content by Reusing Systems</h3>
+			<p>I first ask what new combinations the existing mechanics can support before requesting new code. By adjusting attack range, movement, enemy composition, and environmental conditions, I can build new enemies and traps from existing systems and reserve team resources for more critical features.</p>
+		</div>
+
+		<div class="content-section">
+			<h2>Project Gallery</h2>
+			<h3>Project Poster</h3>
+			<figure class="portfolio-gallery-card poster-feature"><a href="images/project7/petalnaut-poster.pdf" target="_blank"><img loading="lazy" src="images/project7/petalnaut-poster.png" alt="Petalnaut project poster"></a><figcaption>Petalnaut 11 × 17 project poster. Click to view the PDF.</figcaption></figure>
+			<h3>Game Screenshots</h3>
+			<div class="portfolio-gallery-grid">
+				<figure class="portfolio-gallery-card"><a href="images/project7/petalnaut-01.jpg" target="_blank"><img loading="lazy" src="images/project7/petalnaut-01.jpg" alt="Petalnaut multi-direction attack room"></a><figcaption>Multi-direction attacks and floor hazards shape movement decisions.</figcaption></figure>
+				<figure class="portfolio-gallery-card"><a href="images/project7/petalnaut-02.jpg" target="_blank"><img loading="lazy" src="images/project7/petalnaut-02.jpg" alt="Petalnaut enemy and area-attack combination"></a><figcaption>Character abilities combine with enemy beams and area attacks.</figcaption></figure>
+				<figure class="portfolio-gallery-card"><a href="images/project7/petalnaut-03.jpg" target="_blank"><img loading="lazy" src="images/project7/petalnaut-03.jpg" alt="Petalnaut crossing a disconnected space"></a><figcaption>A character ability lets the player cross a disconnected room structure.</figcaption></figure>
+				<figure class="portfolio-gallery-card"><a href="images/project7/petalnaut-04.jpg" target="_blank"><img loading="lazy" src="images/project7/petalnaut-04.jpg" alt="Petalnaut overlapping enemy sightlines"></a><figcaption>Overlapping enemy sightlines create spatial pressure.</figcaption></figure>
+				<figure class="portfolio-gallery-card"><a href="images/project7/petalnaut-05.jpg" target="_blank"><img loading="lazy" src="images/project7/petalnaut-05.jpg" alt="Petalnaut narrow combat room"></a><figcaption>Beams, obstacles, and safe areas combine in a narrow space.</figcaption></figure>
+				<figure class="portfolio-gallery-card"><a href="images/project7/petalnaut-06.jpg" target="_blank"><img loading="lazy" src="images/project7/petalnaut-06.jpg" alt="Petalnaut spike corridor"></a><figcaption>Spikes and corridor geometry make ability timing essential.</figcaption></figure>
+				<figure class="portfolio-gallery-card"><a href="images/project7/petalnaut-07.jpg" target="_blank"><img loading="lazy" src="images/project7/petalnaut-07.jpg" alt="Petalnaut enemy and terrain combination"></a><figcaption>Enemy attacks and terrain conditions recombine established rules.</figcaption></figure>
+				<figure class="portfolio-gallery-card"><a href="images/project7/petalnaut-08.jpg" target="_blank"><img loading="lazy" src="images/project7/petalnaut-08.jpg" alt="Petalnaut final combat room"></a><figcaption>Multiple enemy types, projectiles, terrain, and objectives form the final mastery test.</figcaption></figure>
+			</div>
 		</div>
 
 		<div class="back-btn-container">
@@ -139,5 +179,6 @@
 	</div>
 	
 	<script src="js/jquery-2.2.3.min.js"></script>
+	<script src="js/click-to-play.js"></script>
 </body>
 </html>

@@ -65,6 +65,7 @@
 			.fact-grid, .media-grid, .media-grid.three, .gallery-grid { grid-template-columns:1fr; }
 		}
 	</style>
+	<link href="css/portfolio-improvements.css" rel="stylesheet">
 </head>
 <body>
 	<header class="my-clean-header">
@@ -81,17 +82,19 @@
 					<a href="project1.html">Containment Breach (Starfield)</a>
 					<a href="project3.html">Invalid Prescription (Starfield)</a>
 					<a href="project4.html">Escape from the Power Plant (Half-Life 2)</a>
+					<a href="project2.html">Cold Front (Multiplayer CTF Map)</a>
 					<div class="dropdown-category-title">Team Projects</div>
 					<a href="project7.html">Petalnaut</a>
 					<a href="project8.html">Hamsterballin'</a>
 					<a href="project9.html">Unannounced Project</a>
 					<div class="dropdown-category-title">Game Jams</div>
-					<a href="project10.html">GGJ 2024: Make me laugh</a>
+					<a href="project10.html">GGJ 2024: Health Not High</a>
 					<a href="project11.html">LD 55: Summon</a>
-					<a href="project12.html">GMTK 2024: Built to Scale</a>
+					<a href="project12.html">GMTK 2024: Terrarium</a>
 				</div>
 			</li>
 			<li><a href="index.html#about">ABOUT</a></li>
+			<li><a class="resume-nav-link" href="resume.html">RESUME</a></li>
 			<li><a href="index.html#contact">CONTACT</a></li>
 		</ul>
 	</header>
@@ -102,9 +105,32 @@
 			<p class="subtitle">Half-Life 2 Side Level and Electrical-Circuit Puzzle Design</p>
 		</div>
 
-		<div class="video-wrapper">
-			<iframe src="https://player.bilibili.com/player.html?isOutside=true&amp;aid=116911761266152&amp;bvid=BV1HXNy6VE2R&amp;cid=39908215364&amp;p=1" scrolling="no" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Escape from the Power Plant gameplay video"></iframe>
-		</div>
+		<section class="project-scan-summary" aria-label="Project at a glance">
+			<div class="project-scan-media">
+				<div class="video-wrapper click-video" data-video-src="https://player.bilibili.com/player.html?isOutside=true&amp;aid=116911761266152&amp;bvid=BV1HXNy6VE2R&amp;cid=39908215364&amp;p=1" data-video-title="Escape from the Power Plant project demo">
+					<button class="video-poster" type="button" aria-label="Load and play the Escape from the Power Plant project demo">
+						<img src="images/project4-cover.jpeg" alt="Escape from the Power Plant project demo cover">
+						<span class="video-play-button"><i class="fa fa-play" aria-hidden="true"></i></span>
+						<span class="video-poster-label">Click to Load and Play Project Demo</span>
+					</button>
+				</div>
+			</div>
+			<div class="project-scan-panel">
+				<p class="scan-eyebrow">Project at a Glance</p>
+				<div class="scan-facts">
+					<div class="scan-fact"><strong>Project</strong><span>Individual Puzzle Level</span></div>
+					<div class="scan-fact"><strong>Game</strong><span>Half-Life 2</span></div>
+					<div class="scan-fact"><strong>Playtime</strong><span>About 15 Minutes</span></div>
+					<div class="scan-fact"><strong>Scope</strong><span>Mechanics / Puzzles / Level</span></div>
+				</div>
+				<h2>My Core Work</h2>
+				<ul class="scan-contributions">
+					<li>Expanded a conductivity rule into puzzles about distance, media, order, and combination.</li>
+					<li>Used environmental staging and consistent visual feedback for text-free teaching.</li>
+					<li>Structured the difficulty curve as learn, reinforce, break through, and combine.</li>
+				</ul>
+			</div>
+		</section>
 
 		<div class="content-section">
 			<h2>Project Overview</h2>
@@ -231,5 +257,6 @@
 	</div>
 
 	<script src="js/jquery-2.2.3.min.js"></script>
+	<script src="js/click-to-play.js"></script>
 </body>
 </html>
